@@ -2,13 +2,14 @@ import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { z } from 'zod';
 import { authorize } from '@society/authorization';
-import { ArrowLeft, Building2 } from 'lucide-react';
+import { ArrowLeft, Building2, Check, Home, Layers3, MapPin, Plus } from 'lucide-react';
 import { Alert } from '@/components/ui/alert';
 import { PageHeader } from '@/components/page-header';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { getRequestContext } from '@/lib/auth/session';
 import { getProperty } from '@/lib/services/society-service';
 import { BuildingForm, FlatForm, FloorForm } from './property-forms';
+import { DeletePropertyButton } from './delete-property-button';
 
 type PageProps = { params: Promise<{ id: string }> };
 
@@ -32,62 +33,166 @@ export default async function SocietyPropertyPage({ params }: PageProps) {
   const can = (resourceKey: string, action: 'CREATE' | 'READ' | 'UPDATE') =>
     authorize(context, { moduleKey: 'society-foundation', resourceKey, action, societyId }).ok;
 
+  const floorCount = buildings.reduce((sum, building) => sum + building.floors.length, 0);
+  const flatCount = buildings.reduce(
+    (sum, building) => sum + building.floors.reduce((total, floor) => total + floor.flats.length, 0),
+    0,
+  );
+  const steps = [
+    { label: 'Society registered', done: true },
+    { label: 'Add a building', done: buildings.length > 0 },
+    { label: 'Add floors', done: floorCount > 0 },
+    { label: 'Add flats / units', done: flatCount > 0 },
+  ];
+  const completed = steps.filter((step) => step.done).length;
+
   return (
     <div className="space-y-7">
       <Link href="/societies" className="back-link">
         <ArrowLeft className="h-3.5 w-3.5" /> All societies
       </Link>
+
       <PageHeader
-        eyebrow="Property structure"
+        eyebrow="Property setup"
         title={society.name}
         description={`${society.city ? `${society.city} · ` : ''}${society.countryCode} · ${society.timezone}`}
-        icon={Building2}
+        icon={MapPin}
       />
 
+      <Card className="border-brand-100 bg-brand-50/60">
+        <CardContent className="flex flex-wrap items-center gap-3 pt-6">
+          <span className="font-semibold text-brand-700">Setup progress</span>
+          <span className="text-xs text-ink-500">{completed} of {steps.length} steps complete</span>
+          <div className="ml-auto flex h-2 w-40 overflow-hidden rounded-full bg-white">
+            <div className="bg-brand-600" style={{ width: `${(completed / steps.length) * 100}%` }} />
+          </div>
+        </CardContent>
+        <CardContent className="flex flex-wrap gap-2 pb-5">
+          {steps.map((step, index) => (
+            <span
+              key={step.label}
+              className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-medium ${
+                step.done ? 'border-emerald-200 bg-emerald-50 text-emerald-700' : 'border-ink-200 bg-white text-ink-500'
+              }`}
+            >
+              <span className={`flex h-5 w-5 items-center justify-center rounded-full text-[10px] font-bold ${
+                step.done ? 'bg-emerald-600 text-white' : 'bg-ink-100 text-ink-500'
+              }`}>
+                {step.done ? <Check className="h-3 w-3" /> : index + 1}
+              </span>
+              {step.label}
+            </span>
+          ))}
+        </CardContent>
+      </Card>
+
       <Card>
-        <CardHeader><CardTitle>Buildings ({buildings.length})</CardTitle></CardHeader>
-        <CardContent className="space-y-6">
-          {can('building', 'CREATE') ? <BuildingForm societyId={societyId} /> : null}
-          {buildings.length === 0 ? <p className="text-sm text-ink-500">No buildings registered yet.</p> : null}
-          {buildings.map((building) => (
-            <section key={building.id} className="rounded-2xl border border-ink-200/80 bg-white p-5 shadow-sm">
-              <div className="mb-3 flex flex-wrap items-baseline justify-between gap-3">
-                <h2 className="font-bold tracking-[-0.015em] text-ink-900">{building.name}</h2>
-                <span className="rounded-full bg-ink-100 px-2.5 py-1 text-[11px] font-semibold text-ink-600">Code {building.code}</span>
+        <CardHeader className="flex flex-wrap items-center justify-between gap-3">
+          <CardTitle className="flex items-center gap-2">
+            <Building2 className="h-5 w-5 text-brand-600" /> Buildings
+            <span className="rounded-full bg-ink-100 px-2 py-0.5 text-xs text-ink-600">{buildings.length}</span>
+          </CardTitle>
+          {can('building', 'CREATE') ? (
+            <details className="w-full sm:w-auto">
+              <summary className="btn-modern btn-primary inline-flex cursor-pointer list-none items-center gap-2">
+                <Plus className="h-4 w-4" /> Add building
+              </summary>
+              <div className="mt-3 rounded-xl border border-ink-200 p-4 sm:absolute sm:right-8 sm:z-20 sm:w-96 sm:bg-white sm:shadow-lg">
+                <BuildingForm societyId={societyId} />
               </div>
-              <h3 className="mb-2 text-sm font-semibold text-ink-700">Floors</h3>
-              {building.floors.length === 0 ? <p className="text-sm text-ink-500">No floors registered yet.</p> : null}
+            </details>
+          ) : null}
+        </CardHeader>
+        <CardContent className="space-y-5">
+          {buildings.length === 0 ? (
+            <div className="rounded-xl border border-dashed border-ink-200 px-6 py-10 text-center">
+              <Building2 className="mx-auto h-8 w-8 text-ink-300" />
+              <p className="mt-3 font-semibold text-ink-900">No buildings yet</p>
+              <p className="mt-1 text-sm text-ink-500">Add your first building to start defining floors and flats.</p>
+            </div>
+          ) : null}
+
+          {buildings.map((building) => (
+            <section key={building.id} className="rounded-2xl border border-ink-200 bg-white p-5 shadow-sm">
+              <div className="mb-4 flex flex-wrap items-center justify-between gap-3 border-b border-ink-100 pb-3">
+                <div>
+                  <h2 className="font-bold tracking-tight text-ink-900">{building.name}</h2>
+                  <p className="text-xs text-ink-500">
+                    Code {building.code} · {building.floors.length} floor{building.floors.length === 1 ? '' : 's'}
+                  </p>
+                </div>
+                <div className="flex items-center gap-2">
+                  {can('floor', 'CREATE') ? (
+                    <details>
+                      <summary className="inline-flex cursor-pointer list-none items-center gap-1.5 rounded-lg border border-brand-200 px-2.5 py-1.5 text-xs font-semibold text-brand-700 hover:bg-brand-50">
+                        <Plus className="h-3.5 w-3.5" /> Add floor
+                      </summary>
+                      <div className="mt-3 rounded-xl border border-ink-200 p-4 shadow-lg">
+                        <FloorForm societyId={societyId} buildingId={building.id} />
+                      </div>
+                    </details>
+                  ) : null}
+                  {can('building', 'UPDATE') ? (
+                    <DeletePropertyButton
+                      endpoint={`/api/v1/buildings/${building.id}`}
+                      label={`building ${building.name}`}
+                    />
+                  ) : null}
+                </div>
+              </div>
+
+              {building.floors.length === 0 ? (
+                <p className="text-sm text-ink-500">No floors yet. Add a floor to organise units.</p>
+              ) : null}
+
               <ul className="space-y-3">
                 {building.floors.map((floor) => (
-                  <li key={floor.id} className="rounded-xl border border-ink-100 bg-ink-50/70 p-4">
-                    <p className="text-sm font-semibold text-ink-900">{floor.name} <span className="text-xs font-normal text-ink-500">(level {floor.floorNumber})</span></p>
-                    <div className="mt-2 flex flex-wrap gap-2">
-                      {floor.flats.length === 0 ? (
-                        <span className="text-xs text-ink-500">No flats yet.</span>
-                      ) : (
-                        floor.flats.map((flat) => (
-                          <span key={flat.id} className="rounded-full bg-white px-2 py-1 text-xs text-ink-700 ring-1 ring-ink-200">
-                            {flat.number}
-                            {flat.areaSqMt ? ` · ${flat.areaSqMt} sq m` : ''} · {flat.occupancyStatus}
-                          </span>
-                        ))
-                      )}
+                  <li key={floor.id} className="rounded-xl border border-ink-100 bg-ink-50/60 p-4">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <p className="text-sm font-semibold text-ink-900">
+                        <Layers3 className="mr-1.5 inline h-4 w-4 text-brand-600" />
+                        {floor.name} <span className="text-xs font-normal text-ink-500">(level {floor.floorNumber})</span>
+                      </p>
+                      <div className="flex items-center gap-2">
+                        {can('flat', 'CREATE') ? (
+                          <details>
+                            <summary className="inline-flex cursor-pointer list-none items-center gap-1.5 rounded-lg border border-brand-200 px-2.5 py-1.5 text-xs font-semibold text-brand-700 hover:bg-brand-50">
+                              <Plus className="h-3.5 w-3.5" /> Add flat
+                            </summary>
+                            <div className="mt-3 rounded-xl border border-ink-200 p-4 shadow-lg">
+                              <FlatForm societyId={societyId} buildingId={building.id} floorId={floor.id} />
+                            </div>
+                          </details>
+                        ) : null}
+                        {can('floor', 'UPDATE') ? (
+                          <DeletePropertyButton
+                            endpoint={`/api/v1/floors/${floor.id}`}
+                            label={`floor ${floor.name}`}
+                          />
+                        ) : null}
+                      </div>
                     </div>
-                    {can('flat', 'CREATE') ? (
-                      <details className="mt-3">
-                        <summary className="cursor-pointer text-xs font-medium text-brand-700">Add flat</summary>
-                        <div className="mt-3"><FlatForm societyId={societyId} buildingId={building.id} floorId={floor.id} /></div>
-                      </details>
-                    ) : null}
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {floor.flats.length === 0 ? (
+                        <span className="text-xs text-ink-500">No flats on this floor.</span>
+                      ) : floor.flats.map((flat) => (
+                        <span key={flat.id} className="inline-flex items-center gap-2 rounded-full bg-white px-2.5 py-1 text-xs text-ink-700 ring-1 ring-ink-200">
+                          <Home className="h-3 w-3 text-brand-600" />
+                          {flat.number}
+                          {flat.areaSqMt ? ` · ${flat.areaSqMt} sq m` : ''} · {flat.occupancyStatus}
+                          {can('flat', 'UPDATE') ? (
+                            <DeletePropertyButton
+                              endpoint={`/api/v1/flats/${flat.id}`}
+                              label={`flat ${flat.number}`}
+                              compact
+                            />
+                          ) : null}
+                        </span>
+                      ))}
+                    </div>
                   </li>
                 ))}
               </ul>
-              {can('building', 'CREATE') && can('floor', 'CREATE') ? (
-                <details className="mt-4">
-                  <summary className="cursor-pointer text-sm font-medium text-brand-700">Add floor</summary>
-                  <div className="mt-3"><FloorForm societyId={societyId} buildingId={building.id} /></div>
-                </details>
-              ) : null}
             </section>
           ))}
         </CardContent>

@@ -127,8 +127,8 @@ function PivotTable({ label, rows, currencyCode }: { label: string; rows: PivotR
   const sortIcon = (key: string) => sortKey === key ? (sortDir === 'asc' ? ' ↑' : ' ↓') : '';
 
   const headerCell = (text: string, key: string, align: 'left' | 'right' = 'right', title?: string) => (
-    <th key={key} className={`sticky top-0 z-20 border-b-2 border-brand-300 bg-brand-600 px-3 py-2.5 text-[10px] font-bold uppercase tracking-wide text-white ${align === 'left' ? 'sticky left-0 z-30 text-left' : 'text-right'} whitespace-nowrap`} title={title ?? text} aria-sort={sortKey === key ? (sortDir === 'asc' ? 'ascending' : 'descending') : 'none'}>
-      <button type="button" className="inline-flex w-full items-center gap-1 hover:text-brand-100" onClick={() => toggleSort(key)}>
+    <th key={key} className={`sticky top-0 z-20 border-b-2 border-brand-300 bg-brand-600 px-3 py-2.5 text-[11px] font-bold uppercase tracking-wide text-white ${align === 'left' ? 'sticky left-0 z-30 text-left' : 'text-right'} whitespace-nowrap`} style={{ color: '#ffffff' }} title={title ?? text} aria-sort={sortKey === key ? (sortDir === 'asc' ? 'ascending' : 'descending') : 'none'}>
+      <button type="button" className="inline-flex w-full items-center gap-1 text-white hover:text-white" style={{ color: '#ffffff' }} onClick={() => toggleSort(key)}>
         {align === 'right' ? <span className="flex-1" /> : null}
         {text}<span className="text-[11px] opacity-80">{sortIcon(key)}</span>
       </button>
@@ -151,7 +151,7 @@ function PivotTable({ label, rows, currencyCode }: { label: string; rows: PivotR
         </span>
       </div>
       <div className="max-h-[420px] overflow-auto rounded-lg border border-ink-200">
-        <table className="w-full min-w-[1180px] border-collapse text-xs">
+        <table className="w-full min-w-[1180px] border-collapse text-xs" data-table-no-tools="true">
           <thead className="text-[10px] uppercase tracking-wide text-ink-500">
             <tr>
               {headerCell(label, 'label', 'left')}

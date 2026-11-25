@@ -16,6 +16,7 @@ export function TableTools() {
 
     function enhanceTable(table: HTMLTableElement) {
       if (table.dataset.tableEnhanced === 'true') return;
+      if (table.dataset.tableNoTools === 'true') return;
       table.dataset.tableEnhanced = 'true';
 
       const tbody = table.querySelector('tbody');

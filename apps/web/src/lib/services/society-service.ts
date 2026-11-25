@@ -167,6 +167,91 @@ export async function getProperty(
   };
 }
 
+/** Deletes are authorized with UPDATE because the role catalog has no DELETE
+ * action for property records yet. Cascades remove child floors and flats. */
+async function deletePropertyRecord(
+  service: ServiceContext,
+  input: {
+    companyId: string;
+    societyId: string;
+    resource: 'building' | 'floor' | 'flat';
+    recordId: string;
+    label: string;
+    remove: () => Promise<void>;
+  },
+): Promise<ServiceResult<{ id: string }>> {
+  if (!permitted(service, policy(input.companyId, input.resource, 'UPDATE', input.societyId))) return denied();
+  await input.remove();
+  await prisma.auditLog.create({
+    data: {
+      id: newId(),
+      companyId: input.companyId,
+      societyId: input.societyId,
+      actorUserId: service.actorUserId,
+      action: 'PROPERTY_RECORD_DELETED',
+      resourceType: input.resource,
+      resourceId: input.recordId,
+      result: 'SUCCESS',
+      reason: `Deleted ${input.resource}: ${input.label}`,
+      requestId: service.requestId,
+      ipAddress: service.ipAddress ?? null,
+      userAgent: service.userAgent ?? null,
+    },
+  });
+  return { ok: true, value: { id: input.recordId } };
+}
+
+export async function deleteBuilding(
+  service: ServiceContext,
+  companyId: string,
+  societyId: string,
+  buildingId: string,
+): Promise<ServiceResult<{ id: string }>> {
+  const record = await prisma.building.findFirst({
+    where: { id: buildingId, companyId, societyId },
+    select: { id: true, name: true },
+  });
+  if (!record) return { ok: false, code: 'NOT_FOUND', message: 'Building not found in this society' };
+  return deletePropertyRecord(service, {
+    companyId, societyId, resource: 'building', recordId: buildingId, label: record.name,
+    remove: async () => { await prisma.building.delete({ where: { id: buildingId, companyId } }); },
+  });
+}
+
+export async function deleteFloor(
+  service: ServiceContext,
+  companyId: string,
+  societyId: string,
+  floorId: string,
+): Promise<ServiceResult<{ id: string }>> {
+  const record = await prisma.floor.findFirst({
+    where: { id: floorId, companyId, societyId },
+    select: { id: true, name: true },
+  });
+  if (!record) return { ok: false, code: 'NOT_FOUND', message: 'Floor not found in this society' };
+  return deletePropertyRecord(service, {
+    companyId, societyId, resource: 'floor', recordId: floorId, label: record.name,
+    remove: async () => { await prisma.floor.delete({ where: { id: floorId, companyId } }); },
+  });
+}
+
+export async function deleteFlat(
+  service: ServiceContext,
+  companyId: string,
+  societyId: string,
+  flatId: string,
+): Promise<ServiceResult<{ id: string }>> {
+  const record = await prisma.flat.findFirst({
+    where: { id: flatId, companyId, societyId },
+    select: { id: true, number: true },
+  });
+  if (!record) return { ok: false, code: 'NOT_FOUND', message: 'Flat not found in this society' };
+  return deletePropertyRecord(service, {
+    companyId, societyId, resource: 'flat', recordId: flatId, label: record.number,
+    remove: async () => { await prisma.flat.delete({ where: { id: flatId, companyId } }); },
+  });
+}
+
 export async function createBuilding(
   service: ServiceContext,
   companyId: string,
