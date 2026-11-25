@@ -15,12 +15,11 @@ interface AppShellProps {
   items: SidebarItem[];
   companies: CompanyOption[];
   activeCompanyId: string | null;
-  canSwitchCompany: boolean;
   userName: string;
   csrfToken: string;
 }
 
-export function AppShell({ children, items, companies, activeCompanyId, canSwitchCompany, userName, csrfToken }: AppShellProps) {
+export function AppShell({ children, items, companies, activeCompanyId, userName, csrfToken }: AppShellProps) {
   const [collapsed, setCollapsed] = React.useState(false);
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -51,7 +50,6 @@ export function AppShell({ children, items, companies, activeCompanyId, canSwitc
         <Topbar
           companies={companies}
           activeCompanyId={activeCompanyId}
-          canSwitchCompany={canSwitchCompany}
           userName={userName}
           csrfToken={csrfToken}
           onOpenMenu={() => setMobileOpen(true)}

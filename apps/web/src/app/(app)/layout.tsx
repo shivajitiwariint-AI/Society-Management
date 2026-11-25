@@ -1,3 +1,4 @@
+import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { canAccessModule } from '@society/authorization';
 import { prisma } from '@society/database';
@@ -9,7 +10,13 @@ import { csrfTokenForClient, getRequestContext, getSession } from '@/lib/auth/se
 
 export default async function AppLayout({ children }: { children: React.ReactNode }) {
   const session = await getSession();
-  if (!session) redirect('/login');
+  if (!session) {
+    // A cookie can outlive its database session (e.g. the workspace was
+    // deleted). Send the user to the login portal with a hint instead of
+    // looping between /dashboard and /login.
+    const hadCookie = (await cookies()).has('society_session');
+    redirect(hadCookie ? '/login?expired=1' : '/login');
+  }
 
   const context = await getRequestContext('page-request');
   if (!context) redirect('/login');
@@ -48,7 +55,6 @@ export default async function AppLayout({ children }: { children: React.ReactNod
       }))}
       companies={companies}
       activeCompanyId={session.activeCompanyId}
-      canSwitchCompany={isPlatformUser}
       userName={isPlatformUser
         ? session.user.name ?? session.user.email
         : (session.user.name ?? session.user.email).replace(/\badmin\b/gi, '').replace(/\s+/g, ' ').trim() || session.user.email}

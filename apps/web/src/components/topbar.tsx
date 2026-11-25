@@ -22,7 +22,6 @@ interface CompanyOption {
 interface TopbarProps {
   companies: CompanyOption[];
   activeCompanyId: string | null;
-  canSwitchCompany: boolean;
   userName: string;
   csrfToken: string;
   onOpenMenu: () => void;
@@ -43,13 +42,11 @@ function labelOf(pathname: string): string {
   return last.replace(/-/g, ' ').replace(/\b\w/g, (letter) => letter.toUpperCase());
 }
 
-export function Topbar({ companies, activeCompanyId, canSwitchCompany, userName, csrfToken, onOpenMenu }: TopbarProps) {
+export function Topbar({ companies, activeCompanyId, userName, csrfToken, onOpenMenu }: TopbarProps) {
   const pathname = usePathname();
   const router = useRouter();
   const [query, setQuery] = React.useState('');
   const [menuOpen, setMenuOpen] = React.useState(false);
-  const [switching, setSwitching] = React.useState(false);
-  const [switchError, setSwitchError] = React.useState<string | null>(null);
   const searchRef = React.useRef<HTMLInputElement>(null);
   const profileRef = React.useRef<HTMLDivElement>(null);
 
@@ -83,30 +80,6 @@ export function Topbar({ companies, activeCompanyId, canSwitchCompany, userName,
     };
   }, []);
 
-  async function handleCompanyChange(event: React.ChangeEvent<HTMLSelectElement>) {
-    const companyId = event.target.value;
-    if (!companyId) return;
-    setSwitching(true);
-    setSwitchError(null);
-    try {
-      const response = await fetch('/api/v1/context/company', {
-        method: 'POST',
-        headers: { 'content-type': 'application/json', 'x-csrf-token': csrfToken },
-        body: JSON.stringify({ companyId, societyId: null }),
-      });
-      if (!response.ok) {
-        const body = (await response.json()) as { error?: { message?: string } };
-        setSwitchError(body.error?.message ?? 'Unable to switch company');
-        return;
-      }
-      router.refresh();
-    } catch {
-      setSwitchError('Network error. Please try again.');
-    } finally {
-      setSwitching(false);
-    }
-  }
-
   async function handleLogout() {
     try {
       await fetch('/api/v1/auth/logout', {
@@ -125,29 +98,10 @@ export function Topbar({ companies, activeCompanyId, canSwitchCompany, userName,
         <button className="app-menu-btn" type="button" onClick={onOpenMenu} aria-label="Open navigation">
           <Menu className="h-5 w-5" />
         </button>
-        {canSwitchCompany && companies.length > 0 ? (
-          <span className="app-company-chip">
-            <Building2 className="h-3.5 w-3.5" aria-hidden="true" />
-            <select
-              className="app-company-select"
-              aria-label="Active company workspace"
-              value={activeCompanyId ?? ''}
-              disabled={switching}
-              onChange={handleCompanyChange}
-            >
-              <option value="" disabled>Select a company…</option>
-              {companies.map((company) => (
-                <option key={company.id} value={company.id}>{company.name}</option>
-              ))}
-            </select>
-          </span>
-        ) : (
-          <span className="app-company-chip" title={activeCompanyName}>
-            <Building2 className="h-3.5 w-3.5" aria-hidden="true" />
-            <span>{activeCompanyName}</span>
-          </span>
-        )}
-        {switchError ? <span className="app-company-error">{switchError}</span> : null}
+        <span className="app-company-chip" title={activeCompanyName}>
+          <Building2 className="h-3.5 w-3.5" aria-hidden="true" />
+          <span>{activeCompanyName}</span>
+        </span>
 
         <nav className="app-breadcrumb" aria-label="Breadcrumb">
           <Link href="/dashboard" className="app-breadcrumb-home">

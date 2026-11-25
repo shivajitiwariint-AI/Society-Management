@@ -28,22 +28,24 @@ export function proxy(request: NextRequest) {
   const nonce = randomBytes(16).toString('base64');
   const csp = contentSecurityPolicy(nonce);
 
-  const hasSession = Boolean(request.cookies.get('society_session')?.value);
+  const hasSessionCookie = Boolean(request.cookies.get('society_session')?.value);
   const path = request.nextUrl.pathname;
   const protectedPath = ['/dashboard', '/companies', '/admin/users', '/platform/users']
     .some((prefix) => path.startsWith(prefix));
-  const publicLoginPortals = path === '/login' || path === '/admin/login' || path === '/register';
 
   let response: NextResponse;
-  if (protectedPath && !hasSession) {
+  if (protectedPath && !hasSessionCookie) {
     const url = request.nextUrl.clone();
     url.pathname = '/login';
     response = NextResponse.redirect(url);
-  } else if (publicLoginPortals && hasSession) {
-    const url = request.nextUrl.clone();
-    url.pathname = '/dashboard';
-    response = NextResponse.redirect(url);
   } else {
+    // NOTE: we deliberately do NOT redirect away from the login portals when a
+    // session cookie is present. Cookie presence is not proof of a valid
+    // session: after a company is deleted (or a session is revoked), the cookie
+    // can outlive the database row. The app layout then sends the user to
+    // /login, and bouncing back to /dashboard here would loop forever
+    // (ERR_TOO_MANY_REDIRECTS). Session validity is checked server-side in
+    // getSession(); the login page simply renders so the user can sign in again.
     // Next.js reads the nonce from the request CSP header and applies it to
     // framework scripts/styles during server rendering.
     const requestHeaders = new Headers(request.headers);

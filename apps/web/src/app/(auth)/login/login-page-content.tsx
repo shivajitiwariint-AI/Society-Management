@@ -1,4 +1,5 @@
 import type { LoginIntent } from '@society/validation';
+import { Alert } from '@/components/ui/alert';
 import {
   AuthFooterLinks,
   AuthShell,
@@ -47,7 +48,13 @@ const portalCopy: Record<
   },
 };
 
-export function LoginPageContent({ loginIntent }: { loginIntent: LoginIntent }) {
+export function LoginPageContent({
+  loginIntent,
+  expired = false,
+}: {
+  loginIntent: LoginIntent;
+  expired?: boolean;
+}) {
   const copy = portalCopy[loginIntent];
   const otherPortal =
     loginIntent === 'PLATFORM'
@@ -79,6 +86,10 @@ export function LoginPageContent({ loginIntent }: { loginIntent: LoginIntent }) 
         <p className="auth-card-eyebrow">{copy.cardEyebrow}</p>
         <p className="auth-card-title">{copy.cardTitle}</p>
       </div>
+
+      {expired ? (
+        <Alert tone="info">Your session ended. Please sign in again to continue.</Alert>
+      ) : null}
 
       <LoginForm loginIntent={loginIntent} />
 
