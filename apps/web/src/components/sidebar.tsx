@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
   type LucideIcon,
+  ChevronDown,
   LayoutDashboard,
   Building2,
   MapPinned,
@@ -66,6 +67,22 @@ const ICONS: Record<string, LucideIcon> = {
   integrations: Plug,
 };
 
+/** Anchored sections shown as a submenu under Maintenance Expenses. */
+const SUBMENUS: Record<string, Array<{ id: string; label: string }>> = {
+  '/maintenance-expenses': [
+    { id: 'dashboard', label: 'Dashboard' },
+    { id: 'entries', label: 'Expense entries' },
+    { id: 'monthly', label: 'Month-wise summary' },
+    { id: 'yearly', label: 'Financial year' },
+    { id: 'categories', label: 'Categories' },
+    { id: 'vendors', label: 'Vendors / payees' },
+    { id: 'documents', label: 'Bills & documents' },
+    { id: 'payments', label: 'Payments' },
+    { id: 'reconciliation', label: 'Bank reconciliation' },
+    { id: 'tools', label: 'Import / export' },
+  ],
+};
+
 interface SidebarProps {
   items: SidebarItem[];
   collapsed: boolean;
@@ -76,6 +93,7 @@ interface SidebarProps {
 export function Sidebar({ items, collapsed, onToggleCollapse, onClose }: SidebarProps) {
   const pathname = usePathname();
   const [query, setQuery] = React.useState('');
+  const [expandedSubmenu, setExpandedSubmenu] = React.useState<string | null>(null);
 
   const footerItems: SidebarItem[] = [
     { key: 'dashboard', label: 'Dashboard', href: '/dashboard', icon: 'dashboard' },
@@ -94,6 +112,40 @@ export function Sidebar({ items, collapsed, onToggleCollapse, onClose }: Sidebar
   const renderLink = (item: SidebarItem) => {
     const Icon = ICONS[item.icon] ?? LayoutDashboard;
     const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
+    const submenu = SUBMENUS[item.href];
+
+    if (submenu && !collapsed && !normalizedQuery) {
+      const open = expandedSubmenu === item.href || active;
+      return (
+        <div key={item.key} className="app-sidebar-submenu-group">
+          <button
+            type="button"
+            className={`app-sidebar-link app-sidebar-submenu-toggle${active ? ' active' : ''}`}
+            onClick={() => setExpandedSubmenu(open ? null : item.href)}
+            aria-expanded={open}
+          >
+            <Icon className="h-[18px] w-[18px]" aria-hidden="true" />
+            <span className="app-sidebar-link-label flex-1 text-left">{item.label}</span>
+            <ChevronDown className={`app-sidebar-chevron h-4 w-4 transition-transform${open ? ' rotate-180' : ''}`} aria-hidden="true" />
+          </button>
+          {open ? (
+            <div className="app-sidebar-submenu">
+              {submenu.map((section) => (
+                <Link
+                  key={section.id}
+                  href={`${item.href}#${section.id}`}
+                  className="app-sidebar-submenu-link"
+                  onClick={() => { setQuery(''); onClose(); }}
+                >
+                  {section.label}
+                </Link>
+              ))}
+            </div>
+          ) : null}
+        </div>
+      );
+    }
+
     return (
       <Link
         key={item.key}

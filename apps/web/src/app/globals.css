@@ -1285,6 +1285,37 @@ h6 {
   text-overflow: ellipsis;
 }
 
+.app-sidebar-submenu-group { display: block; }
+
+.app-sidebar-submenu-toggle { cursor: pointer; width: 100%; }
+
+.app-sidebar-submenu {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  margin: 4px 0 4px 14px;
+  padding: 4px 0 4px 10px;
+  border-left: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+.app-sidebar-submenu-link {
+  display: block;
+  padding: 6px 8px;
+  border-radius: 6px;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: rgba(203, 213, 225, 0.72);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: background 150ms ease, color 150ms ease;
+}
+
+.app-sidebar-submenu-link:hover {
+  background: rgba(255, 255, 255, 0.07);
+  color: #fff;
+}
+
 .app-sidebar.collapsed .app-sidebar-link-label,
 .app-sidebar.collapsed .app-sidebar-section-label,
 .app-sidebar.collapsed .app-sidebar-brand-copy {
