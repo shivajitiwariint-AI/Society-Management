@@ -16,17 +16,17 @@ export default async function CreateSocietyPage() {
     moduleKey: 'company', resourceKey: 'society', action: 'CREATE',
   }).ok;
 
-  if (!canCreate) {
-    return (
-      <Alert>
-        You do not have permission to register a society for this company.
-      </Alert>
-    );
-  }
   if (!context.activeCompanyId) {
     return (
       <Alert>
         Select an active company workspace before registering a society.
+      </Alert>
+    );
+  }
+  if (!canCreate) {
+    return (
+      <Alert>
+        You do not have permission to register a society for this company.
       </Alert>
     );
   }
