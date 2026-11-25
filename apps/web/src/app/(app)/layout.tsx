@@ -3,6 +3,8 @@ import { canAccessModule } from '@society/authorization';
 import { prisma } from '@society/database';
 import { NAV_ITEMS } from '@/lib/navigation';
 import { AppShell } from '@/components/app-shell';
+
+const PLATFORM_NAV_HREFS = new Set(['/companies', '/societies']);
 import { csrfTokenForClient, getRequestContext, getSession } from '@/lib/auth/session';
 
 export default async function AppLayout({ children }: { children: React.ReactNode }) {
@@ -13,12 +15,13 @@ export default async function AppLayout({ children }: { children: React.ReactNod
   if (!context) redirect('/login');
 
   const isPlatformUser = context.roles.some((role) => role.scopeType === 'PLATFORM');
-  // Platform administrators hold global permissions, so they can navigate to
-  // every module workspace (including Society Setup) while still choosing the
-  // active company from the top bar.
-  const navItems = isPlatformUser
-    ? NAV_ITEMS
-    : NAV_ITEMS.filter((item) => canAccessModule(context, item.moduleKey).ok);
+  // Platform admins manage tenants and their property setup; day-to-day
+  // operational modules belong to the company-side workspace.
+  const navItems = NAV_ITEMS.filter((item) =>
+    isPlatformUser
+      ? PLATFORM_NAV_HREFS.has(item.href)
+      : !PLATFORM_NAV_HREFS.has(item.href) && canAccessModule(context, item.moduleKey).ok,
+  );
 
   const companies = isPlatformUser
     ? await prisma.company.findMany({
