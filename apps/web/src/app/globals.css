@@ -1316,6 +1316,13 @@ h6 {
   color: #fff;
 }
 
+.app-sidebar-submenu-link.active {
+  background: rgba(99, 102, 241, 0.22);
+  color: #c7d2fe;
+  font-weight: 700;
+  box-shadow: inset 2px 0 0 #818cf8;
+}
+
 .app-sidebar.collapsed .app-sidebar-link-label,
 .app-sidebar.collapsed .app-sidebar-section-label,
 .app-sidebar.collapsed .app-sidebar-brand-copy {

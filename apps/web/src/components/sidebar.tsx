@@ -72,14 +72,14 @@ const SUBMENUS: Record<string, Array<{ id: string; label: string }>> = {
   '/maintenance-expenses': [
     { id: 'dashboard', label: 'Dashboard' },
     { id: 'entries', label: 'Expense entries' },
-    { id: 'monthly', label: 'Month-wise summary' },
-    { id: 'yearly', label: 'Financial year' },
+    { id: 'month-wise', label: 'Month-wise summary' },
+    { id: 'financial-year', label: 'Financial year' },
     { id: 'categories', label: 'Categories' },
     { id: 'vendors', label: 'Vendors / payees' },
     { id: 'documents', label: 'Bills & documents' },
     { id: 'payments', label: 'Payments' },
     { id: 'reconciliation', label: 'Bank reconciliation' },
-    { id: 'tools', label: 'Import / export' },
+    { id: 'import-export', label: 'Import / export' },
   ],
 };
 
@@ -133,8 +133,8 @@ export function Sidebar({ items, collapsed, onToggleCollapse, onClose }: Sidebar
               {submenu.map((section) => (
                 <Link
                   key={section.id}
-                  href={`${item.href}#${section.id}`}
-                  className="app-sidebar-submenu-link"
+                  href={`${item.href}/${section.id}`}
+                  className={`app-sidebar-submenu-link${pathname === `${item.href}/${section.id}` ? ' active' : ''}`}
                   onClick={() => { setQuery(''); onClose(); }}
                 >
                   {section.label}

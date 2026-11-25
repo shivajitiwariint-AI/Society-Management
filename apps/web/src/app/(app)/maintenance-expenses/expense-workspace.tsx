@@ -48,6 +48,7 @@ interface ExpenseWorkspaceProps {
   canApprove: boolean;
   canPay: boolean;
   currentUserId: string;
+  section?: string;
   initial: ExpenseListView;
 }
 
@@ -201,6 +202,7 @@ export function ExpenseWorkspace({
   canApprove,
   canPay,
   currentUserId,
+  section,
   initial,
 }: ExpenseWorkspaceProps) {
   const router = useRouter();
@@ -539,39 +541,15 @@ export function ExpenseWorkspace({
     setEditingId(null);
     setPage(1);
     void load(filters, 1, nextSocietyId);
-    router.replace(`/maintenance-expenses?societyId=${nextSocietyId}`, { scroll: false });
+    router.replace(`${section ? `/maintenance-expenses/${section}` : '/maintenance-expenses'}?societyId=${nextSocietyId}`, { scroll: false });
   };
 
   const totalPages = Math.max(1, Math.ceil(data.total / data.pageSize));
 
-  const moduleSections = [
-    ['dashboard', 'Dashboard'],
-    ['entries', 'Expense entries'],
-    ['monthly', 'Month-wise summary'],
-    ['yearly', 'Financial year'],
-    ['categories', 'Categories'],
-    ['vendors', 'Vendors / payees'],
-    ['documents', 'Bills & documents'],
-    ['payments', 'Payments'],
-    ['reconciliation', 'Bank reconciliation'],
-    ['tools', 'Import / export'],
-  ] as const;
+  const show = (name: string) => !section || section === name;
 
   return (
     <div className="space-y-6">
-      <nav className="flex flex-wrap gap-2 rounded-xl border border-ink-200 bg-white p-2" aria-label="Finance & Accounts → Maintenance Expense Management">
-        {moduleSections.map(([id, label]) => (
-          <a
-            key={id}
-            href={`#${id}`}
-            className="rounded-lg px-2.5 py-1.5 text-xs font-semibold text-ink-600 transition hover:bg-brand-50 hover:text-brand-700"
-          >
-            {label}
-          </a>
-        ))}
-      </nav>
-
-      <div id="dashboard" className="scroll-mt-24 space-y-6">
       <ModuleSearchPanel
         icon={Search}
         title="Search maintenance expenses"
@@ -648,7 +626,7 @@ export function ExpenseWorkspace({
         </div>
       </ModuleSearchPanel>
 
-      <Card id="tools" className="scroll-mt-24">
+      {show('tools') && <Card id="tools" className="scroll-mt-24">
         <CardHeader>
           <CardTitle>Workbook tools</CardTitle>
         </CardHeader>
@@ -675,9 +653,9 @@ export function ExpenseWorkspace({
             ))}
           </div>
         </CardContent>
-      </Card>
+      </Card>}
 
-      {(canCreate || canUpdate) && (
+      {show('entries') && (canCreate || canUpdate) && (
         <Card>
           <CardHeader>
             <CardTitle>{editingId ? 'Edit expense' : 'Record maintenance expense'}</CardTitle>
@@ -756,6 +734,7 @@ export function ExpenseWorkspace({
         </Card>
       )}
 
+      {show('dashboard') && <>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <Card><CardContent className="space-y-1"><p className="text-xs uppercase tracking-wide text-ink-500">Recognized total</p><p className="text-xl font-semibold tabular-nums">{formatCurrency(data.summary.total, currencyCode)}</p><p className="text-[11px] text-ink-500">{data.summary.monthCount} months · {data.summary.categoryCount} categories</p></CardContent></Card>
         <Card><CardContent className="space-y-1"><p className="text-xs uppercase tracking-wide text-ink-500">Actual / sample</p><p className="text-xl font-semibold tabular-nums">{formatCurrency(data.summary.actualTotal, currencyCode)}</p><p className="text-[11px] text-ink-500">Sample {formatCurrency(data.summary.sampleTotal, currencyCode)} · excluded from actual</p></CardContent></Card>
@@ -774,24 +753,25 @@ export function ExpenseWorkspace({
         byVendor={data.summary.byVendor}
         format={(value) => formatCurrency(value, currencyCode)}
       />
+      </>}
 
       <div className="space-y-4">
-        <Card id="monthly" className="scroll-mt-24">
+        {show('monthly') && <Card id="monthly" className="scroll-mt-24">
           <CardHeader><CardTitle>Month-wise summary</CardTitle></CardHeader>
           <CardContent>
             <PivotTable label="Month" rows={data.summary.monthly} currencyCode={currencyCode} />
           </CardContent>
-        </Card>
+        </Card>}
 
         <div className="space-y-4">
-          <Card id="yearly" className="scroll-mt-24">
+          {show('yearly') && <Card id="yearly" className="scroll-mt-24">
             <CardHeader><CardTitle>Financial year summary</CardTitle></CardHeader>
             <CardContent>
               <PivotTable label="FY (Apr–Mar)" rows={data.summary.yearly} currencyCode={currencyCode} />
             </CardContent>
-          </Card>
+          </Card>}
 
-          <Card>
+          {show('categories') && <Card>
             <CardHeader><CardTitle>Category-wise summary</CardTitle></CardHeader>
             <CardContent className="max-h-64 overflow-auto">
               <table className="w-full text-sm">
@@ -808,11 +788,11 @@ export function ExpenseWorkspace({
                 </tbody>
               </table>
             </CardContent>
-          </Card>
+          </Card>}
         </div>
       </div>
 
-      <ModuleRecordsPanel
+      {show('entries') && <ModuleRecordsPanel
         icon={ListChecks}
         title={`Expenses · ${data.total} records`}
         sectionId="entries"
@@ -899,31 +879,30 @@ export function ExpenseWorkspace({
             </div>
           </div>
         </div>
-      </ModuleRecordsPanel>
+      </ModuleRecordsPanel>}
 
       <div className="grid gap-4 lg:grid-cols-2">
-        <ExpenseCategoriesPanel societyId={selectedSocietyId} canManage={canCreate} />
-        <Card id="vendors" className="scroll-mt-24">
+        {show('categories') && <ExpenseCategoriesPanel societyId={selectedSocietyId} canManage={canCreate} />}
+        {show('vendors') && <Card id="vendors" className="scroll-mt-24">
           <CardHeader><CardTitle>Vendors / payees</CardTitle></CardHeader>
           <CardContent className="text-sm leading-6 text-ink-500">
             Vendor and payee records are managed in the <strong>Vendors &amp; Contracts</strong> module and linked to expenses from the entry form.
             The vendor-wise spend summary appears in the reports below.
           </CardContent>
-        </Card>
-        <Card id="documents" className="scroll-mt-24">
+        </Card>}
+        {show('documents') && <Card id="documents" className="scroll-mt-24">
           <CardHeader><CardTitle>Bills, vouchers and documents</CardTitle></CardHeader>
           <CardContent className="text-sm leading-6 text-ink-500">
             Use the <strong>Docs</strong> button on any expense row to upload and retrieve bills, invoices, AMC agreements, work orders, approvals, bank statements and receipts.
           </CardContent>
-        </Card>
-        <Card id="payments" className="scroll-mt-24">
+        </Card>}
+        {show('payments') && <Card id="payments" className="scroll-mt-24">
           <CardHeader><CardTitle>Payments</CardTitle></CardHeader>
           <CardContent className="text-sm leading-6 text-ink-500">
             Approved expenses can receive full or partial payments using the <strong>Pay</strong> action. Payments are linked to the original expense and never create a second expense record.
           </CardContent>
-        </Card>
-        <BankReconciliationPanel societyId={selectedSocietyId} canManage={canUpdate} />
-      </div>
+        </Card>}
+        {show('reconciliation') && <BankReconciliationPanel societyId={selectedSocietyId} canManage={canUpdate} />}
       </div>
 
       {attachmentExpense ? (
