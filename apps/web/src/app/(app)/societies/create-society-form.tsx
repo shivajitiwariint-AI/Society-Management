@@ -39,6 +39,7 @@ export function CreateSocietyForm({ companyId }: { companyId: string }) {
       }
       setMessage({ tone: 'success', text: 'Society created.' });
       reset();
+      router.push('/societies');
       router.refresh();
     } catch {
       setMessage({ tone: 'error', text: 'Network error. Please try again.' });
