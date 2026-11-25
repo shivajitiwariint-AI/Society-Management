@@ -19,18 +19,16 @@ export type ServiceResult<T> =
   | { ok: true; value: T }
   | { ok: false; code: 'PERMISSION_DENIED' | 'CONFLICT' | 'INVALID' | 'NOT_FOUND' | 'VALIDATION_ERROR' | 'SELF_APPROVAL'; message: string };
 
-/** Modules available by default for every new company (Finance & Accounts). */
+/** Modules available by default for every new company. */
 const DEFAULT_ENABLED_MODULES = new Set<string>([
   'finance-billing',
-  'payments-receipts',
-  'accounting',
 ]);
 
 /**
  * Seeds the entitlement matrix for a new company. Core modules are always on;
- * Finance & Accounts is the only business group enabled by default. Every
- * other business module starts DISABLED and can be enabled later by a platform
- * administrator. Shared by platform creation and self-registration.
+ * Finance & Maintenance Billing is the only business module enabled by default.
+ * Every other business module starts DISABLED and can be enabled later by a
+ * platform administrator. Shared by platform creation and self-registration.
  */
 export async function seedCompanyModules(
   tx: Prisma.TransactionClient,
@@ -53,7 +51,7 @@ export async function seedCompanyModules(
         reason: module.isCore
           ? 'Core module'
           : enabled
-            ? 'Finance & Accounts enabled by default'
+            ? 'Finance & Maintenance Billing enabled by default'
             : 'Disabled by default for new company',
       };
     }),

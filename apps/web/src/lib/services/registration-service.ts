@@ -16,7 +16,7 @@ export interface RegistrationMeta {
 
 /**
  * Public self-service tenant onboarding. One transaction creates the company,
- * the default entitlement matrix (Finance & Accounts only), and the first
+ * the default entitlement matrix (Finance & Maintenance Billing only), and the first
  * company administrator with an active membership and the system
  * company-admin role.
  */
