@@ -1,24 +1,31 @@
 'use client';
 
 import { useState, type ReactNode } from 'react';
-import { Plus, X } from 'lucide-react';
+import { Building2, Home, Layers3, Plus, X, type LucideIcon } from 'lucide-react';
+
+const ICONS: Record<string, LucideIcon> = {
+  building: Building2,
+  floor: Layers3,
+  flat: Home,
+};
 
 export function FormDialog({
   label,
   title,
   description,
-  icon: Icon,
+  iconName,
   compact = false,
   children,
 }: {
   label: string;
   title: string;
   description: string;
-  icon?: React.ComponentType<{ className?: string }>;
+  iconName?: string;
   compact?: boolean;
   children: ReactNode;
 }) {
   const [open, setOpen] = useState(false);
+  const Icon = iconName ? ICONS[iconName] : undefined;
 
   return (
     <>

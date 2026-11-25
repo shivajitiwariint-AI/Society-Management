@@ -98,7 +98,7 @@ export default async function SocietyPropertyPage({ params }: PageProps) {
               label="Add building"
               title="Add a building"
               description="Define a building in this society to start adding floors and flats."
-              icon={Building2}
+              iconName="building"
             >
               <BuildingForm societyId={societyId} />
             </FormDialog>
@@ -128,7 +128,7 @@ export default async function SocietyPropertyPage({ params }: PageProps) {
                       label="Add floor"
                       title="Add a floor"
                       description={`Add a floor to ${building.name}. You can then add flats to it.`}
-                      icon={Layers3}
+                      iconName="floor"
                       compact
                     >
                       <FloorForm societyId={societyId} buildingId={building.id} />
@@ -161,7 +161,7 @@ export default async function SocietyPropertyPage({ params }: PageProps) {
                             label="Add flat"
                             title="Add a flat / unit"
                             description={`Add a unit to ${floor.name}.`}
-                            icon={Home}
+                            iconName="flat"
                             compact
                           >
                             <FlatForm societyId={societyId} buildingId={building.id} floorId={floor.id} />
