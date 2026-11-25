@@ -256,6 +256,102 @@ const DEFAULT_CATEGORIES: Array<{ name: string; monthlyBase: string }> = [
   { name: 'Miscellaneous Society Expenses', monthlyBase: '3000.00' },
 ];
 
+export async function listBankTransactions(service: ServiceContext, companyId: string, societyId: string) {
+  if (!permitted(service, 'READ', companyId, societyId)) return denied();
+  const items = await prisma.bankTransaction.findMany({
+    where: { companyId, societyId },
+    orderBy: { transactionDate: 'desc' },
+    take: 200,
+    select: {
+      id: true, transactionDate: true, description: true, reference: true,
+      amount: true, accountRef: true, source: true,
+    },
+  });
+  return { ok: true as const, value: items };
+}
+
+export async function createBankTransaction(
+  service: ServiceContext,
+  companyId: string,
+  societyId: string,
+  input: {
+    transactionDate: Date;
+    description?: string;
+    reference?: string;
+    amount: number;
+    accountRef?: string;
+  },
+) {
+  if (!permitted(service, 'UPDATE', companyId, societyId)) return denied();
+  const record = await prisma.bankTransaction.create({
+    data: {
+      id: newId(), companyId, societyId,
+      transactionDate: input.transactionDate,
+      description: input.description ?? null,
+      reference: input.reference ?? null,
+      amount: input.amount.toFixed(2),
+      accountRef: input.accountRef ?? null,
+      source: 'MANUAL',
+      importedBy: service.actorUserId,
+    },
+    select: { id: true },
+  });
+  await prisma.auditLog.create({
+    data: {
+      id: newId(), companyId, societyId, actorUserId: service.actorUserId,
+      action: 'BANK_TRANSACTION_RECORDED', resourceType: 'bank-transaction', resourceId: record.id,
+      result: 'SUCCESS', reason: 'Bank statement transaction recorded',
+      requestId: service.requestId, ipAddress: service.ipAddress ?? null, userAgent: service.userAgent ?? null,
+    },
+  });
+  return { ok: true as const, value: record };
+}
+
+export async function reconcilePayment(
+  service: ServiceContext,
+  companyId: string,
+  societyId: string,
+  input: { paymentId: string; bankTransactionId: string; amount: number; reason?: string },
+) {
+  if (!permitted(service, 'UPDATE', companyId, societyId)) return denied();
+  const payment = await prisma.expensePayment.findFirst({
+    where: { id: input.paymentId, companyId, societyId, status: 'ACTIVE' },
+    select: { id: true, expenseId: true, amount: true },
+  });
+  if (!payment) return { ok: false as const, code: 'NOT_FOUND' as const, message: 'Payment not found' };
+  const bank = await prisma.bankTransaction.findFirst({
+    where: { id: input.bankTransactionId, companyId, societyId },
+    select: { id: true },
+  });
+  if (!bank) return { ok: false as const, code: 'NOT_FOUND' as const, message: 'Bank transaction not found' };
+  if (Math.abs(Number(payment.amount) - input.amount) > 0.005) {
+    return { ok: false as const, code: 'INVALID' as const, message: 'Match amount must equal the payment amount' };
+  }
+  await prisma.$transaction(async () => {
+    await prisma.reconciliationRecord.create({
+      data: {
+        id: newId(), companyId, societyId, expenseId: payment.expenseId,
+        paymentId: payment.id, bankTransactionId: bank.id,
+        amount: input.amount.toFixed(2), status: 'MATCHED',
+        matchedBy: service.actorUserId, reason: input.reason ?? null,
+      },
+    });
+    await prisma.maintenanceExpense.update({
+      where: { id: payment.expenseId },
+      data: { reconciliationStatus: 'RECONCILED' },
+    });
+    await prisma.auditLog.create({
+      data: {
+        id: newId(), companyId, societyId, actorUserId: service.actorUserId,
+        action: 'EXPENSE_RECONCILED', resourceType: 'expense-payment', resourceId: payment.id,
+        result: 'SUCCESS', reason: input.reason ?? 'Payment matched to bank transaction',
+        requestId: service.requestId, ipAddress: service.ipAddress ?? null, userAgent: service.userAgent ?? null,
+      },
+    });
+  });
+  return { ok: true as const, value: { id: payment.id } };
+}
+
 export async function seedExpenseCategories(
   service: ServiceContext, companyId: string, societyId: string,
 ): Promise<ServiceResult<{ created: number }>> {

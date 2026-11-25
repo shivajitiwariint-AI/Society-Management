@@ -135,6 +135,8 @@ export async function importExpenses(
             remarks: row.remarks,
             source,
             sourceKey: row.sourceKey,
+            createdBy: service.actorUserId,
+            approvalStatus: 'APPROVED',
           },
           update: {
             month: monthDate(row.month)!,
@@ -149,6 +151,19 @@ export async function importExpenses(
       }),
     );
   }
+
+  await prisma.expenseImportBatch.create({
+    data: {
+      id: newId(),
+      companyId,
+      societyId,
+      fileName: `${source}-import`,
+      rowCount: rows.length,
+      errorCount: errors.length,
+      importedBy: service.actorUserId,
+      summary: { received: rows.length, created, updated, skipped: errors.length } as never,
+    },
+  });
 
   await prisma.auditLog.create({
     data: {

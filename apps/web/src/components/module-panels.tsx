@@ -32,16 +32,18 @@ export function ModuleRecordsPanel({
   title,
   subtitle,
   action,
+  sectionId,
   children,
 }: {
   icon: LucideIcon;
   title: string;
   subtitle: string;
   action?: ReactNode;
+  sectionId?: string;
   children: ReactNode;
 }) {
   return (
-    <Card className="op-list-panel">
+    <Card id={sectionId} className={`op-list-panel${sectionId ? ' scroll-mt-24' : ''}`}>
       <CardHeader className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-3">
           <span className="op-section-icon op-section-list"><Icon className="h-5 w-5" /></span>

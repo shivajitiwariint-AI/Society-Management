@@ -17,7 +17,7 @@ export default async function MaintenanceExpensesPage({ searchParams }: PageProp
   const context = await getRequestContext('maintenance-expenses-page');
   if (!context) redirect('/login');
 
-  const can = (action: 'CREATE' | 'READ' | 'UPDATE' | 'DELETE') =>
+  const can = (action: 'CREATE' | 'READ' | 'UPDATE' | 'DELETE' | 'APPROVE' | 'REJECT' | 'REFUND') =>
     authorize(context, { moduleKey: 'finance-billing', resourceKey: 'maintenance-expense', action }).ok;
 
   if (!can('READ')) {
@@ -93,6 +93,9 @@ export default async function MaintenanceExpensesPage({ searchParams }: PageProp
         canCreate={can('CREATE')}
         canUpdate={can('UPDATE')}
         canDelete={can('DELETE')}
+        canApprove={can('APPROVE')}
+        canPay={can('UPDATE')}
+        currentUserId={context.identity.userId}
         initial={initial.value}
       />
     </div>

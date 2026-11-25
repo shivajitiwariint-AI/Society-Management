@@ -51,6 +51,11 @@ export interface ExpenseView {
   source: string;
   attachmentCount: number;
   createdAt: string;
+  approvalStatus: string;
+  paymentStatus: string;
+  reconciliationStatus: string;
+  paidAmount: string;
+  createdBy: string | null;
 }
 
 interface ExpenseSummary {
@@ -59,8 +64,17 @@ interface ExpenseSummary {
   monthCount: number;
   categoryCount: number;
   byCategory: Array<{ category: string; total: string }>;
+  byVendor: Array<{ vendor: string; total: string }>;
   monthly: Array<{ month: string; total: string; categories: Record<string, string> }>;
   yearly: Array<{ year: string; total: string; categories: Record<string, string> }>;
+  pendingApprovalAmount: string;
+  rejectedAmount: string;
+  paidAmount: string;
+  unpaidAmount: string;
+  partiallyPaidAmount: string;
+  unreconciledAmount: string;
+  actualTotal: string;
+  sampleTotal: string;
 }
 
 export interface ExpenseListView {
@@ -82,6 +96,11 @@ function toView(row: {
   remarks: string | null;
   source: string;
   createdAt: Date;
+  approvalStatus?: string | null;
+  paymentStatus?: string | null;
+  reconciliationStatus?: string | null;
+  paidAmount?: { toString(): string } | null;
+  createdBy?: string | null;
   _count?: { attachments: number };
 }): ExpenseView {
   return {
@@ -96,14 +115,39 @@ function toView(row: {
     source: row.source,
     attachmentCount: row._count?.attachments ?? 0,
     createdAt: row.createdAt.toISOString(),
+    approvalStatus: row.approvalStatus ?? 'DRAFT',
+    paymentStatus: row.paymentStatus ?? 'UNPAID',
+    reconciliationStatus: row.reconciliationStatus ?? 'NOT_RECONCILED',
+    paidAmount: row.paidAmount?.toString() ?? '0.00',
+    createdBy: row.createdBy ?? null,
   };
 }
 
-function buildSummary(rows: ReadonlyArray<{ month: Date; category: string; amount: { toString(): string } }>): ExpenseSummary {
+type SummaryRow = {
+  month: Date;
+  category: string;
+  amount: { toString(): string };
+  vendorPayee?: string | null;
+  approvalStatus?: string | null;
+  paymentStatus?: string | null;
+  reconciliationStatus?: string | null;
+  source?: string | null;
+};
+
+function buildSummary(rows: ReadonlyArray<SummaryRow>): ExpenseSummary {
   const categoryTotals = new Map<string, bigint>();
+  const vendorTotals = new Map<string, bigint>();
   const monthTotals = new Map<string, { total: bigint; categories: Map<string, bigint> }>();
   const yearTotals = new Map<string, { total: bigint; categories: Map<string, bigint> }>();
   let grandTotal = 0n;
+  let pendingApproval = 0n;
+  let rejected = 0n;
+  let paid = 0n;
+  let unpaid = 0n;
+  let partiallyPaid = 0n;
+  let unreconciled = 0n;
+  let actual = 0n;
+  let sample = 0n;
 
   for (const row of rows) {
     const amount = parseMoney(row.amount.toString());
@@ -111,6 +155,16 @@ function buildSummary(rows: ReadonlyArray<{ month: Date; category: string; amoun
     const year = financialYear(month);
     grandTotal += amount;
     categoryTotals.set(row.category, (categoryTotals.get(row.category) ?? 0n) + amount);
+    vendorTotals.set(row.vendorPayee ?? 'Unknown', (vendorTotals.get(row.vendorPayee ?? 'Unknown') ?? 0n) + amount);
+
+    if (row.approvalStatus === 'SUBMITTED') pendingApproval += amount;
+    if (row.approvalStatus === 'REJECTED') rejected += amount;
+    if (row.paymentStatus === 'PAID') paid += amount;
+    if (row.paymentStatus === 'UNPAID') unpaid += amount;
+    if (row.paymentStatus === 'PARTIALLY_PAID') partiallyPaid += amount;
+    if (row.reconciliationStatus !== 'RECONCILED') unreconciled += amount;
+    if (row.source === 'SAMPLE') sample += amount;
+    else actual += amount;
 
     const monthly = monthTotals.get(month) ?? { total: 0n, categories: new Map<string, bigint>() };
     monthly.total += amount;
@@ -137,6 +191,17 @@ function buildSummary(rows: ReadonlyArray<{ month: Date; category: string; amoun
     byCategory: MAINTENANCE_EXPENSE_CATEGORIES
       .filter((category) => categoryTotals.has(category))
       .map((category) => ({ category, total: formatMoney(categoryTotals.get(category)!) })),
+    byVendor: [...vendorTotals.entries()]
+      .sort(([, a], [, b]) => (a > b ? -1 : a < b ? 1 : 0))
+      .map(([vendor, total]) => ({ vendor, total: formatMoney(total) })),
+    pendingApprovalAmount: formatMoney(pendingApproval),
+    rejectedAmount: formatMoney(rejected),
+    paidAmount: formatMoney(paid),
+    unpaidAmount: formatMoney(unpaid),
+    partiallyPaidAmount: formatMoney(partiallyPaid),
+    unreconciledAmount: formatMoney(unreconciled),
+    actualTotal: formatMoney(actual),
+    sampleTotal: formatMoney(sample),
     monthly: [...monthTotals.entries()]
       .sort(([a], [b]) => a.localeCompare(b))
       .map(([month, value]) => ({ month, total: formatMoney(value.total), categories: stringifyCategories(value.categories) })),
@@ -225,6 +290,8 @@ export async function createExpense(
         amount: input.amount.toFixed(2),
         remarks: input.remarks || null,
         source: 'MANUAL',
+        createdBy: service.actorUserId,
+        approvalStatus: 'DRAFT',
       },
     });
     await tx.auditLog.create({

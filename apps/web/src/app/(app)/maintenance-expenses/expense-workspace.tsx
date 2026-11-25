@@ -7,6 +7,10 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { Download, FileSpreadsheet, ListChecks, Paperclip, Search, Trash2, Upload } from 'lucide-react';
 import { ModuleRecordsPanel, ModuleSearchPanel } from '@/components/module-panels';
+import { ExpenseWorkflowActions } from './expense-workflow-actions';
+import { ExpenseCategoriesPanel } from './expense-categories-panel';
+import { BankReconciliationPanel } from './bank-reconciliation-panel';
+import { ExpenseCharts } from './expense-charts';
 import {
   EXPENSE_ATTACHMENT_KINDS,
   EXPENSE_ATTACHMENT_LABELS,
@@ -41,6 +45,9 @@ interface ExpenseWorkspaceProps {
   canCreate: boolean;
   canUpdate: boolean;
   canDelete: boolean;
+  canApprove: boolean;
+  canPay: boolean;
+  currentUserId: string;
   initial: ExpenseListView;
 }
 
@@ -191,6 +198,9 @@ export function ExpenseWorkspace({
   canCreate,
   canUpdate,
   canDelete,
+  canApprove,
+  canPay,
+  currentUserId,
   initial,
 }: ExpenseWorkspaceProps) {
   const router = useRouter();
@@ -534,8 +544,34 @@ export function ExpenseWorkspace({
 
   const totalPages = Math.max(1, Math.ceil(data.total / data.pageSize));
 
+  const moduleSections = [
+    ['dashboard', 'Dashboard'],
+    ['entries', 'Expense entries'],
+    ['monthly', 'Month-wise summary'],
+    ['yearly', 'Financial year'],
+    ['categories', 'Categories'],
+    ['vendors', 'Vendors / payees'],
+    ['documents', 'Bills & documents'],
+    ['payments', 'Payments'],
+    ['reconciliation', 'Bank reconciliation'],
+    ['tools', 'Import / export'],
+  ] as const;
+
   return (
     <div className="space-y-6">
+      <nav className="flex flex-wrap gap-2 rounded-xl border border-ink-200 bg-white p-2" aria-label="Finance & Accounts → Maintenance Expense Management">
+        {moduleSections.map(([id, label]) => (
+          <a
+            key={id}
+            href={`#${id}`}
+            className="rounded-lg px-2.5 py-1.5 text-xs font-semibold text-ink-600 transition hover:bg-brand-50 hover:text-brand-700"
+          >
+            {label}
+          </a>
+        ))}
+      </nav>
+
+      <div id="dashboard" className="scroll-mt-24 space-y-6">
       <ModuleSearchPanel
         icon={Search}
         title="Search maintenance expenses"
@@ -612,7 +648,7 @@ export function ExpenseWorkspace({
         </div>
       </ModuleSearchPanel>
 
-      <Card>
+      <Card id="tools" className="scroll-mt-24">
         <CardHeader>
           <CardTitle>Workbook tools</CardTitle>
         </CardHeader>
@@ -721,14 +757,26 @@ export function ExpenseWorkspace({
       )}
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <Card><CardContent className="space-y-1"><p className="text-xs uppercase tracking-wide text-ink-500">Total</p><p className="text-xl font-semibold tabular-nums">{formatCurrency(data.summary.total, currencyCode)}</p></CardContent></Card>
-        <Card><CardContent className="space-y-1"><p className="text-xs uppercase tracking-wide text-ink-500">Average / month</p><p className="text-xl font-semibold tabular-nums">{formatCurrency(data.summary.averageMonthly, currencyCode)}</p></CardContent></Card>
-        <Card><CardContent className="space-y-1"><p className="text-xs uppercase tracking-wide text-ink-500">Months</p><p className="text-xl font-semibold tabular-nums">{data.summary.monthCount}</p></CardContent></Card>
-        <Card><CardContent className="space-y-1"><p className="text-xs uppercase tracking-wide text-ink-500">Categories</p><p className="text-xl font-semibold tabular-nums">{data.summary.categoryCount}</p></CardContent></Card>
+        <Card><CardContent className="space-y-1"><p className="text-xs uppercase tracking-wide text-ink-500">Recognized total</p><p className="text-xl font-semibold tabular-nums">{formatCurrency(data.summary.total, currencyCode)}</p><p className="text-[11px] text-ink-500">{data.summary.monthCount} months · {data.summary.categoryCount} categories</p></CardContent></Card>
+        <Card><CardContent className="space-y-1"><p className="text-xs uppercase tracking-wide text-ink-500">Actual / sample</p><p className="text-xl font-semibold tabular-nums">{formatCurrency(data.summary.actualTotal, currencyCode)}</p><p className="text-[11px] text-ink-500">Sample {formatCurrency(data.summary.sampleTotal, currencyCode)} · excluded from actual</p></CardContent></Card>
+        <Card><CardContent className="space-y-1"><p className="text-xs uppercase tracking-wide text-ink-500">Pending approval</p><p className="text-xl font-semibold tabular-nums text-amber-700">{formatCurrency(data.summary.pendingApprovalAmount, currencyCode)}</p></CardContent></Card>
+        <Card><CardContent className="space-y-1"><p className="text-xs uppercase tracking-wide text-ink-500">Rejected</p><p className="text-xl font-semibold tabular-nums text-red-700">{formatCurrency(data.summary.rejectedAmount, currencyCode)}</p></CardContent></Card>
+        <Card><CardContent className="space-y-1"><p className="text-xs uppercase tracking-wide text-ink-500">Paid</p><p className="text-xl font-semibold tabular-nums text-emerald-700">{formatCurrency(data.summary.paidAmount, currencyCode)}</p></CardContent></Card>
+        <Card><CardContent className="space-y-1"><p className="text-xs uppercase tracking-wide text-ink-500">Unpaid</p><p className="text-xl font-semibold tabular-nums">{formatCurrency(data.summary.unpaidAmount, currencyCode)}</p></CardContent></Card>
+        <Card><CardContent className="space-y-1"><p className="text-xs uppercase tracking-wide text-ink-500">Partially paid</p><p className="text-xl font-semibold tabular-nums">{formatCurrency(data.summary.partiallyPaidAmount, currencyCode)}</p></CardContent></Card>
+        <Card><CardContent className="space-y-1"><p className="text-xs uppercase tracking-wide text-ink-500">Unreconciled</p><p className="text-xl font-semibold tabular-nums text-sky-700">{formatCurrency(data.summary.unreconciledAmount, currencyCode)}</p></CardContent></Card>
       </div>
 
+      <ExpenseCharts
+        monthly={data.summary.monthly}
+        yearly={data.summary.yearly}
+        byCategory={data.summary.byCategory}
+        byVendor={data.summary.byVendor}
+        format={(value) => formatCurrency(value, currencyCode)}
+      />
+
       <div className="space-y-4">
-        <Card>
+        <Card id="monthly" className="scroll-mt-24">
           <CardHeader><CardTitle>Month-wise summary</CardTitle></CardHeader>
           <CardContent>
             <PivotTable label="Month" rows={data.summary.monthly} currencyCode={currencyCode} />
@@ -736,7 +784,7 @@ export function ExpenseWorkspace({
         </Card>
 
         <div className="space-y-4">
-          <Card>
+          <Card id="yearly" className="scroll-mt-24">
             <CardHeader><CardTitle>Financial year summary</CardTitle></CardHeader>
             <CardContent>
               <PivotTable label="FY (Apr–Mar)" rows={data.summary.yearly} currencyCode={currencyCode} />
@@ -767,6 +815,7 @@ export function ExpenseWorkspace({
       <ModuleRecordsPanel
         icon={ListChecks}
         title={`Expenses · ${data.total} records`}
+        sectionId="entries"
         subtitle="Tenant-scoped expense rows with vouchers, supporting documents and a complete audit trail."
         action={canCreate ? <Button type="button" onClick={() => { form.reset(); setEditingId(null); document.getElementById('expense-month')?.scrollIntoView({ behavior: 'smooth' }); }} className="shadow-[0_10px_24px_-12px_rgba(79,70,229,0.9)]">Add expense</Button> : undefined}
       >
@@ -780,8 +829,10 @@ export function ExpenseWorkspace({
                 <th className="py-2">Voucher</th>
                 <th className="py-2 text-center">Docs</th>
                 <th className="py-2">Source</th>
+                <th className="py-2">Approval</th>
+                <th className="py-2">Payment</th>
                 <th className="py-2 text-right">Amount</th>
-                {(canUpdate || canDelete) ? <th className="py-2 text-right">Actions</th> : null}
+                <th className="py-2 text-right">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -805,18 +856,38 @@ export function ExpenseWorkspace({
                       {row.source}
                     </span>
                   </td>
+                  <td className="py-2">
+                    <span className={`rounded-full px-2 py-0.5 text-[11px] font-semibold ${
+                      row.approvalStatus === 'APPROVED' ? 'bg-emerald-50 text-emerald-700'
+                        : row.approvalStatus === 'REJECTED' ? 'bg-red-50 text-red-700'
+                          : row.approvalStatus === 'SUBMITTED' ? 'bg-amber-50 text-amber-700'
+                            : 'bg-ink-100 text-ink-600'
+                    }`}>{row.approvalStatus.replace('_', ' ')}</span>
+                  </td>
+                  <td className="py-2">
+                    <span className={`rounded-full px-2 py-0.5 text-[11px] font-semibold ${
+                      row.paymentStatus === 'PAID' ? 'bg-emerald-50 text-emerald-700'
+                        : row.paymentStatus === 'PARTIALLY_PAID' ? 'bg-sky-50 text-sky-700'
+                          : 'bg-ink-100 text-ink-600'
+                    }`}>{row.paymentStatus.replace('_', ' ')}</span>
+                  </td>
                   <td className="py-2 text-right font-medium tabular-nums">{formatCurrency(row.amount, currencyCode)}</td>
-                  {(canUpdate || canDelete) ? (
-                    <td className="py-2 text-right">
-                      <div className="flex justify-end gap-2">
-                        {canUpdate ? <Button variant="ghost" size="sm" onClick={() => startEdit(row)}>Edit</Button> : null}
-                        {canDelete ? <Button variant="ghost" size="sm" onClick={() => void removeExpense(row)}>Delete</Button> : null}
-                      </div>
-                    </td>
-                  ) : null}
+                  <td className="py-2 text-right">
+                    <div className="flex flex-wrap justify-end gap-2">
+                      <ExpenseWorkflowActions
+                        expense={row}
+                        canSubmit={canCreate}
+                        canApprove={canApprove}
+                        canPay={canPay}
+                        currentUserId={currentUserId}
+                      />
+                      {canUpdate && ['DRAFT', 'REJECTED'].includes(row.approvalStatus) ? <Button variant="ghost" size="sm" onClick={() => startEdit(row)}>Edit</Button> : null}
+                      {canDelete && !['APPROVED', 'PAID', 'PARTIALLY_PAID'].includes(row.approvalStatus) ? <Button variant="ghost" size="sm" onClick={() => void removeExpense(row)}>Delete</Button> : null}
+                    </div>
+                  </td>
                 </tr>
               ))}
-              {data.items.length === 0 ? <tr><td colSpan={canUpdate || canDelete ? 8 : 7} className="py-6 text-center text-ink-500">No expenses found.</td></tr> : null}
+              {data.items.length === 0 ? <tr><td colSpan={9} className="py-6 text-center text-ink-500">No expenses found.</td></tr> : null}
             </tbody>
           </table>
 
@@ -829,6 +900,31 @@ export function ExpenseWorkspace({
           </div>
         </div>
       </ModuleRecordsPanel>
+
+      <div className="grid gap-4 lg:grid-cols-2">
+        <ExpenseCategoriesPanel societyId={selectedSocietyId} canManage={canCreate} />
+        <Card id="vendors" className="scroll-mt-24">
+          <CardHeader><CardTitle>Vendors / payees</CardTitle></CardHeader>
+          <CardContent className="text-sm leading-6 text-ink-500">
+            Vendor and payee records are managed in the <strong>Vendors &amp; Contracts</strong> module and linked to expenses from the entry form.
+            The vendor-wise spend summary appears in the reports below.
+          </CardContent>
+        </Card>
+        <Card id="documents" className="scroll-mt-24">
+          <CardHeader><CardTitle>Bills, vouchers and documents</CardTitle></CardHeader>
+          <CardContent className="text-sm leading-6 text-ink-500">
+            Use the <strong>Docs</strong> button on any expense row to upload and retrieve bills, invoices, AMC agreements, work orders, approvals, bank statements and receipts.
+          </CardContent>
+        </Card>
+        <Card id="payments" className="scroll-mt-24">
+          <CardHeader><CardTitle>Payments</CardTitle></CardHeader>
+          <CardContent className="text-sm leading-6 text-ink-500">
+            Approved expenses can receive full or partial payments using the <strong>Pay</strong> action. Payments are linked to the original expense and never create a second expense record.
+          </CardContent>
+        </Card>
+        <BankReconciliationPanel societyId={selectedSocietyId} canManage={canUpdate} />
+      </div>
+      </div>
 
       {attachmentExpense ? (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink-900/50 p-4" role="dialog" aria-modal="true" aria-label="Supporting documents">
