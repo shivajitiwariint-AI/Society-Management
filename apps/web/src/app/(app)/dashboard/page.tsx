@@ -156,7 +156,7 @@ export default async function DashboardPage() {
   const canViewCompanies = authorize(context, {
     moduleKey: 'company', resourceKey: 'profile', action: 'READ', platform: true,
   }).ok;
-  const [companyCount, activeCompany, societies, flats, enabledModules] = await Promise.all([
+  const [companyCount, activeCompany, societies, flats, enabledModules, enabledBusinessModules] = await Promise.all([
     canViewCompanies ? prisma.company.count() : Promise.resolve(null),
     companyId
       ? prisma.company.findUnique({ where: { id: companyId }, select: { name: true } })
@@ -165,6 +165,9 @@ export default async function DashboardPage() {
     companyId ? prisma.flat.count({ where: { companyId } }) : Promise.resolve(0),
     companyId
       ? prisma.companyModule.count({ where: { companyId, isEnabled: true } })
+      : Promise.resolve(0),
+    companyId
+      ? prisma.companyModule.count({ where: { companyId, isEnabled: true, module: { isCore: false } } })
       : Promise.resolve(0),
   ]);
 
@@ -210,7 +213,7 @@ export default async function DashboardPage() {
   const setupSteps = [
     { label: 'Add your first society', done: societies > 0 },
     { label: 'Create flats and units', done: flats > 0 },
-    { label: 'Enable business modules', done: enabledModules > 0 },
+    { label: 'Enable business modules', done: enabledBusinessModules > 0 },
   ];
   const completedSteps = setupSteps.filter((step) => step.done).length;
   const progress = Math.round((completedSteps / setupSteps.length) * 100);
