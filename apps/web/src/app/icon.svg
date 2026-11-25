@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Society Management">
+  <defs>
+    <linearGradient id="brand" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4f46e5" />
+      <stop offset="0.5" stop-color="#7c3aed" />
+      <stop offset="1" stop-color="#db2777" />
+    </linearGradient>
+    <linearGradient id="sheen" x1="32" y1="0" x2="32" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.28" />
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#brand)" />
+  <rect width="64" height="40" rx="16" fill="url(#sheen)" />
+  <g fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14 30 32 16l18 14v19" stroke-width="3.4" opacity="0.95" />
+    <path d="M25 49V37a7 7 0 0 1 14 0v12" fill="#ffffff" stroke="none" opacity="0.94" />
+    <circle cx="32" cy="27.5" r="2.5" fill="#ffffff" stroke="none" />
+    <path d="M11 49h42" stroke-width="3.4" opacity="0.55" />
+  </g>
+  <rect x="6" y="6" width="52" height="52" rx="13" fill="none" stroke="#ffffff" stroke-opacity="0.18" stroke-width="1.5" />
+</svg>

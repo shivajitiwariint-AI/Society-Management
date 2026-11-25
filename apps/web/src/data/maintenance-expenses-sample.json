@@ -1,0 +1,5378 @@
+[
+  {
+    "month": "2022-04-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202204-01",
+    "amount": "17100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-04-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202204-02",
+    "amount": "4400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-04-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202204-03",
+    "amount": "12300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-04-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202204-04",
+    "amount": "8100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-04-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202204-05",
+    "amount": "24700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-04-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202204-06",
+    "amount": "35800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-04-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202204-07",
+    "amount": "8600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-04-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202204-08",
+    "amount": "6400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-04-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202204-09",
+    "amount": "2600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-04-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202204-10",
+    "amount": "4800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-04-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202204-11",
+    "amount": "1800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-04-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202204-12",
+    "amount": "3100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-05-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202205-01",
+    "amount": "18600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-05-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202205-02",
+    "amount": "4300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-05-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202205-03",
+    "amount": "12000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-05-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202205-04",
+    "amount": "8800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-05-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202205-05",
+    "amount": "24100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-05-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202205-06",
+    "amount": "35000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-05-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202205-07",
+    "amount": "9300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-05-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202205-08",
+    "amount": "6300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-05-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202205-09",
+    "amount": "2500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-05-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202205-10",
+    "amount": "5200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-05-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202205-11",
+    "amount": "1700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-05-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202205-12",
+    "amount": "3000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-06-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202206-01",
+    "amount": "18200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-06-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202206-02",
+    "amount": "4700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-06-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202206-03",
+    "amount": "11700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-06-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202206-04",
+    "amount": "8600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-06-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202206-05",
+    "amount": "26200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-06-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202206-06",
+    "amount": "34200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-06-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202206-07",
+    "amount": "9100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-06-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202206-08",
+    "amount": "6800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-06-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202206-09",
+    "amount": "2400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-06-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202206-10",
+    "amount": "5100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-06-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202206-11",
+    "amount": "1900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-06-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202206-12",
+    "amount": "2900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-07-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202207-01",
+    "amount": "17800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-07-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202207-02",
+    "amount": "4600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-07-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202207-03",
+    "amount": "11400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-07-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202207-04",
+    "amount": "8400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-07-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202207-05",
+    "amount": "25600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-07-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202207-06",
+    "amount": "33300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-07-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202207-07",
+    "amount": "8900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-07-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202207-08",
+    "amount": "6700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-07-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202207-09",
+    "amount": "2400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-07-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202207-10",
+    "amount": "4900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-07-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202207-11",
+    "amount": "1800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-07-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202207-12",
+    "amount": "2900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-08-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202208-01",
+    "amount": "17400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-08-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202208-02",
+    "amount": "4500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-08-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202208-03",
+    "amount": "12400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-08-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202208-04",
+    "amount": "8200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-08-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202208-05",
+    "amount": "25000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-08-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202208-06",
+    "amount": "36300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-08-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202208-07",
+    "amount": "8700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-08-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202208-08",
+    "amount": "6500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-08-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202208-09",
+    "amount": "2600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-08-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202208-10",
+    "amount": "4800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-08-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202208-11",
+    "amount": "1800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-08-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202208-12",
+    "amount": "3100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-09-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202209-01",
+    "amount": "18900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-09-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202209-02",
+    "amount": "4400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-09-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202209-03",
+    "amount": "12100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-09-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202209-04",
+    "amount": "8900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-09-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202209-05",
+    "amount": "24400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-09-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202209-06",
+    "amount": "35400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-09-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202209-07",
+    "amount": "9400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-09-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202209-08",
+    "amount": "6300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-09-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202209-09",
+    "amount": "2500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-09-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202209-10",
+    "amount": "5200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-09-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202209-11",
+    "amount": "1800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-09-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202209-12",
+    "amount": "3000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-10-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202210-01",
+    "amount": "18400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-10-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202210-02",
+    "amount": "4300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-10-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202210-03",
+    "amount": "11900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-10-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202210-04",
+    "amount": "8700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-10-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202210-05",
+    "amount": "23800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-10-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202210-06",
+    "amount": "34600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-10-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202210-07",
+    "amount": "9200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-10-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202210-08",
+    "amount": "6200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-10-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202210-09",
+    "amount": "2500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-10-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202210-10",
+    "amount": "5100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-10-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202210-11",
+    "amount": "1700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-10-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202210-12",
+    "amount": "3000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-11-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202211-01",
+    "amount": "18000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-11-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202211-02",
+    "amount": "4700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-11-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202211-03",
+    "amount": "11600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-11-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202211-04",
+    "amount": "8500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-11-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202211-05",
+    "amount": "25900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-11-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202211-06",
+    "amount": "33700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-11-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202211-07",
+    "amount": "9000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-11-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202211-08",
+    "amount": "6700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-11-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202211-09",
+    "amount": "2400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-11-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202211-10",
+    "amount": "5000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-11-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202211-11",
+    "amount": "1900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-11-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202211-12",
+    "amount": "2900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-12-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202212-01",
+    "amount": "17600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-12-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202212-02",
+    "amount": "4600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-12-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202212-03",
+    "amount": "12600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-12-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202212-04",
+    "amount": "8300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-12-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202212-05",
+    "amount": "25300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-12-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202212-06",
+    "amount": "36700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-12-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202212-07",
+    "amount": "8800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-12-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202212-08",
+    "amount": "6600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-12-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202212-09",
+    "amount": "2600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-12-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202212-10",
+    "amount": "4900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-12-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202212-11",
+    "amount": "1800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2022-12-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202212-12",
+    "amount": "3100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-01-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202301-01",
+    "amount": "17900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-01-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202301-02",
+    "amount": "4600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-01-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202301-03",
+    "amount": "12800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-01-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202301-04",
+    "amount": "8500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-01-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202301-05",
+    "amount": "25800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-01-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202301-06",
+    "amount": "37500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-01-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202301-07",
+    "amount": "9000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-01-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202301-08",
+    "amount": "6700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-01-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202301-09",
+    "amount": "2700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-01-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202301-10",
+    "amount": "5000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-01-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202301-11",
+    "amount": "1900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-01-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202301-12",
+    "amount": "3200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-02-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202302-01",
+    "amount": "19500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-02-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202302-02",
+    "amount": "4500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-02-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202302-03",
+    "amount": "12500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-02-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202302-04",
+    "amount": "9200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-02-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202302-05",
+    "amount": "25200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-02-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202302-06",
+    "amount": "36600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-02-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202302-07",
+    "amount": "9700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-02-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202302-08",
+    "amount": "6500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-02-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202302-09",
+    "amount": "2600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-02-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202302-10",
+    "amount": "5400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-02-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202302-11",
+    "amount": "1800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-02-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202302-12",
+    "amount": "3100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-03-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202303-01",
+    "amount": "19000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-03-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202303-02",
+    "amount": "4900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-03-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202303-03",
+    "amount": "12200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-03-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202303-04",
+    "amount": "9000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-03-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202303-05",
+    "amount": "27400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-03-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202303-06",
+    "amount": "35700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-03-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202303-07",
+    "amount": "9500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-03-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202303-08",
+    "amount": "7100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-03-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202303-09",
+    "amount": "2500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-03-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202303-10",
+    "amount": "5300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-03-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202303-11",
+    "amount": "2000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-03-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202303-12",
+    "amount": "3100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-04-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202304-01",
+    "amount": "18600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-04-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202304-02",
+    "amount": "4800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-04-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202304-03",
+    "amount": "11900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-04-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202304-04",
+    "amount": "8800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-04-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202304-05",
+    "amount": "26800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-04-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202304-06",
+    "amount": "34800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-04-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202304-07",
+    "amount": "9300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-04-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202304-08",
+    "amount": "7000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-04-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202304-09",
+    "amount": "2500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-04-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202304-10",
+    "amount": "5200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-04-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202304-11",
+    "amount": "1900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-04-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202304-12",
+    "amount": "3000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-05-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202305-01",
+    "amount": "18100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-05-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202305-02",
+    "amount": "4700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-05-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202305-03",
+    "amount": "13000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-05-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202305-04",
+    "amount": "8600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-05-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202305-05",
+    "amount": "26100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-05-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202305-06",
+    "amount": "37900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-05-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202305-07",
+    "amount": "9100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-05-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202305-08",
+    "amount": "6800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-05-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202305-09",
+    "amount": "2700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-05-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202305-10",
+    "amount": "5000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-05-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202305-11",
+    "amount": "1900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-05-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202305-12",
+    "amount": "3200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-06-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202306-01",
+    "amount": "19700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-06-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202306-02",
+    "amount": "4600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-06-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202306-03",
+    "amount": "12700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-06-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202306-04",
+    "amount": "9300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-06-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202306-05",
+    "amount": "25500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-06-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202306-06",
+    "amount": "37000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-06-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202306-07",
+    "amount": "9900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-06-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202306-08",
+    "amount": "6600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-06-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202306-09",
+    "amount": "2600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-06-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202306-10",
+    "amount": "5500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-06-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202306-11",
+    "amount": "1800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-06-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202306-12",
+    "amount": "3200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-07-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202307-01",
+    "amount": "19300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-07-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202307-02",
+    "amount": "4500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-07-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202307-03",
+    "amount": "12400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-07-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202307-04",
+    "amount": "9100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-07-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202307-05",
+    "amount": "24900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-07-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202307-06",
+    "amount": "36100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-07-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202307-07",
+    "amount": "9600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-07-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202307-08",
+    "amount": "6500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-07-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202307-09",
+    "amount": "2600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-07-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202307-10",
+    "amount": "5400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-07-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202307-11",
+    "amount": "1800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-07-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202307-12",
+    "amount": "3100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-08-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202308-01",
+    "amount": "18800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-08-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202308-02",
+    "amount": "4900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-08-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202308-03",
+    "amount": "12100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-08-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202308-04",
+    "amount": "8900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-08-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202308-05",
+    "amount": "27100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-08-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202308-06",
+    "amount": "35300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-08-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202308-07",
+    "amount": "9400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-08-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202308-08",
+    "amount": "7000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-08-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202308-09",
+    "amount": "2500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-08-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202308-10",
+    "amount": "5200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-08-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202308-11",
+    "amount": "1900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-08-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202308-12",
+    "amount": "3000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-09-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202309-01",
+    "amount": "18400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-09-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202309-02",
+    "amount": "4800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-09-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202309-03",
+    "amount": "13100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-09-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202309-04",
+    "amount": "8700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-09-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202309-05",
+    "amount": "26400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-09-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202309-06",
+    "amount": "38300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-09-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202309-07",
+    "amount": "9200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-09-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202309-08",
+    "amount": "6900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-09-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202309-09",
+    "amount": "2700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-09-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202309-10",
+    "amount": "5100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-09-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202309-11",
+    "amount": "1900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-09-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202309-12",
+    "amount": "3300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-10-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202310-01",
+    "amount": "17900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-10-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202310-02",
+    "amount": "4600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-10-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202310-03",
+    "amount": "12800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-10-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202310-04",
+    "amount": "8500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-10-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202310-05",
+    "amount": "25800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-10-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202310-06",
+    "amount": "37500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-10-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202310-07",
+    "amount": "9000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-10-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202310-08",
+    "amount": "6700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-10-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202310-09",
+    "amount": "2700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-10-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202310-10",
+    "amount": "5000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-10-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202310-11",
+    "amount": "1900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-10-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202310-12",
+    "amount": "3200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-11-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202311-01",
+    "amount": "19500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-11-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202311-02",
+    "amount": "4500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-11-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202311-03",
+    "amount": "12500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-11-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202311-04",
+    "amount": "9200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-11-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202311-05",
+    "amount": "25200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-11-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202311-06",
+    "amount": "36600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-11-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202311-07",
+    "amount": "9700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-11-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202311-08",
+    "amount": "6500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-11-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202311-09",
+    "amount": "2600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-11-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202311-10",
+    "amount": "5400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-11-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202311-11",
+    "amount": "1800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-11-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202311-12",
+    "amount": "3100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-12-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202312-01",
+    "amount": "19000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-12-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202312-02",
+    "amount": "4900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-12-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202312-03",
+    "amount": "12200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-12-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202312-04",
+    "amount": "9000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-12-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202312-05",
+    "amount": "27400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-12-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202312-06",
+    "amount": "35700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-12-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202312-07",
+    "amount": "9500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-12-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202312-08",
+    "amount": "7100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-12-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202312-09",
+    "amount": "2500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-12-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202312-10",
+    "amount": "5300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-12-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202312-11",
+    "amount": "2000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2023-12-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202312-12",
+    "amount": "3100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-01-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202401-01",
+    "amount": "19400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-01-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202401-02",
+    "amount": "5000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-01-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202401-03",
+    "amount": "12500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-01-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202401-04",
+    "amount": "9200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-01-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202401-05",
+    "amount": "27900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-01-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202401-06",
+    "amount": "36300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-01-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202401-07",
+    "amount": "9700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-01-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202401-08",
+    "amount": "7300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-01-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202401-09",
+    "amount": "2600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-01-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202401-10",
+    "amount": "5400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-01-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202401-11",
+    "amount": "2000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-01-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202401-12",
+    "amount": "3100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-02-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202402-01",
+    "amount": "18900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-02-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202402-02",
+    "amount": "4900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-02-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202402-03",
+    "amount": "13600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-02-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202402-04",
+    "amount": "8900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-02-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202402-05",
+    "amount": "27300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-02-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202402-06",
+    "amount": "39500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-02-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202402-07",
+    "amount": "9500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-02-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202402-08",
+    "amount": "7100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-02-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202402-09",
+    "amount": "2800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-02-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202402-10",
+    "amount": "5300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-02-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202402-11",
+    "amount": "2000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-02-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202402-12",
+    "amount": "3400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-03-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202403-01",
+    "amount": "20600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-03-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202403-02",
+    "amount": "4800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-03-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202403-03",
+    "amount": "13200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-03-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202403-04",
+    "amount": "9700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-03-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202403-05",
+    "amount": "26600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-03-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202403-06",
+    "amount": "38600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-03-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202403-07",
+    "amount": "10300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-03-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202403-08",
+    "amount": "6900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-03-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202403-09",
+    "amount": "2800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-03-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202403-10",
+    "amount": "5700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-03-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202403-11",
+    "amount": "1900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-03-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202403-12",
+    "amount": "3300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-04-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202404-01",
+    "amount": "20100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-04-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202404-02",
+    "amount": "4700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-04-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202404-03",
+    "amount": "12900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-04-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202404-04",
+    "amount": "9500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-04-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202404-05",
+    "amount": "25900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-04-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202404-06",
+    "amount": "37700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-04-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202404-07",
+    "amount": "10000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-04-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202404-08",
+    "amount": "6700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-04-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202404-09",
+    "amount": "2700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-04-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202404-10",
+    "amount": "5600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-04-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202404-11",
+    "amount": "1900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-04-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202404-12",
+    "amount": "3200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-05-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202405-01",
+    "amount": "19600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-05-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202405-02",
+    "amount": "5100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-05-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202405-03",
+    "amount": "12600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-05-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202405-04",
+    "amount": "9300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-05-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202405-05",
+    "amount": "28200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-05-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202405-06",
+    "amount": "36800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-05-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202405-07",
+    "amount": "9800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-05-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202405-08",
+    "amount": "7300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-05-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202405-09",
+    "amount": "2600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-05-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202405-10",
+    "amount": "5400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-05-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202405-11",
+    "amount": "2000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-05-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202405-12",
+    "amount": "3200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-06-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202406-01",
+    "amount": "19100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-06-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202406-02",
+    "amount": "5000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-06-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202406-03",
+    "amount": "13700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-06-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202406-04",
+    "amount": "9000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-06-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202406-05",
+    "amount": "27600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-06-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202406-06",
+    "amount": "40000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-06-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202406-07",
+    "amount": "9600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-06-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202406-08",
+    "amount": "7200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-06-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202406-09",
+    "amount": "2900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-06-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202406-10",
+    "amount": "5300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-06-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202406-11",
+    "amount": "2000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-06-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202406-12",
+    "amount": "3400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-07-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202407-01",
+    "amount": "18700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-07-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202407-02",
+    "amount": "4800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-07-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202407-03",
+    "amount": "13400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-07-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202407-04",
+    "amount": "8800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-07-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202407-05",
+    "amount": "26900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-07-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202407-06",
+    "amount": "39100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-07-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202407-07",
+    "amount": "9300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-07-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202407-08",
+    "amount": "7000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-07-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202407-09",
+    "amount": "2800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-07-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202407-10",
+    "amount": "5200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-07-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202407-11",
+    "amount": "1900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-07-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202407-12",
+    "amount": "3300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-08-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202408-01",
+    "amount": "20300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-08-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202408-02",
+    "amount": "4700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-08-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202408-03",
+    "amount": "13100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-08-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202408-04",
+    "amount": "9600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-08-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202408-05",
+    "amount": "26300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-08-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202408-06",
+    "amount": "38200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-08-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202408-07",
+    "amount": "10200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-08-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202408-08",
+    "amount": "6800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-08-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202408-09",
+    "amount": "2700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-08-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202408-10",
+    "amount": "5600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-08-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202408-11",
+    "amount": "1900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-08-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202408-12",
+    "amount": "3300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-09-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202409-01",
+    "amount": "19900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-09-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202409-02",
+    "amount": "5100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-09-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202409-03",
+    "amount": "12800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-09-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202409-04",
+    "amount": "9400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-09-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202409-05",
+    "amount": "28600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-09-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202409-06",
+    "amount": "37200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-09-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202409-07",
+    "amount": "9900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-09-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202409-08",
+    "amount": "7400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-09-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202409-09",
+    "amount": "2700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-09-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202409-10",
+    "amount": "5500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-09-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202409-11",
+    "amount": "2100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-09-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202409-12",
+    "amount": "3200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-10-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202410-01",
+    "amount": "19400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-10-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202410-02",
+    "amount": "5000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-10-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202410-03",
+    "amount": "12500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-10-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202410-04",
+    "amount": "9200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-10-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202410-05",
+    "amount": "27900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-10-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202410-06",
+    "amount": "36300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-10-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202410-07",
+    "amount": "9700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-10-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202410-08",
+    "amount": "7300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-10-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202410-09",
+    "amount": "2600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-10-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202410-10",
+    "amount": "5400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-10-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202410-11",
+    "amount": "2000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-10-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202410-12",
+    "amount": "3100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-11-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202411-01",
+    "amount": "18900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-11-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202411-02",
+    "amount": "4900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-11-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202411-03",
+    "amount": "13600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-11-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202411-04",
+    "amount": "8900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-11-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202411-05",
+    "amount": "27300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-11-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202411-06",
+    "amount": "39500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-11-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202411-07",
+    "amount": "9500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-11-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202411-08",
+    "amount": "7100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-11-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202411-09",
+    "amount": "2800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-11-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202411-10",
+    "amount": "5300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-11-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202411-11",
+    "amount": "2000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-11-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202411-12",
+    "amount": "3400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-12-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202412-01",
+    "amount": "20600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-12-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202412-02",
+    "amount": "4800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-12-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202412-03",
+    "amount": "13200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-12-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202412-04",
+    "amount": "9700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-12-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202412-05",
+    "amount": "26600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-12-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202412-06",
+    "amount": "38600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-12-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202412-07",
+    "amount": "10300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-12-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202412-08",
+    "amount": "6900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-12-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202412-09",
+    "amount": "2800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-12-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202412-10",
+    "amount": "5700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-12-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202412-11",
+    "amount": "1900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2024-12-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202412-12",
+    "amount": "3300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-01-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202501-01",
+    "amount": "20900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-01-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202501-02",
+    "amount": "4900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-01-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202501-03",
+    "amount": "13500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-01-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202501-04",
+    "amount": "9900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-01-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202501-05",
+    "amount": "27000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-01-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202501-06",
+    "amount": "39200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-01-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202501-07",
+    "amount": "10500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-01-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202501-08",
+    "amount": "7000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-01-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202501-09",
+    "amount": "2800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-01-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202501-10",
+    "amount": "5800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-01-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202501-11",
+    "amount": "1900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-01-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202501-12",
+    "amount": "3400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-02-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202502-01",
+    "amount": "20400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-02-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202502-02",
+    "amount": "5300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-02-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202502-03",
+    "amount": "13100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-02-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202502-04",
+    "amount": "9600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-02-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202502-05",
+    "amount": "29400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-02-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202502-06",
+    "amount": "38300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-02-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202502-07",
+    "amount": "10200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-02-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202502-08",
+    "amount": "7600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-02-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202502-09",
+    "amount": "2700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-02-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202502-10",
+    "amount": "5700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-02-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202502-11",
+    "amount": "2100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-02-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202502-12",
+    "amount": "3300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-03-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202503-01",
+    "amount": "19900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-03-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202503-02",
+    "amount": "5200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-03-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202503-03",
+    "amount": "14300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-03-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202503-04",
+    "amount": "9400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-03-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202503-05",
+    "amount": "28700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-03-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202503-06",
+    "amount": "41600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-03-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202503-07",
+    "amount": "10000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-03-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202503-08",
+    "amount": "7500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-03-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202503-09",
+    "amount": "3000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-03-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202503-10",
+    "amount": "5500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-03-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202503-11",
+    "amount": "2100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-03-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202503-12",
+    "amount": "3600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-04-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202504-01",
+    "amount": "19400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-04-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202504-02",
+    "amount": "5000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-04-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202504-03",
+    "amount": "13900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-04-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202504-04",
+    "amount": "9200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-04-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202504-05",
+    "amount": "28000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-04-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202504-06",
+    "amount": "40700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-04-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202504-07",
+    "amount": "9700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-04-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202504-08",
+    "amount": "7300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-04-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202504-09",
+    "amount": "2900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-04-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202504-10",
+    "amount": "5400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-04-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202504-11",
+    "amount": "2000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-04-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202504-12",
+    "amount": "3500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-05-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202505-01",
+    "amount": "21200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-05-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202505-02",
+    "amount": "4900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-05-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202505-03",
+    "amount": "13600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-05-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202505-04",
+    "amount": "10000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-05-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202505-05",
+    "amount": "27400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-05-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202505-06",
+    "amount": "39700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-05-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202505-07",
+    "amount": "10600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-05-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202505-08",
+    "amount": "7100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-05-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202505-09",
+    "amount": "2800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-05-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202505-10",
+    "amount": "5900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-05-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202505-11",
+    "amount": "2000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-05-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202505-12",
+    "amount": "3400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-06-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202506-01",
+    "amount": "20700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-06-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202506-02",
+    "amount": "5400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-06-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202506-03",
+    "amount": "13300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-06-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202506-04",
+    "amount": "9800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-06-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202506-05",
+    "amount": "29700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-06-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202506-06",
+    "amount": "38800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-06-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202506-07",
+    "amount": "10300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-06-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202506-08",
+    "amount": "7700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-06-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202506-09",
+    "amount": "2800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-06-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202506-10",
+    "amount": "5700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-06-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202506-11",
+    "amount": "2100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-06-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202506-12",
+    "amount": "3300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-07-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202507-01",
+    "amount": "20200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-07-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202507-02",
+    "amount": "5200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-07-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202507-03",
+    "amount": "13000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-07-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202507-04",
+    "amount": "9500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-07-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202507-05",
+    "amount": "29100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-07-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202507-06",
+    "amount": "37800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-07-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202507-07",
+    "amount": "10100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-07-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202507-08",
+    "amount": "7600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-07-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202507-09",
+    "amount": "2700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-07-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202507-10",
+    "amount": "5600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-07-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202507-11",
+    "amount": "2100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-07-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202507-12",
+    "amount": "3200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-08-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202508-01",
+    "amount": "19700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-08-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202508-02",
+    "amount": "5100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-08-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202508-03",
+    "amount": "14100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-08-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202508-04",
+    "amount": "9300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-08-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202508-05",
+    "amount": "28400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-08-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202508-06",
+    "amount": "41200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-08-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202508-07",
+    "amount": "9800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-08-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202508-08",
+    "amount": "7400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-08-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202508-09",
+    "amount": "2900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-08-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202508-10",
+    "amount": "5500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-08-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202508-11",
+    "amount": "2000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-08-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202508-12",
+    "amount": "3500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-09-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202509-01",
+    "amount": "21400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-09-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202509-02",
+    "amount": "5000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-09-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202509-03",
+    "amount": "13800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-09-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202509-04",
+    "amount": "10100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-09-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202509-05",
+    "amount": "27700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-09-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202509-06",
+    "amount": "40200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-09-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202509-07",
+    "amount": "10700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-09-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202509-08",
+    "amount": "7200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-09-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202509-09",
+    "amount": "2900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-09-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202509-10",
+    "amount": "5900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-09-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202509-11",
+    "amount": "2000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-09-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202509-12",
+    "amount": "3400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-10-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202510-01",
+    "amount": "20900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-10-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202510-02",
+    "amount": "4900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-10-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202510-03",
+    "amount": "13500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-10-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202510-04",
+    "amount": "9900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-10-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202510-05",
+    "amount": "27000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-10-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202510-06",
+    "amount": "39200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-10-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202510-07",
+    "amount": "10500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-10-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202510-08",
+    "amount": "7000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-10-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202510-09",
+    "amount": "2800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-10-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202510-10",
+    "amount": "5800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-10-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202510-11",
+    "amount": "1900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-10-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202510-12",
+    "amount": "3400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-11-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202511-01",
+    "amount": "20400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-11-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202511-02",
+    "amount": "5300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-11-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202511-03",
+    "amount": "13100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-11-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202511-04",
+    "amount": "9600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-11-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202511-05",
+    "amount": "29400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-11-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202511-06",
+    "amount": "38300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-11-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202511-07",
+    "amount": "10200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-11-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202511-08",
+    "amount": "7600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-11-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202511-09",
+    "amount": "2700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-11-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202511-10",
+    "amount": "5700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-11-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202511-11",
+    "amount": "2100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-11-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202511-12",
+    "amount": "3300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-12-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202512-01",
+    "amount": "19900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-12-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202512-02",
+    "amount": "5200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-12-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202512-03",
+    "amount": "14300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-12-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202512-04",
+    "amount": "9400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-12-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202512-05",
+    "amount": "28700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-12-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202512-06",
+    "amount": "41600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-12-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202512-07",
+    "amount": "10000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-12-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202512-08",
+    "amount": "7500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-12-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202512-09",
+    "amount": "3000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-12-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202512-10",
+    "amount": "5500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-12-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202512-11",
+    "amount": "2100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2025-12-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202512-12",
+    "amount": "3600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-01-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202601-01",
+    "amount": "20200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-01-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202601-02",
+    "amount": "5200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-01-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202601-03",
+    "amount": "14500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-01-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202601-04",
+    "amount": "9500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-01-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202601-05",
+    "amount": "29100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-01-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202601-06",
+    "amount": "42300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-01-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202601-07",
+    "amount": "10100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-01-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202601-08",
+    "amount": "7600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-01-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202601-09",
+    "amount": "3000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-01-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202601-10",
+    "amount": "5600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-01-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202601-11",
+    "amount": "2100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-01-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202601-12",
+    "amount": "3600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-02-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202602-01",
+    "amount": "22000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-02-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202602-02",
+    "amount": "5100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-02-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202602-03",
+    "amount": "14200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-02-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202602-04",
+    "amount": "10400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-02-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202602-05",
+    "amount": "28400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-02-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202602-06",
+    "amount": "41300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-02-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202602-07",
+    "amount": "11000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-02-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202602-08",
+    "amount": "7400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-02-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202602-09",
+    "amount": "3000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-02-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202602-10",
+    "amount": "6100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-02-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202602-11",
+    "amount": "2000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-02-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202602-12",
+    "amount": "3500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-03-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202603-01",
+    "amount": "21500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-03-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202603-02",
+    "amount": "5600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-03-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202603-03",
+    "amount": "13800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-03-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202603-04",
+    "amount": "10200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-03-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202603-05",
+    "amount": "30900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-03-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202603-06",
+    "amount": "40300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-03-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202603-07",
+    "amount": "10700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-03-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202603-08",
+    "amount": "8000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-03-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202603-09",
+    "amount": "2900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-03-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202603-10",
+    "amount": "6000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-03-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202603-11",
+    "amount": "2200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-03-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202603-12",
+    "amount": "3500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-04-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202604-01",
+    "amount": "21000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-04-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202604-02",
+    "amount": "5400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-04-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202604-03",
+    "amount": "13500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-04-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202604-04",
+    "amount": "9900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-04-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202604-05",
+    "amount": "30200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-04-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202604-06",
+    "amount": "39300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-04-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202604-07",
+    "amount": "10500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-04-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202604-08",
+    "amount": "7900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-04-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202604-09",
+    "amount": "2800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-04-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202604-10",
+    "amount": "5800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-04-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202604-11",
+    "amount": "2200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-04-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202604-12",
+    "amount": "3400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-05-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202605-01",
+    "amount": "20500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-05-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202605-02",
+    "amount": "5300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-05-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202605-03",
+    "amount": "14700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-05-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202605-04",
+    "amount": "9700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-05-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202605-05",
+    "amount": "29500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-05-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202605-06",
+    "amount": "42800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-05-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202605-07",
+    "amount": "10200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-05-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202605-08",
+    "amount": "7700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-05-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202605-09",
+    "amount": "3100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-05-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202605-10",
+    "amount": "5700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-05-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202605-11",
+    "amount": "2100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-05-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202605-12",
+    "amount": "3700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-06-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202606-01",
+    "amount": "22300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-06-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202606-02",
+    "amount": "5200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-06-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202606-03",
+    "amount": "14300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-06-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202606-04",
+    "amount": "10500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-06-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202606-05",
+    "amount": "28800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-06-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202606-06",
+    "amount": "41800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-06-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202606-07",
+    "amount": "11100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-06-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202606-08",
+    "amount": "7500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-06-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202606-09",
+    "amount": "3000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-06-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202606-10",
+    "amount": "6200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-06-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202606-11",
+    "amount": "2100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-06-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202606-12",
+    "amount": "3600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-07-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202607-01",
+    "amount": "21700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-07-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202607-02",
+    "amount": "5100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-07-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202607-03",
+    "amount": "14000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-07-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202607-04",
+    "amount": "10300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-07-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202607-05",
+    "amount": "28100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-07-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202607-06",
+    "amount": "40800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-07-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202607-07",
+    "amount": "10900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-07-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202607-08",
+    "amount": "7300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-07-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202607-09",
+    "amount": "2900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-07-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202607-10",
+    "amount": "6000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-07-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202607-11",
+    "amount": "2000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-07-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202607-12",
+    "amount": "3500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-08-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202608-01",
+    "amount": "21200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-08-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202608-02",
+    "amount": "5500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-08-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202608-03",
+    "amount": "13700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-08-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202608-04",
+    "amount": "10000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-08-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202608-05",
+    "amount": "30600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-08-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202608-06",
+    "amount": "39800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-08-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202608-07",
+    "amount": "10600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-08-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202608-08",
+    "amount": "7900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-08-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202608-09",
+    "amount": "2800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-08-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202608-10",
+    "amount": "5900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-08-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202608-11",
+    "amount": "2200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-08-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202608-12",
+    "amount": "3400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-09-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202609-01",
+    "amount": "20700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-09-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202609-02",
+    "amount": "5400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-09-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202609-03",
+    "amount": "14800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-09-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202609-04",
+    "amount": "9800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-09-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202609-05",
+    "amount": "29900.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-09-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202609-06",
+    "amount": "43300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-09-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202609-07",
+    "amount": "10400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-09-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202609-08",
+    "amount": "7800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-09-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202609-09",
+    "amount": "3100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-09-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202609-10",
+    "amount": "5800.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-09-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202609-11",
+    "amount": "2100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-09-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202609-12",
+    "amount": "3700.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-10-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202610-01",
+    "amount": "20200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-10-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202610-02",
+    "amount": "5200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-10-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202610-03",
+    "amount": "14500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-10-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202610-04",
+    "amount": "9500.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-10-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202610-05",
+    "amount": "29100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-10-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202610-06",
+    "amount": "42300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-10-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202610-07",
+    "amount": "10100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-10-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202610-08",
+    "amount": "7600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-10-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202610-09",
+    "amount": "3000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-10-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202610-10",
+    "amount": "5600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-10-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202610-11",
+    "amount": "2100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-10-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202610-12",
+    "amount": "3600.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-11-01",
+    "category": "Common Area Electricity",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202611-01",
+    "amount": "22000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-11-01",
+    "category": "Plumbing & Sanitary Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202611-02",
+    "amount": "5100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-11-01",
+    "category": "Lift Maintenance / AMC",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202611-03",
+    "amount": "14200.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-11-01",
+    "category": "Garbage Collection",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202611-04",
+    "amount": "10400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-11-01",
+    "category": "Housekeeping",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202611-05",
+    "amount": "28400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-11-01",
+    "category": "Security Services",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202611-06",
+    "amount": "41300.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-11-01",
+    "category": "Water / STP / Pump Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202611-07",
+    "amount": "11000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-11-01",
+    "category": "DG / Generator Maintenance",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202611-08",
+    "amount": "7400.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-11-01",
+    "category": "Fire Safety & Equipment",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202611-09",
+    "amount": "3000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-11-01",
+    "category": "Common Area Repairs",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202611-10",
+    "amount": "6100.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-11-01",
+    "category": "Pest Control",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202611-11",
+    "amount": "2000.00",
+    "remarks": "Illustrative only"
+  },
+  {
+    "month": "2026-11-01",
+    "category": "Miscellaneous Society Expenses",
+    "vendorPayee": "Sample Vendor",
+    "voucherRef": "SAMPLE-202611-12",
+    "amount": "3500.00",
+    "remarks": "Illustrative only"
+  }
+]

@@ -1,0 +1,55 @@
+{
+  "name": "society-management",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Multi-company Society Management SaaS (Next.js, TypeScript, Prisma, local MySQL)",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace @society/web",
+    "build": "npm run build --workspace @society/web",
+    "start": "npm run start --workspace @society/web",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "prisma:generate": "npm run generate --workspace @society/database",
+    "prisma:migrate": "npm run migrate:dev --workspace @society/database",
+    "prisma:deploy": "npm run migrate:deploy --workspace @society/database",
+    "db:seed": "npm run seed --workspace @society/database",
+    "db:import:expenses": "npm run import:expenses --workspace @society/database"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.65.1",
+    "@types/node": "24.19.2",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "eslint": "9.39.5",
+    "eslint-config-next": "16.4.6",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3",
+    "vitest": "5.1.1"
+  },
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "allowScripts": {
+    "@prisma/engines@7.10.1": true,
+    "esbuild@0.28.2": true,
+    "prisma@7.10.1": true
+  },
+  "overrides": {
+    "@prisma/config": {
+      "effect": "3.22.5"
+    },
+    "@hookform/resolvers": {
+      "effect": "3.22.5"
+    }
+  },
+  "dependencies": {
+    "exceljs": "^4.4.0"
+  }
+}

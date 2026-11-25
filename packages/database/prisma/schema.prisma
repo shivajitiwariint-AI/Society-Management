@@ -1,0 +1,991 @@
+// Society Management SaaS -- core schema (phases 1-4).
+// Business-module tables are added in later phases as separate migrations.
+// SRS 13: UUID PKs, company_id on tenant tables, composite FKs, UTC timestamps.
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+enum CompanyStatus {
+  ACTIVE
+  SUSPENDED
+  ARCHIVED
+}
+
+enum UserStatus {
+  ACTIVE
+  INACTIVE
+  LOCKED
+}
+
+enum MembershipStatus {
+  ACTIVE
+  INVITED
+  SUSPENDED
+}
+
+enum RoleScope {
+  PLATFORM
+  COMPANY
+  SOCIETY
+}
+
+enum DataScope {
+  PLATFORM
+  COMPANY
+  SOCIETY
+  OWN
+  ASSIGNED
+}
+
+enum AccessMode {
+  FULL
+  READ_ONLY
+  DISABLED
+}
+
+enum AuditResult {
+  SUCCESS
+  FAILURE
+  DENIED
+}
+
+enum OccupancyStatus {
+  VACANT
+  OWNER_OCCUPIED
+  TENANT_OCCUPIED
+  UNDER_MAINTENANCE
+}
+
+enum ResidentType {
+  OWNER
+  TENANT
+  FAMILY
+}
+
+enum ResidentStatus {
+  ACTIVE
+  INACTIVE
+}
+
+enum DocumentVerificationStatus {
+  PENDING
+  VERIFIED
+  REJECTED
+}
+
+enum OwnershipStatus {
+  ACTIVE
+  TRANSFERRED
+  ENDED
+}
+
+enum TenancyStatus {
+  ACTIVE
+  ENDED
+  CANCELLED
+}
+
+enum FamilyRelationship {
+  SPOUSE
+  CHILD
+  PARENT
+  SIBLING
+  OTHER
+}
+
+enum VehicleType {
+  CAR
+  TWO_WHEELER
+  COMMERCIAL
+  OTHER
+}
+
+// ---------------- Platform & company ----------------
+
+model Company {
+  id            String        @id @default(uuid()) @db.Char(36)
+  name          String        @db.VarChar(200)
+  code          String        @unique @db.VarChar(40)
+  status        CompanyStatus @default(ACTIVE)
+  countryCode   String        @db.Char(2)
+  currencyCode  String        @db.Char(3)
+  timezone      String        @db.VarChar(64)
+  createdAt     DateTime      @default(now()) @db.DateTime(3)
+  updatedAt     DateTime      @updatedAt @db.DateTime(3)
+
+  settings      CompanySetting[]
+  modules       CompanyModule[]
+  featureLimits ModuleFeatureLimit[]
+  memberships   UserMembership[]
+  roles         Role[]
+  userRoles     UserRole[]
+  societies     Society[]
+  invitations   InvitationToken[]
+  auditLogs     AuditLog[]
+  securityEvents SecurityEvent[]
+  idempotencyRecords IdempotencyRecord[]
+  outboxEvents  OutboxEvent[]
+}
+
+model CompanySetting {
+  id        String   @id @default(uuid()) @db.Char(36)
+  companyId String   @db.Char(36)
+  company   Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  key       String   @db.VarChar(100)
+  value     Json
+  createdAt DateTime @default(now()) @db.DateTime(3)
+  updatedAt DateTime @updatedAt @db.DateTime(3)
+
+  @@unique([companyId, key])
+  @@index([companyId])
+}
+
+model Module {
+  id          String   @id @default(uuid()) @db.Char(36)
+  key         String   @unique @db.VarChar(80)
+  name        String   @db.VarChar(200)
+  description String?  @db.VarChar(500)
+  isCore      Boolean  @default(false)
+  isActive    Boolean  @default(true)
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now()) @db.DateTime(3)
+  updatedAt   DateTime @updatedAt @db.DateTime(3)
+
+  dependencies ModuleDependency[] @relation("ModuleDependsOn")
+  dependents   ModuleDependency[] @relation("ModuleRequiredBy")
+  companies    CompanyModule[]
+  featureLimits ModuleFeatureLimit[]
+}
+
+model ModuleDependency {
+  id               String @id @default(uuid()) @db.Char(36)
+  moduleId         String @db.Char(36)
+  dependsOnModuleId String @db.Char(36)
+
+  module   Module @relation("ModuleDependsOn", fields: [moduleId], references: [id], onDelete: Cascade)
+  dependsOn Module @relation("ModuleRequiredBy", fields: [dependsOnModuleId], references: [id], onDelete: Restrict)
+
+  @@unique([moduleId, dependsOnModuleId])
+  @@index([dependsOnModuleId])
+}
+
+model CompanyModule {
+  id          String     @id @default(uuid()) @db.Char(36)
+  companyId   String     @db.Char(36)
+  moduleId    String     @db.Char(36)
+  isEnabled   Boolean    @default(false)
+  accessMode  AccessMode @default(DISABLED)
+  enabledAt   DateTime?  @db.DateTime(3)
+  disabledAt  DateTime?  @db.DateTime(3)
+  changedBy   String?    @db.Char(36)
+  reason      String?    @db.VarChar(500)
+  createdAt   DateTime   @default(now()) @db.DateTime(3)
+  updatedAt   DateTime   @updatedAt @db.DateTime(3)
+
+  company Company @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  module  Module  @relation(fields: [moduleId], references: [id], onDelete: Restrict)
+
+  @@unique([companyId, moduleId])
+  @@index([companyId, accessMode])
+}
+
+model ModuleFeatureLimit {
+  id              String  @id @default(uuid()) @db.Char(36)
+  companyId       String  @db.Char(36)
+  moduleId        String  @db.Char(36)
+  featureKey      String  @db.VarChar(100)
+  limitValue      Int?
+  configuration   Json?
+  createdAt       DateTime @default(now()) @db.DateTime(3)
+  updatedAt       DateTime @updatedAt @db.DateTime(3)
+
+  company Company @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  module  Module  @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+
+  @@unique([companyId, moduleId, featureKey])
+  @@index([companyId])
+}
+
+// ---------------- Identity & access ----------------
+
+model User {
+  id                  String    @id @default(uuid()) @db.Char(36)
+  email               String    @unique @db.VarChar(254)
+  name                String?   @db.VarChar(200)
+  phone               String?   @db.VarChar(20)
+  passwordHash        String    @db.VarChar(255)
+  status              UserStatus @default(ACTIVE)
+  mfaEnabled          Boolean   @default(false)
+  mfaSecretHash       String?   @db.VarChar(255)
+  failedLoginAttempts Int       @default(0)
+  lockedUntil         DateTime? @db.DateTime(3)
+  lastLoginAt         DateTime? @db.DateTime(3)
+  createdAt           DateTime  @default(now()) @db.DateTime(3)
+  updatedAt           DateTime  @updatedAt @db.DateTime(3)
+
+  sessions     Session[]
+  memberships  UserMembership[]
+  userRoles    UserRole[]
+  auditLogs    AuditLog[] @relation("AuditActor")
+  loginHistory LoginHistory[]
+  securityEvents SecurityEvent[]
+  residents      Resident[]
+}
+
+model Session {
+  id         String    @id @default(uuid()) @db.Char(36)
+  userId     String    @db.Char(36)
+  tokenHash  String    @unique @db.VarChar(64)
+  expiresAt  DateTime  @db.DateTime(3)
+  revokedAt  DateTime? @db.DateTime(3)
+  lastUsedAt DateTime  @default(now()) @db.DateTime(3)
+  activeCompanyId String? @db.Char(36)
+  activeSocietyId String? @db.Char(36)
+  ipAddress  String?   @db.VarChar(64)
+  userAgent  String?   @db.VarChar(512)
+  createdAt  DateTime  @default(now()) @db.DateTime(3)
+  updatedAt  DateTime  @updatedAt @db.DateTime(3)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+model UserMembership {
+  id        String           @id @default(uuid()) @db.Char(36)
+  userId    String           @db.Char(36)
+  companyId String           @db.Char(36)
+  societyId String?          @db.Char(36)
+  status    MembershipStatus @default(ACTIVE)
+  createdAt DateTime         @default(now()) @db.DateTime(3)
+  updatedAt DateTime         @updatedAt @db.DateTime(3)
+
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  company Company @relation(fields: [companyId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, companyId, societyId])
+  @@index([companyId, status])
+  @@index([societyId])
+}
+
+model Role {
+  id           String    @id @default(uuid()) @db.Char(36)
+  scopeType    RoleScope
+  companyId    String?   @db.Char(36)
+  societyId    String?   @db.Char(36)
+  scopeKey     String    @unique @db.VarChar(300)
+  key          String    @db.VarChar(100)
+  name         String    @db.VarChar(100)
+  description  String?   @db.VarChar(500)
+  isSystemRole Boolean   @default(false)
+  createdAt    DateTime  @default(now()) @db.DateTime(3)
+  updatedAt    DateTime  @updatedAt @db.DateTime(3)
+
+  company       Company?         @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  permissions   RolePermission[]
+  userRoles     UserRole[]
+  invitations   InvitationToken[]
+
+  @@index([companyId, scopeType])
+  @@index([societyId])
+}
+
+model Permission {
+  id          String   @id @default(uuid()) @db.Char(36)
+  key         String   @unique @db.VarChar(200)
+  moduleKey   String   @db.VarChar(80)
+  resourceKey String   @db.VarChar(80)
+  action      String   @db.VarChar(40)
+  description String?  @db.VarChar(500)
+  createdAt   DateTime @default(now()) @db.DateTime(3)
+
+  roles RolePermission[]
+
+  @@index([moduleKey, resourceKey])
+}
+
+model RolePermission {
+  id           String    @id @default(uuid()) @db.Char(36)
+  roleId       String    @db.Char(36)
+  permissionId String    @db.Char(36)
+  dataScope    DataScope @default(COMPANY)
+  createdAt    DateTime  @default(now()) @db.DateTime(3)
+
+  role       Role       @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  permission Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade)
+
+  @@unique([roleId, permissionId])
+  @@index([permissionId])
+}
+
+model UserRole {
+  id         String    @id @default(uuid()) @db.Char(36)
+  userId     String    @db.Char(36)
+  roleId     String    @db.Char(36)
+  companyId  String?   @db.Char(36)
+  societyId  String?   @db.Char(36)
+  assignedBy String?   @db.Char(36)
+  assignedAt DateTime  @default(now()) @db.DateTime(3)
+  expiresAt  DateTime? @db.DateTime(3)
+
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role    Role    @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  company Company? @relation(fields: [companyId], references: [id], onDelete: Cascade)
+
+  @@index([userId, companyId])
+  @@index([roleId])
+  @@index([expiresAt])
+}
+
+model InvitationToken {
+  id         String    @id @default(uuid()) @db.Char(36)
+  email      String    @db.VarChar(254)
+  companyId  String    @db.Char(36)
+  societyId  String?   @db.Char(36)
+  roleId     String?   @db.Char(36)
+  tokenHash  String    @unique @db.VarChar(64)
+  expiresAt  DateTime  @db.DateTime(3)
+  acceptedAt DateTime? @db.DateTime(3)
+  revokedAt  DateTime? @db.DateTime(3)
+  invitedBy  String?   @db.Char(36)
+  createdAt  DateTime  @default(now()) @db.DateTime(3)
+
+  company Company @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  role    Role?   @relation(fields: [roleId], references: [id], onDelete: SetNull)
+
+  @@index([companyId, email])
+}
+
+// ---------------- Society & property foundation ----------------
+// Composite FKs prevent a building/floor/flat belonging to another company.
+
+model Society {
+  id                String           @id @default(uuid()) @db.Char(36)
+  companyId         String           @db.Char(36)
+  name              String           @db.VarChar(200)
+  registrationNumber String?         @db.VarChar(100)
+  addressLine1      String?          @db.VarChar(200)
+  city              String?          @db.VarChar(100)
+  state             String?          @db.VarChar(100)
+  postalCode        String?          @db.VarChar(20)
+  countryCode       String           @db.Char(2)
+  timezone          String           @db.VarChar(64)
+  createdAt         DateTime         @default(now()) @db.DateTime(3)
+  updatedAt         DateTime         @updatedAt @db.DateTime(3)
+
+  company   Company   @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  buildings Building[]
+  flats     Flat[]
+  residents Resident[]
+  expenses  MaintenanceExpense[]
+  operationalRecords OperationalRecord[]
+  accounts Account[]
+  billingCharges BillingCharge[]
+  invoices Invoice[]
+  invoiceItems InvoiceItem[]
+  payments Payment[]
+  refunds Refund[]
+  journalEntries JournalEntry[]
+  journalLines JournalLine[]
+  financialPeriods FinancialPeriod[]
+
+  @@unique([id, companyId])
+  @@index([companyId])
+}
+
+model Building {
+  id         String   @id @default(uuid()) @db.Char(36)
+  companyId  String   @db.Char(36)
+  societyId  String   @db.Char(36)
+  name       String   @db.VarChar(100)
+  code       String   @db.VarChar(40)
+  floorCount Int      @default(0)
+  createdAt  DateTime @default(now()) @db.DateTime(3)
+  updatedAt  DateTime @updatedAt @db.DateTime(3)
+
+  society Society @relation(fields: [societyId, companyId], references: [id, companyId], onDelete: Cascade)
+  floors  Floor[]
+
+  @@unique([id, companyId])
+  @@unique([societyId, code])
+  @@index([companyId, societyId])
+}
+
+model Floor {
+  id          String   @id @default(uuid()) @db.Char(36)
+  companyId   String   @db.Char(36)
+  societyId   String   @db.Char(36)
+  buildingId  String   @db.Char(36)
+  name        String   @db.VarChar(40)
+  floorNumber Int
+  createdAt   DateTime @default(now()) @db.DateTime(3)
+  updatedAt   DateTime @updatedAt @db.DateTime(3)
+
+  building Building @relation(fields: [buildingId, companyId], references: [id, companyId], onDelete: Cascade)
+  flats    Flat[]
+
+  @@unique([id, companyId])
+  @@unique([buildingId, floorNumber])
+  @@index([companyId, societyId, buildingId])
+}
+
+model Flat {
+  id              String          @id @default(uuid()) @db.Char(36)
+  companyId       String          @db.Char(36)
+  societyId       String          @db.Char(36)
+  buildingId      String          @db.Char(36)
+  floorId         String          @db.Char(36)
+  number          String          @db.VarChar(40)
+  areaSqMt        Decimal?        @db.Decimal(12, 3)
+  occupancyStatus OccupancyStatus @default(VACANT)
+  createdAt       DateTime        @default(now()) @db.DateTime(3)
+  updatedAt       DateTime        @updatedAt @db.DateTime(3)
+
+  floor   Floor    @relation(fields: [floorId, companyId], references: [id, companyId], onDelete: Cascade)
+  society Society  @relation(fields: [societyId, companyId], references: [id, companyId], onDelete: Cascade)
+  ownerships Ownership[]
+  tenancies  Tenancy[]
+  operationalRecords OperationalRecord[]
+  invoices Invoice[]
+
+  @@unique([id, companyId])
+  @@unique([floorId, number])
+  @@index([companyId, societyId, buildingId])
+  @@index([companyId, occupancyStatus])
+}
+
+// ---------------- Resident management ----------------
+
+model Resident {
+  id               String                    @id @default(uuid()) @db.Char(36)
+  companyId        String                    @db.Char(36)
+  societyId        String                    @db.Char(36)
+  userId           String?                   @unique @db.Char(36)
+  name             String                    @db.VarChar(200)
+  phone            String                    @db.VarChar(20)
+  email            String?                   @db.VarChar(254)
+  residentType     ResidentType
+  status           ResidentStatus            @default(ACTIVE)
+  documentType     String?                   @db.VarChar(50)
+  documentNumber   String?                   @db.VarChar(80)
+  documentStatus   DocumentVerificationStatus @default(PENDING)
+  notes            String?                   @db.VarChar(500)
+  createdAt        DateTime                  @default(now()) @db.DateTime(3)
+  updatedAt        DateTime                  @updatedAt @db.DateTime(3)
+
+  user          User?          @relation(fields: [userId], references: [id], onDelete: SetNull)
+  society       Society        @relation(fields: [societyId, companyId], references: [id, companyId], onDelete: Cascade)
+  ownerships    Ownership[]
+  tenancies     Tenancy[]
+  operationalRecords OperationalRecord[]
+  invoices       Invoice[]
+  payments       Payment[]
+  familyMembers FamilyMember[]
+  vehicles      Vehicle[]
+
+  @@unique([id, companyId])
+  @@index([companyId, societyId, residentType])
+  @@index([companyId, societyId, status])
+  @@index([companyId, phone])
+}
+
+model Ownership {
+  id             String         @id @default(uuid()) @db.Char(36)
+  companyId      String         @db.Char(36)
+  societyId      String         @db.Char(36)
+  flatId         String         @db.Char(36)
+  residentId     String         @db.Char(36)
+  fromDate       DateTime       @db.Date
+  toDate         DateTime?      @db.Date
+  ownershipShare Decimal?       @db.Decimal(5, 2)
+  isPrimary      Boolean        @default(false)
+  status         OwnershipStatus @default(ACTIVE)
+  createdAt      DateTime       @default(now()) @db.DateTime(3)
+  updatedAt      DateTime       @updatedAt @db.DateTime(3)
+
+  flat     Flat     @relation(fields: [flatId, companyId], references: [id, companyId], onDelete: Cascade)
+  resident Resident @relation(fields: [residentId, companyId], references: [id, companyId], onDelete: Cascade)
+
+  @@unique([id, companyId])
+  @@index([companyId, societyId, flatId, status])
+  @@index([companyId, residentId, status])
+}
+
+model Tenancy {
+  id          String       @id @default(uuid()) @db.Char(36)
+  companyId   String       @db.Char(36)
+  societyId   String       @db.Char(36)
+  flatId      String       @db.Char(36)
+  residentId  String       @db.Char(36)
+  startDate   DateTime     @db.Date
+  endDate     DateTime?    @db.Date
+  monthlyRent Decimal?     @db.Decimal(12, 2)
+  status      TenancyStatus @default(ACTIVE)
+  createdAt   DateTime     @default(now()) @db.DateTime(3)
+  updatedAt   DateTime     @updatedAt @db.DateTime(3)
+
+  flat     Flat     @relation(fields: [flatId, companyId], references: [id, companyId], onDelete: Cascade)
+  resident Resident @relation(fields: [residentId, companyId], references: [id, companyId], onDelete: Cascade)
+
+  @@unique([id, companyId])
+  @@index([companyId, societyId, flatId, status])
+  @@index([companyId, residentId, status])
+}
+
+model FamilyMember {
+  id             String                    @id @default(uuid()) @db.Char(36)
+  companyId      String                    @db.Char(36)
+  societyId      String                    @db.Char(36)
+  residentId     String                    @db.Char(36)
+  name           String                    @db.VarChar(200)
+  relationship   FamilyRelationship
+  phone          String?                   @db.VarChar(20)
+  dateOfBirth    DateTime?                 @db.Date
+  documentStatus DocumentVerificationStatus @default(PENDING)
+  createdAt      DateTime                  @default(now()) @db.DateTime(3)
+  updatedAt      DateTime                  @updatedAt @db.DateTime(3)
+
+  resident Resident @relation(fields: [residentId, companyId], references: [id, companyId], onDelete: Cascade)
+
+  @@unique([id, companyId])
+  @@index([companyId, societyId, residentId])
+}
+
+model Vehicle {
+  id                String      @id @default(uuid()) @db.Char(36)
+  companyId         String      @db.Char(36)
+  societyId         String      @db.Char(36)
+  residentId        String      @db.Char(36)
+  registrationNumber String     @db.VarChar(30)
+  vehicleType       VehicleType
+  make              String?     @db.VarChar(80)
+  model             String?     @db.VarChar(80)
+  createdAt         DateTime    @default(now()) @db.DateTime(3)
+  updatedAt         DateTime    @updatedAt @db.DateTime(3)
+
+  resident Resident @relation(fields: [residentId, companyId], references: [id, companyId], onDelete: Cascade)
+
+  @@unique([id, companyId])
+  @@unique([companyId, societyId, registrationNumber])
+  @@index([companyId, societyId, residentId])
+}
+
+// ---------------- Finance: maintenance expenses ----------------
+
+model MaintenanceExpense {
+  id          String   @id @default(uuid()) @db.Char(36)
+  companyId   String   @db.Char(36)
+  societyId   String   @db.Char(36)
+  month       DateTime @db.Date
+  category    String   @db.VarChar(120)
+  vendorPayee    String?  @db.VarChar(200)
+  vendorRecordId String?  @db.Char(36)
+  voucherRef  String?  @db.VarChar(100)
+  amount      Decimal  @db.Decimal(14, 2)
+  remarks     String?  @db.VarChar(500)
+  source      String   @default("MANUAL") @db.VarChar(20)
+  sourceKey   String?  @db.VarChar(160)
+  createdAt   DateTime @default(now()) @db.DateTime(3)
+  updatedAt   DateTime @updatedAt @db.DateTime(3)
+
+  society     Society             @relation(fields: [societyId, companyId], references: [id, companyId], onDelete: Cascade)
+  attachments ExpenseAttachment[]
+
+  @@unique([companyId, societyId, sourceKey])
+  @@index([companyId, societyId, month])
+  @@index([companyId, category, month])
+  @@index([companyId, source, month])
+}
+
+/// Supporting evidence for a maintenance expense (bills, invoices, AMC,
+/// work orders, approvals, bank statements, receipts). Bytes are stored in DB
+/// so deployments need no separate file bucket.
+model ExpenseAttachment {
+  id         String   @id @default(uuid()) @db.Char(36)
+  companyId  String   @db.Char(36)
+  societyId  String   @db.Char(36)
+  expenseId  String   @db.Char(36)
+  fileName   String   @db.VarChar(255)
+  mimeType   String   @db.VarChar(120)
+  size       Int
+  kind       String   @default("BILL") @db.VarChar(40)
+  data       Bytes    @db.LongBlob
+  uploadedBy String?  @db.Char(36)
+  createdAt  DateTime @default(now()) @db.DateTime(3)
+
+  expense MaintenanceExpense @relation(fields: [expenseId], references: [id], onDelete: Cascade)
+
+  @@index([companyId, societyId, expenseId])
+  @@index([expenseId, kind])
+}
+
+// ---------------- Operational modules ----------------
+// One tenant-scoped table backs the workflow-style modules (visitors,
+// complaints, bookings, parking, staff, vendors, notices, documents and
+// meetings). The module/resource pair is validated against a shared catalog
+// and every access is rechecked by the authorization service.
+
+enum InvoiceStatus {
+  DRAFT
+  ISSUED
+  PARTIALLY_PAID
+  PAID
+  OVERDUE
+  CANCELLED
+}
+
+enum PaymentStatus {
+  PENDING
+  RECORDED
+  APPROVED
+  RECONCILED
+  REFUNDED
+  REVERSED
+}
+
+enum JournalStatus {
+  DRAFT
+  POSTED
+  REVERSED
+}
+
+model OperationalRecord {
+  id             String   @id @default(uuid()) @db.Char(36)
+  companyId      String   @db.Char(36)
+  societyId      String   @db.Char(36)
+  moduleKey      String   @db.VarChar(40)
+  resourceKey    String   @db.VarChar(60)
+  code           String?  @db.VarChar(100)
+  title          String   @db.VarChar(200)
+  description    String?  @db.VarChar(1000)
+  status         String   @default("ACTIVE") @db.VarChar(40)
+  priority       String?  @db.VarChar(20)
+  startAt        DateTime? @db.DateTime(3)
+  endAt          DateTime? @db.DateTime(3)
+  amount         Decimal? @db.Decimal(14, 2)
+  residentId     String?  @db.Char(36)
+  flatId         String?  @db.Char(36)
+  assigneeUserId String?  @db.Char(36)
+  metadata       Json?
+  createdBy      String?  @db.Char(36)
+  updatedBy      String?  @db.Char(36)
+  createdAt      DateTime @default(now()) @db.DateTime(3)
+  updatedAt      DateTime @updatedAt @db.DateTime(3)
+
+  society  Society   @relation(fields: [societyId, companyId], references: [id, companyId], onDelete: Cascade)
+  resident Resident? @relation(fields: [residentId, companyId], references: [id, companyId], onDelete: Restrict)
+  flat     Flat?     @relation(fields: [flatId, companyId], references: [id, companyId], onDelete: Restrict)
+
+  @@unique([companyId, moduleKey, resourceKey, code])
+  @@index([companyId, societyId, moduleKey, resourceKey])
+  @@index([companyId, moduleKey, status])
+  @@index([companyId, societyId, startAt])
+}
+
+model Account {
+  id          String   @id @default(uuid()) @db.Char(36)
+  companyId   String   @db.Char(36)
+  societyId   String   @db.Char(36)
+  code        String   @db.VarChar(30)
+  name        String   @db.VarChar(120)
+  accountType String   @db.VarChar(30)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now()) @db.DateTime(3)
+  updatedAt   DateTime @updatedAt @db.DateTime(3)
+
+  society      Society        @relation(fields: [societyId, companyId], references: [id, companyId], onDelete: Cascade)
+  journalLines JournalLine[]
+
+  @@unique([id, companyId])
+  @@unique([companyId, societyId, code])
+  @@index([companyId, societyId, accountType])
+}
+
+model BillingCharge {
+  id          String   @id @default(uuid()) @db.Char(36)
+  companyId   String   @db.Char(36)
+  societyId   String   @db.Char(36)
+  code        String   @db.VarChar(40)
+  name        String   @db.VarChar(120)
+  chargeType  String   @db.VarChar(30)
+  amount      Decimal  @db.Decimal(14, 2)
+  frequency   String   @default("MONTHLY") @db.VarChar(30)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now()) @db.DateTime(3)
+  updatedAt   DateTime @updatedAt @db.DateTime(3)
+
+  society Society @relation(fields: [societyId, companyId], references: [id, companyId], onDelete: Cascade)
+
+  @@unique([companyId, societyId, code])
+  @@index([companyId, societyId, isActive])
+}
+
+model FinancialPeriod {
+  id         String    @id @default(uuid()) @db.Char(36)
+  companyId  String    @db.Char(36)
+  societyId  String    @db.Char(36)
+  periodKey  String    @db.VarChar(20)
+  locked     Boolean   @default(false)
+  lockedBy   String?   @db.Char(36)
+  lockedAt   DateTime? @db.DateTime(3)
+  createdAt  DateTime  @default(now()) @db.DateTime(3)
+  updatedAt  DateTime  @updatedAt @db.DateTime(3)
+
+  society Society @relation(fields: [societyId, companyId], references: [id, companyId], onDelete: Cascade)
+
+  @@unique([companyId, societyId, periodKey])
+  @@index([companyId, societyId, locked])
+}
+
+model Invoice {
+  id           String        @id @default(uuid()) @db.Char(36)
+  companyId    String        @db.Char(36)
+  societyId    String        @db.Char(36)
+  invoiceNumber String       @db.VarChar(40)
+  residentId   String?       @db.Char(36)
+  flatId       String?       @db.Char(36)
+  issueDate    DateTime      @db.Date
+  dueDate      DateTime      @db.Date
+  periodKey    String?       @db.VarChar(20)
+  totalAmount  Decimal       @db.Decimal(14, 2)
+  paidAmount   Decimal       @default(0) @db.Decimal(14, 2)
+  status       InvoiceStatus @default(DRAFT)
+  notes        String?       @db.VarChar(500)
+  createdBy    String?       @db.Char(36)
+  createdAt    DateTime      @default(now()) @db.DateTime(3)
+  updatedAt    DateTime      @updatedAt @db.DateTime(3)
+
+  society Society       @relation(fields: [societyId, companyId], references: [id, companyId], onDelete: Cascade)
+  resident Resident?    @relation(fields: [residentId, companyId], references: [id, companyId], onDelete: Restrict)
+  flat     Flat?        @relation(fields: [flatId, companyId], references: [id, companyId], onDelete: Restrict)
+  items    InvoiceItem[]
+  payments Payment[]
+
+  @@unique([id, companyId])
+  @@unique([companyId, societyId, invoiceNumber])
+  @@unique([companyId, societyId, residentId, periodKey])
+  @@index([companyId, societyId, status])
+  @@index([companyId, societyId, dueDate])
+}
+
+model InvoiceItem {
+  id          String   @id @default(uuid()) @db.Char(36)
+  companyId   String   @db.Char(36)
+  societyId   String   @db.Char(36)
+  invoiceId   String   @db.Char(36)
+  description String   @db.VarChar(200)
+  quantity    Decimal  @default(1) @db.Decimal(12, 2)
+  unitAmount  Decimal  @db.Decimal(14, 2)
+  amount      Decimal  @db.Decimal(14, 2)
+  chargeCode  String?  @db.VarChar(40)
+  createdAt   DateTime @default(now()) @db.DateTime(3)
+
+  society Society @relation(fields: [societyId, companyId], references: [id, companyId], onDelete: Cascade)
+  invoice Invoice @relation(fields: [invoiceId, companyId], references: [id, companyId], onDelete: Cascade)
+
+  @@unique([id, companyId])
+  @@index([companyId, societyId, invoiceId])
+}
+
+model Payment {
+  id            String        @id @default(uuid()) @db.Char(36)
+  companyId     String        @db.Char(36)
+  societyId     String        @db.Char(36)
+  invoiceId     String?       @db.Char(36)
+  residentId    String?       @db.Char(36)
+  receiptNumber String?       @db.VarChar(40)
+  amount        Decimal       @db.Decimal(14, 2)
+  method        String        @default("OFFLINE") @db.VarChar(30)
+  reference     String?       @db.VarChar(120)
+  status        PaymentStatus @default(PENDING)
+  paidAt        DateTime      @db.DateTime(3)
+  approvedBy    String?       @db.Char(36)
+  approvedAt    DateTime?     @db.DateTime(3)
+  createdBy     String?       @db.Char(36)
+  createdAt     DateTime      @default(now()) @db.DateTime(3)
+  updatedAt     DateTime      @updatedAt @db.DateTime(3)
+
+  society Society  @relation(fields: [societyId, companyId], references: [id, companyId], onDelete: Cascade)
+  invoice Invoice? @relation(fields: [invoiceId, companyId], references: [id, companyId], onDelete: Restrict)
+  resident Resident? @relation(fields: [residentId, companyId], references: [id, companyId], onDelete: Restrict)
+  refunds  Refund[]
+
+  @@unique([id, companyId])
+  @@unique([companyId, societyId, receiptNumber])
+  @@index([companyId, societyId, status])
+  @@index([companyId, societyId, paidAt])
+}
+
+model Refund {
+  id         String   @id @default(uuid()) @db.Char(36)
+  companyId  String   @db.Char(36)
+  societyId  String   @db.Char(36)
+  paymentId  String   @db.Char(36)
+  amount     Decimal  @db.Decimal(14, 2)
+  reason     String   @db.VarChar(500)
+  status     String   @default("PENDING") @db.VarChar(20)
+  approvedBy String?  @db.Char(36)
+  approvedAt DateTime? @db.DateTime(3)
+  createdBy  String?  @db.Char(36)
+  createdAt  DateTime @default(now()) @db.DateTime(3)
+  updatedAt  DateTime @updatedAt @db.DateTime(3)
+
+  society Society @relation(fields: [societyId, companyId], references: [id, companyId], onDelete: Cascade)
+  payment Payment @relation(fields: [paymentId, companyId], references: [id, companyId], onDelete: Cascade)
+
+  @@unique([id, companyId])
+  @@index([companyId, societyId, status])
+}
+
+model JournalEntry {
+  id           String        @id @default(uuid()) @db.Char(36)
+  companyId    String        @db.Char(36)
+  societyId    String        @db.Char(36)
+  entryNumber  String        @db.VarChar(40)
+  entryDate    DateTime      @db.Date
+  description  String        @db.VarChar(300)
+  periodKey    String?       @db.VarChar(20)
+  status       JournalStatus @default(DRAFT)
+  reversalOf   String?       @db.Char(36)
+  createdBy    String?       @db.Char(36)
+  postedBy     String?       @db.Char(36)
+  postedAt     DateTime?     @db.DateTime(3)
+  createdAt    DateTime      @default(now()) @db.DateTime(3)
+  updatedAt    DateTime      @updatedAt @db.DateTime(3)
+
+  society Society       @relation(fields: [societyId, companyId], references: [id, companyId], onDelete: Cascade)
+  lines   JournalLine[]
+
+  @@unique([id, companyId])
+  @@unique([companyId, societyId, entryNumber])
+  @@index([companyId, societyId, status])
+  @@index([companyId, societyId, entryDate])
+}
+
+model JournalLine {
+  id            String   @id @default(uuid()) @db.Char(36)
+  companyId     String   @db.Char(36)
+  societyId     String   @db.Char(36)
+  journalEntryId String  @db.Char(36)
+  accountId     String   @db.Char(36)
+  debit         Decimal  @default(0) @db.Decimal(14, 2)
+  credit        Decimal  @default(0) @db.Decimal(14, 2)
+  narrative     String?  @db.VarChar(200)
+  createdAt     DateTime @default(now()) @db.DateTime(3)
+
+  society     Society      @relation(fields: [societyId, companyId], references: [id, companyId], onDelete: Cascade)
+  journalEntry JournalEntry @relation(fields: [journalEntryId, companyId], references: [id, companyId], onDelete: Cascade)
+  account     Account      @relation(fields: [accountId, companyId], references: [id, companyId], onDelete: Restrict)
+
+  @@unique([id, companyId])
+  @@index([companyId, societyId, journalEntryId])
+  @@index([companyId, societyId, accountId])
+}
+
+// ---------------- Security & system ----------------
+
+model AuditLog {
+  id           String      @id @default(uuid()) @db.Char(36)
+  companyId    String?     @db.Char(36)
+  societyId    String?     @db.Char(36)
+  actorUserId  String?     @db.Char(36)
+  action       String      @db.VarChar(120)
+  resourceType String      @db.VarChar(80)
+  resourceId   String?     @db.VarChar(36)
+  result       AuditResult
+  reason       String?     @db.VarChar(500)
+  requestId    String      @db.VarChar(64)
+  ipAddress    String?     @db.VarChar(64)
+  userAgent    String?     @db.VarChar(512)
+  metadata     Json?
+  createdAt    DateTime    @default(now()) @db.DateTime(3)
+
+  company Company? @relation(fields: [companyId], references: [id], onDelete: Restrict)
+  actor   User?    @relation("AuditActor", fields: [actorUserId], references: [id], onDelete: SetNull)
+
+  @@index([companyId, createdAt])
+  @@index([actorUserId, createdAt])
+  @@index([action, createdAt])
+  @@index([resourceType, resourceId])
+}
+
+model LoginHistory {
+  id        String      @id @default(uuid()) @db.Char(36)
+  userId    String?     @db.Char(36)
+  email     String      @db.VarChar(254)
+  result    AuditResult
+  ipAddress String?     @db.VarChar(64)
+  userAgent String?     @db.VarChar(512)
+  createdAt DateTime    @default(now()) @db.DateTime(3)
+
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([email, createdAt])
+  @@index([userId, createdAt])
+}
+
+model SecurityEvent {
+  id        String   @id @default(uuid()) @db.Char(36)
+  userId    String?  @db.Char(36)
+  companyId String?  @db.Char(36)
+  type      String   @db.VarChar(120)
+  severity  String   @db.VarChar(20)
+  detail    Json?
+  createdAt DateTime @default(now()) @db.DateTime(3)
+
+  user    User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  company Company? @relation(fields: [companyId], references: [id], onDelete: SetNull)
+
+  @@index([companyId, createdAt])
+  @@index([type, severity])
+}
+
+model IdempotencyRecord {
+  id           String    @id @default(uuid()) @db.Char(36)
+  companyId    String?   @db.Char(36)
+  scope        String    @db.VarChar(120)
+  key          String    @db.VarChar(200)
+  responseHash String?   @db.VarChar(64)
+  expiresAt    DateTime? @db.DateTime(3)
+  createdAt    DateTime  @default(now()) @db.DateTime(3)
+
+  company Company? @relation(fields: [companyId], references: [id], onDelete: Cascade)
+
+  @@unique([scope, key])
+  @@index([companyId])
+}
+
+model OutboxEvent {
+  id          String    @id @default(uuid()) @db.Char(36)
+  companyId   String?   @db.Char(36)
+  eventType   String    @db.VarChar(120)
+  payload     Json
+  status      String    @db.VarChar(20)
+  attempts    Int       @default(0)
+  availableAt DateTime  @default(now()) @db.DateTime(3)
+  processedAt DateTime? @db.DateTime(3)
+  lastError   String?   @db.VarChar(500)
+  createdAt   DateTime  @default(now()) @db.DateTime(3)
+
+  company Company? @relation(fields: [companyId], references: [id], onDelete: Cascade)
+
+  @@index([status, availableAt])
+  @@index([companyId, createdAt])
+}
+
+model SystemSetting {
+  id        String   @id @default(uuid()) @db.Char(36)
+  key       String   @unique @db.VarChar(120)
+  value     Json
+  isSecret  Boolean  @default(false)
+  updatedBy String?  @db.Char(36)
+  createdAt DateTime @default(now()) @db.DateTime(3)
+  updatedAt DateTime @updatedAt @db.DateTime(3)
+}

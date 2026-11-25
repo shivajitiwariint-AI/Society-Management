@@ -1,0 +1,21 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["dom", "dom.iterable", "ES2023"],
+    "jsx": "preserve",
+    "noEmit": true,
+    "incremental": true,
+    "baseUrl": ".",
+    "plugins": [{ "name": "next" }],
+    "paths": {
+      "@/*": ["./src/*"],
+      "@society/shared": ["../../packages/shared/src/index.ts"],
+      "@society/validation": ["../../packages/validation/src/index.ts"],
+      "@society/authorization": ["../../packages/authorization/src/index.ts"],
+      "@society/database": ["../../packages/database/src/index.ts"]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
+}

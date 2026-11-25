@@ -1,0 +1,103 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      run_e2e:
+        description: 'Run Playwright E2E (requires natively installed local MySQL on the runner)'
+        type: boolean
+        required: false
+        default: false
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  CI: true
+  NODE_ENV: test
+
+jobs:
+  verify:
+    name: Generate, typecheck, lint, unit tests
+    runs-on: ubuntu-latest
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      # No database service container: SRS excludes containers.
+      - name: Install dependencies from lockfile
+        run: npm ci
+
+      - name: Generate Prisma client
+        run: npm run prisma:generate
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Unit and integration tests
+        run: npm test
+
+  e2e:
+    name: Playwright E2E (manual, local MySQL)
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.run_e2e }}
+    runs-on: ubuntu-latest
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      SESSION_COOKIE_SECRET: ${{ secrets.SESSION_COOKIE_SECRET }}
+      CSRF_SECRET: ${{ secrets.CSRF_SECRET }}
+      SEED_SUPERADMIN_EMAIL: ${{ secrets.SEED_SUPERADMIN_EMAIL }}
+      SEED_SUPERADMIN_PASSWORD: ${{ secrets.SEED_SUPERADMIN_PASSWORD }}
+      SEED_SUPERADMIN_NAME: ${{ secrets.SEED_SUPERADMIN_NAME }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      # No services: block below. SRS §2.2/§11.3 exclude Docker and containers.
+      # Use a self-hosted runner or install/start MySQL 8 natively, seed it, and
+      # provide the connection secrets above before dispatching this job.
+      - name: Require a natively installed MySQL 8
+        run: |
+          if ! command -v mysqld >/dev/null 2>&1; then
+            echo "E2E requires MySQL 8 installed natively on the runner; no service container is used." >&2
+            exit 1
+          fi
+          if ! command -v mysql >/dev/null 2>&1; then
+            echo "mysql client is required on the runner." >&2
+            exit 1
+          fi
+
+      - name: Install dependencies from lockfile
+        run: npm ci
+
+      - name: Generate Prisma client
+        run: npm run prisma:generate
+
+      - name: Apply migrations
+        run: npm run prisma:deploy
+
+      - name: Seed test data
+        run: npm run db:seed
+
+      - name: Install Playwright browsers and OS dependencies
+        run: npx playwright install --with-deps
+
+      - name: Run E2E tests
+        run: npm run test:e2e
