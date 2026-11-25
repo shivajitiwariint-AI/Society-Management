@@ -5,7 +5,8 @@ import { useRouter } from 'next/navigation';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-import { Download, FileSpreadsheet, Paperclip, Trash2, Upload } from 'lucide-react';
+import { Download, FileSpreadsheet, ListChecks, Paperclip, Search, Trash2, Upload } from 'lucide-react';
+import { ModuleRecordsPanel, ModuleSearchPanel } from '@/components/module-panels';
 import {
   EXPENSE_ATTACHMENT_KINDS,
   EXPENSE_ATTACHMENT_LABELS,
@@ -535,9 +536,12 @@ export function ExpenseWorkspace({
 
   return (
     <div className="space-y-6">
-      <Card>
-        <CardHeader className="flex flex-wrap items-center justify-between gap-3">
-          <CardTitle>Society</CardTitle>
+      <ModuleSearchPanel
+        icon={Search}
+        title="Search maintenance expenses"
+        subtitle="Filters apply automatically as you type or choose an option."
+      >
+        <div className="space-y-4">
           <div className="w-full sm:w-80">
             <select
               aria-label="Society"
@@ -553,8 +557,6 @@ export function ExpenseWorkspace({
               ))}
             </select>
           </div>
-        </CardHeader>
-        <CardContent className="space-y-4">
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
             <div className="space-y-1">
               <Label htmlFor="month-from">From month</Label>
@@ -607,8 +609,8 @@ export function ExpenseWorkspace({
             </span>
           </div>
           {error ? <Alert>{error}</Alert> : null}
-        </CardContent>
-      </Card>
+        </div>
+      </ModuleSearchPanel>
 
       <Card>
         <CardHeader>
@@ -762,10 +764,14 @@ export function ExpenseWorkspace({
         </div>
       </div>
 
-      <Card>
-        <CardHeader><CardTitle>Expense detail</CardTitle></CardHeader>
-        <CardContent className="overflow-x-auto">
-          <table className="w-full min-w-[720px] text-sm">
+      <ModuleRecordsPanel
+        icon={ListChecks}
+        title={`Expenses · ${data.total} records`}
+        subtitle="Tenant-scoped expense rows with vouchers, supporting documents and a complete audit trail."
+        action={canCreate ? <Button type="button" onClick={() => { form.reset(); setEditingId(null); document.getElementById('expense-month')?.scrollIntoView({ behavior: 'smooth' }); }} className="shadow-[0_10px_24px_-12px_rgba(79,70,229,0.9)]">Add expense</Button> : undefined}
+      >
+        <div className="overflow-x-auto">
+          <table className="w-full min-w-[720px] text-sm" data-table-no-tools="true">
             <thead className="text-left text-xs uppercase text-ink-500">
               <tr>
                 <th className="py-2">Month</th>
@@ -821,8 +827,8 @@ export function ExpenseWorkspace({
               <Button variant="outline" size="sm" disabled={page >= totalPages || loading} onClick={() => changePage(Math.min(totalPages, page + 1))}>Next</Button>
             </div>
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      </ModuleRecordsPanel>
 
       {attachmentExpense ? (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink-900/50 p-4" role="dialog" aria-modal="true" aria-label="Supporting documents">

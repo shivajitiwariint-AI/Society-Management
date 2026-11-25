@@ -1,6 +1,8 @@
 'use client';
 
 import { useCallback, useMemo, useState, type FormEvent, type ReactNode } from 'react';
+import { ListChecks, Search } from 'lucide-react';
+import { ModuleRecordsPanel, ModuleSearchPanel } from '@/components/module-panels';
 import { Alert } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -289,16 +291,20 @@ export function FinanceWorkspace({ section, societies, societyId, initialData }:
 
   return (
     <div className="space-y-6">
-      <Card>
-        <CardContent className="flex flex-wrap items-center gap-3 pt-6">
+      <ModuleSearchPanel
+        icon={Search}
+        title={`Search ${section === 'billing' ? 'billing' : section === 'accounting' ? 'accounts' : section === 'payments' ? 'payments' : 'reports'}`}
+        subtitle="Filters apply automatically as you type or choose an option."
+      >
+        <div className="flex flex-wrap items-center gap-3">
           <Label htmlFor="society">Society</Label>
           <select id="society" className={selectClass} value={selectedSocietyId} onChange={(event) => { setSelectedSocietyId(event.target.value); setActiveResource(RESOURCES_BY_SECTION[section][0] ?? 'invoices'); }}>
             {societies.map((society) => <option key={society.id} value={society.id}>{society.name}</option>)}
           </select>
           <Button type="button" variant="outline" onClick={() => void load()}>Refresh</Button>
           <span className="ml-auto text-xs text-ink-500">Amounts shown in {currencyCode}</span>
-        </CardContent>
-      </Card>
+        </div>
+      </ModuleSearchPanel>
 
       <Guide section={section} />
       <Summary items={summary} />
@@ -310,9 +316,11 @@ export function FinanceWorkspace({ section, societies, societyId, initialData }:
       {section === 'payments' ? <PaymentForms busy={busy} submit={submit} payments={payments} invoices={invoices} /> : null}
       {section === 'accounting' ? <AccountingForms busy={busy} submit={submit} accounts={data.accounts ?? []} setNotice={setNotice} /> : null}
 
-      <Card>
-        <CardHeader className="flex flex-wrap items-center justify-between gap-3">
-          <CardTitle>Records</CardTitle>
+      <ModuleRecordsPanel
+        icon={ListChecks}
+        title={`${activeResource === 'trial-balance' ? 'Trial balance' : (FIELD_LABELS[activeResource] ?? activeResource.replace('-', ' '))} · ${(data[activeResource] ?? []).length} records`}
+        subtitle="Tenant-scoped records with server-enforced permissions and a complete audit trail."
+        action={
           <div className="flex flex-wrap gap-2">
             {resources.map((resource) => (
               <Button
@@ -327,11 +335,10 @@ export function FinanceWorkspace({ section, societies, societyId, initialData }:
               </Button>
             ))}
           </div>
-        </CardHeader>
-        <CardContent>
-          <DataTable resource={activeResource} rows={data[activeResource] ?? []} currencyCode={currencyCode} />
-        </CardContent>
-      </Card>
+        }
+      >
+        <DataTable resource={activeResource} rows={data[activeResource] ?? []} currencyCode={currencyCode} />
+      </ModuleRecordsPanel>
     </div>
   );
 }

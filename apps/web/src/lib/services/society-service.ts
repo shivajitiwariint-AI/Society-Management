@@ -168,6 +168,46 @@ export async function getProperty(
 }
 
 /** Deletes are authorized with UPDATE because the role catalog has no DELETE
+ * action for society records yet. Child records cascade at the database. */
+export async function deleteSociety(
+  service: ServiceContext,
+  companyId: string,
+  societyId: string,
+): Promise<ServiceResult<{ id: string }>> {
+  if (!permitted(service, policy(companyId, 'society', 'UPDATE'))) return denied();
+  const society = await prisma.society.findFirst({
+    where: { id: societyId, companyId },
+    select: { id: true, name: true },
+  });
+  if (!society) return { ok: false, code: 'NOT_FOUND', message: 'Society not found in the active company' };
+
+  await prisma.$transaction(async (tx) => {
+    await tx.session.updateMany({
+      where: { activeSocietyId: societyId },
+      data: { activeSocietyId: null },
+    });
+    await tx.society.delete({ where: { id: societyId, companyId } });
+    await tx.auditLog.create({
+      data: {
+        id: newId(),
+        companyId,
+        societyId,
+        actorUserId: service.actorUserId,
+        action: 'SOCIETY_DELETED',
+        resourceType: 'society',
+        resourceId: societyId,
+        result: 'SUCCESS',
+        reason: `Society ${society.name} and all its records deleted`,
+        requestId: service.requestId,
+        ipAddress: service.ipAddress ?? null,
+        userAgent: service.userAgent ?? null,
+      },
+    });
+  });
+  return { ok: true, value: { id: societyId } };
+}
+
+/** Deletes are authorized with UPDATE because the role catalog has no DELETE
  * action for property records yet. Cascades remove child floors and flats. */
 async function deletePropertyRecord(
   service: ServiceContext,

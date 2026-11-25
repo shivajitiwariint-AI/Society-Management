@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
-import { ArrowRight, Building2, MapPin, MapPinned, Plus, Sparkles } from 'lucide-react';
+import { ArrowRight, Building2, ClipboardList, MapPin, MapPinned, Plus, Search, Sparkles } from 'lucide-react';
+import { ModuleRecordsPanel, ModuleSearchPanel } from '@/components/module-panels';
+import { DeleteSocietyButton } from './delete-society-button';
 import { authorize } from '@society/authorization';
 import { Alert } from '@/components/ui/alert';
 import { PageHeader } from '@/components/page-header';
@@ -29,6 +31,7 @@ export default async function SocietiesPage() {
   const result = await listSocieties(service, companyId);
   if (!result.ok) return <Alert>{result.message}</Alert>;
   const canCreate = authorize(context, { moduleKey: 'company', resourceKey: 'society', action: 'CREATE' }).ok;
+  const canEdit = authorize(context, { moduleKey: 'company', resourceKey: 'society', action: 'UPDATE' }).ok;
   const societies = result.value;
 
   return (
@@ -48,28 +51,38 @@ export default async function SocietiesPage() {
         }
       />
 
-      <section className="summary-strip" aria-label="Society summary">
-        <div className="summary-item">
-          <span className="summary-icon summary-icon-brand"><Building2 className="h-5 w-5" /></span>
-          <div>
-            <p className="summary-label">Registered societies</p>
-            <p className="summary-value">{societies.length}</p>
+      <ModuleSearchPanel
+        icon={Search}
+        title="Search societies"
+        subtitle="Filters apply automatically as you type or choose an option."
+      >
+        <div className="grid gap-3 sm:grid-cols-2">
+          <div className="summary-item">
+            <span className="summary-icon summary-icon-brand"><Building2 className="h-5 w-5" /></span>
+            <div>
+              <p className="summary-label">Registered societies</p>
+              <p className="summary-value">{societies.length}</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-3 rounded-xl bg-brand-50/70 p-4 text-sm text-ink-600">
+            <Sparkles className="h-4 w-4 shrink-0 text-brand-600" />
+            Add buildings, floors and flats to unlock resident and billing workflows.
           </div>
         </div>
-        <p className="summary-note">
-          <Sparkles className="h-3.5 w-3.5" />
-          Add buildings, floors and flats to unlock resident and billing workflows.
-        </p>
-      </section>
+      </ModuleSearchPanel>
 
-      <section aria-label="Registered societies">
-        <div className="section-heading">
-          <h2 className="section-title">Registered societies</h2>
-          <span className="section-count">{societies.length} total</span>
-        </div>
-
+      <ModuleRecordsPanel
+        icon={ClipboardList}
+        title={`Societies · ${societies.length} records`}
+        subtitle="Tenant-scoped properties with buildings, floors, flats and a complete audit trail."
+        action={canCreate ? (
+          <Link href="/societies/create" className="btn-modern btn-primary shadow-[0_10px_24px_-12px_rgba(79,70,229,0.9)]">
+            <Plus className="h-4 w-4" /> Register a society
+          </Link>
+        ) : undefined}
+      >
         {societies.length === 0 ? (
-          <div className="society-empty">
+          <div className="op-empty">
             <span className="society-empty-icon"><MapPinned className="h-6 w-6" /></span>
             <h3>No societies yet</h3>
             <p>Create your first society to start organising buildings, floors and flats.</p>
@@ -82,26 +95,31 @@ export default async function SocietiesPage() {
         ) : (
           <div className="society-grid">
             {societies.map((society) => (
-              <Link key={society.id} href={`/societies/${society.id}`} className="society-card">
-                <span className="society-card-icon"><Building2 className="h-5 w-5" /></span>
-                <span className="society-card-copy">
-                  <span className="society-card-name">{society.name}</span>
-                  <span className="society-card-meta">
-                    {society.registrationNumber ?? 'No registration number'}
+              <div key={society.id} className="society-card">
+                <Link href={`/societies/${society.id}`} className="flex flex-1 items-center gap-3">
+                  <span className="society-card-icon"><Building2 className="h-5 w-5" /></span>
+                  <span className="society-card-copy">
+                    <span className="society-card-name">{society.name}</span>
+                    <span className="society-card-meta">
+                      {society.registrationNumber ?? 'No registration number'}
+                    </span>
+                    <span className="society-card-location">
+                      <MapPin className="h-3.5 w-3.5" />
+                      {society.city ?? 'Location not set'}
+                    </span>
                   </span>
-                  <span className="society-card-location">
-                    <MapPin className="h-3.5 w-3.5" />
-                    {society.city ?? 'Location not set'}
-                  </span>
-                </span>
-                <span className="society-card-action">
-                  Manage property <ArrowRight className="h-4 w-4" />
-                </span>
-              </Link>
+                </Link>
+                <div className="flex items-center gap-2">
+                  <Link href={`/societies/${society.id}`} className="society-card-action">
+                    Manage property <ArrowRight className="h-4 w-4" />
+                  </Link>
+                  {canEdit ? <DeleteSocietyButton societyId={society.id} name={society.name} /> : null}
+                </div>
+              </div>
             ))}
           </div>
         )}
-      </section>
+      </ModuleRecordsPanel>
     </div>
   );
 }

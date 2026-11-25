@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { ListChecks, Plus, Search } from 'lucide-react';
+import { ModuleRecordsPanel, ModuleSearchPanel } from '@/components/module-panels';
 import { Alert } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -231,9 +233,12 @@ export function ResidentWorkspace({
 
   return (
     <div className="space-y-6">
-      <Card>
-        <CardHeader className="flex flex-wrap items-center justify-between gap-3">
-          <CardTitle>Society</CardTitle>
+      <ModuleSearchPanel
+        icon={Search}
+        title="Search residents"
+        subtitle="Filters apply automatically as you type or choose an option."
+      >
+        <div className="space-y-4">
           <div className="w-full sm:w-80">
             <select aria-label="Society" className={selectClass} value={selectedSocietyId} onChange={(event) => changeSociety(event.target.value)}>
               {societies.map((society) => (
@@ -243,8 +248,7 @@ export function ResidentWorkspace({
               ))}
             </select>
           </div>
-        </CardHeader>
-        <CardContent className="grid gap-3 sm:grid-cols-3">
+          <div className="grid gap-3 sm:grid-cols-3">
           <div className="space-y-1">
             <Label htmlFor="resident-search">Search</Label>
             <Input id="resident-search" placeholder="Name, phone, email, document" value={filters.search} onChange={(event) => applyFilter('search', event.target.value)} />
@@ -267,8 +271,9 @@ export function ResidentWorkspace({
             <Button variant="outline" size="sm" onClick={() => { setFilters(EMPTY_FILTERS); setPage(1); void loadList(EMPTY_FILTERS, 1, selectedSocietyId); }}>Clear filters</Button>
             <span className="text-xs text-ink-500">{loading ? 'Loading…' : `${data.total} resident${data.total === 1 ? '' : 's'}`}</span>
           </div>
-        </CardContent>
-      </Card>
+          </div>
+        </div>
+      </ModuleSearchPanel>
 
       {message ? <Alert tone={message.tone}>{message.text}</Alert> : null}
       {error ? <Alert>{error}</Alert> : null}
@@ -303,10 +308,14 @@ export function ResidentWorkspace({
       ) : null}
 
       <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-        <Card>
-          <CardHeader><CardTitle>Resident directory</CardTitle></CardHeader>
-          <CardContent className="overflow-x-auto">
-            <table className="w-full min-w-[640px] text-sm">
+        <ModuleRecordsPanel
+          icon={ListChecks}
+          title={`Residents · ${data.total} records`}
+          subtitle="Tenant-scoped residents with ownership, tenancy and document history."
+          action={canCreate ? <Button type="button" onClick={() => document.getElementById('resident-name')?.focus()} className="shadow-[0_10px_24px_-12px_rgba(79,70,229,0.9)]"><Plus className="h-4 w-4" /> Add resident</Button> : undefined}
+        >
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[640px] text-sm" data-table-no-tools="true">
               <thead className="text-left text-xs uppercase text-ink-500">
                 <tr><th className="py-2">Name</th><th className="py-2">Type</th><th className="py-2">Flat(s)</th><th className="py-2">Verification</th><th className="py-2" /></tr>
               </thead>
@@ -335,8 +344,8 @@ export function ResidentWorkspace({
                 <Button variant="outline" size="sm" disabled={page >= totalPages || loading} onClick={() => { setPage(Math.min(totalPages, page + 1)); void loadList(filters, Math.min(totalPages, page + 1)); }}>Next</Button>
               </div>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </ModuleRecordsPanel>
 
         <div className="space-y-4">
           {detail ? (
