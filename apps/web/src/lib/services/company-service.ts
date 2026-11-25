@@ -17,25 +17,31 @@ export interface ServiceContext {
 
 export type ServiceResult<T> =
   | { ok: true; value: T }
-  | { ok: false; code: 'PERMISSION_DENIED' | 'CONFLICT' | 'INVALID' | 'NOT_FOUND'; message: string };
+  | { ok: false; code: 'PERMISSION_DENIED' | 'CONFLICT' | 'INVALID' | 'NOT_FOUND' | 'VALIDATION_ERROR' | 'SELF_APPROVAL'; message: string };
+
+/** Modules available by default for every new company (Finance & Accounts). */
+const DEFAULT_ENABLED_MODULES = new Set<string>([
+  'finance-billing',
+  'payments-receipts',
+  'accounting',
+]);
 
 /**
- * Seeds the deny-by-default entitlement matrix (SRS 7.2). Shared by platform
- * company creation and public self-registration so both paths stay identical.
+ * Seeds the entitlement matrix for a new company. Core modules are always on;
+ * Finance & Accounts is the only business group enabled by default. Every
+ * other business module starts DISABLED and can be enabled later by a platform
+ * administrator. Shared by platform creation and self-registration.
  */
 export async function seedCompanyModules(
   tx: Prisma.TransactionClient,
   companyId: string,
   actorUserId: string,
-  options: { enableStarterModules?: boolean } = {},
 ): Promise<void> {
   const moduleRows = await tx.module.findMany({ select: { id: true, key: true } });
   const moduleIdByKey = new Map(moduleRows.map((row) => [row.key, row.id]));
-  // Self-registered companies get a ready-to-use starter bundle; tenants
-  // created by platform admins stay deny-by-default (SRS 7.2).
   await tx.companyModule.createMany({
     data: MODULES.map((module) => {
-      const enabled = module.isCore || options.enableStarterModules === true;
+      const enabled = module.isCore || DEFAULT_ENABLED_MODULES.has(module.key);
       return {
         id: newId(),
         companyId,
@@ -46,9 +52,9 @@ export async function seedCompanyModules(
         changedBy: actorUserId,
         reason: module.isCore
           ? 'Core module'
-          : options.enableStarterModules
-            ? 'Starter bundle for self-registered company'
-            : 'Deny by default for new company',
+          : enabled
+            ? 'Finance & Accounts enabled by default'
+            : 'Disabled by default for new company',
       };
     }),
   });

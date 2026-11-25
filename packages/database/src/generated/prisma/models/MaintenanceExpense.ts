@@ -28,10 +28,14 @@ export type AggregateMaintenanceExpense = {
 
 export type MaintenanceExpenseAvgAggregateOutputType = {
   amount: runtime.Decimal | null
+  taxAmount: runtime.Decimal | null
+  paidAmount: runtime.Decimal | null
 }
 
 export type MaintenanceExpenseSumAggregateOutputType = {
   amount: runtime.Decimal | null
+  taxAmount: runtime.Decimal | null
+  paidAmount: runtime.Decimal | null
 }
 
 export type MaintenanceExpenseMinAggregateOutputType = {
@@ -49,6 +53,22 @@ export type MaintenanceExpenseMinAggregateOutputType = {
   sourceKey: string | null
   createdAt: Date | null
   updatedAt: Date | null
+  title: string | null
+  expenseDate: Date | null
+  invoiceNumber: string | null
+  invoiceDate: Date | null
+  taxAmount: runtime.Decimal | null
+  treatment: string | null
+  dueDate: Date | null
+  approvalStatus: string | null
+  paymentStatus: string | null
+  reconciliationStatus: string | null
+  paidAmount: runtime.Decimal | null
+  submittedAt: Date | null
+  approvedAt: Date | null
+  approvedBy: string | null
+  rejectionReason: string | null
+  createdBy: string | null
 }
 
 export type MaintenanceExpenseMaxAggregateOutputType = {
@@ -66,6 +86,22 @@ export type MaintenanceExpenseMaxAggregateOutputType = {
   sourceKey: string | null
   createdAt: Date | null
   updatedAt: Date | null
+  title: string | null
+  expenseDate: Date | null
+  invoiceNumber: string | null
+  invoiceDate: Date | null
+  taxAmount: runtime.Decimal | null
+  treatment: string | null
+  dueDate: Date | null
+  approvalStatus: string | null
+  paymentStatus: string | null
+  reconciliationStatus: string | null
+  paidAmount: runtime.Decimal | null
+  submittedAt: Date | null
+  approvedAt: Date | null
+  approvedBy: string | null
+  rejectionReason: string | null
+  createdBy: string | null
 }
 
 export type MaintenanceExpenseCountAggregateOutputType = {
@@ -83,16 +119,36 @@ export type MaintenanceExpenseCountAggregateOutputType = {
   sourceKey: number
   createdAt: number
   updatedAt: number
+  title: number
+  expenseDate: number
+  invoiceNumber: number
+  invoiceDate: number
+  taxAmount: number
+  treatment: number
+  dueDate: number
+  approvalStatus: number
+  paymentStatus: number
+  reconciliationStatus: number
+  paidAmount: number
+  submittedAt: number
+  approvedAt: number
+  approvedBy: number
+  rejectionReason: number
+  createdBy: number
   _all: number
 }
 
 
 export type MaintenanceExpenseAvgAggregateInputType = {
   amount?: true
+  taxAmount?: true
+  paidAmount?: true
 }
 
 export type MaintenanceExpenseSumAggregateInputType = {
   amount?: true
+  taxAmount?: true
+  paidAmount?: true
 }
 
 export type MaintenanceExpenseMinAggregateInputType = {
@@ -110,6 +166,22 @@ export type MaintenanceExpenseMinAggregateInputType = {
   sourceKey?: true
   createdAt?: true
   updatedAt?: true
+  title?: true
+  expenseDate?: true
+  invoiceNumber?: true
+  invoiceDate?: true
+  taxAmount?: true
+  treatment?: true
+  dueDate?: true
+  approvalStatus?: true
+  paymentStatus?: true
+  reconciliationStatus?: true
+  paidAmount?: true
+  submittedAt?: true
+  approvedAt?: true
+  approvedBy?: true
+  rejectionReason?: true
+  createdBy?: true
 }
 
 export type MaintenanceExpenseMaxAggregateInputType = {
@@ -127,6 +199,22 @@ export type MaintenanceExpenseMaxAggregateInputType = {
   sourceKey?: true
   createdAt?: true
   updatedAt?: true
+  title?: true
+  expenseDate?: true
+  invoiceNumber?: true
+  invoiceDate?: true
+  taxAmount?: true
+  treatment?: true
+  dueDate?: true
+  approvalStatus?: true
+  paymentStatus?: true
+  reconciliationStatus?: true
+  paidAmount?: true
+  submittedAt?: true
+  approvedAt?: true
+  approvedBy?: true
+  rejectionReason?: true
+  createdBy?: true
 }
 
 export type MaintenanceExpenseCountAggregateInputType = {
@@ -144,6 +232,22 @@ export type MaintenanceExpenseCountAggregateInputType = {
   sourceKey?: true
   createdAt?: true
   updatedAt?: true
+  title?: true
+  expenseDate?: true
+  invoiceNumber?: true
+  invoiceDate?: true
+  taxAmount?: true
+  treatment?: true
+  dueDate?: true
+  approvalStatus?: true
+  paymentStatus?: true
+  reconciliationStatus?: true
+  paidAmount?: true
+  submittedAt?: true
+  approvedAt?: true
+  approvedBy?: true
+  rejectionReason?: true
+  createdBy?: true
   _all?: true
 }
 
@@ -248,6 +352,22 @@ export type MaintenanceExpenseGroupByOutputType = {
   sourceKey: string | null
   createdAt: Date
   updatedAt: Date
+  title: string | null
+  expenseDate: Date | null
+  invoiceNumber: string | null
+  invoiceDate: Date | null
+  taxAmount: runtime.Decimal | null
+  treatment: string
+  dueDate: Date | null
+  approvalStatus: string
+  paymentStatus: string
+  reconciliationStatus: string
+  paidAmount: runtime.Decimal
+  submittedAt: Date | null
+  approvedAt: Date | null
+  approvedBy: string | null
+  rejectionReason: string | null
+  createdBy: string | null
   _count: MaintenanceExpenseCountAggregateOutputType | null
   _avg: MaintenanceExpenseAvgAggregateOutputType | null
   _sum: MaintenanceExpenseSumAggregateOutputType | null
@@ -288,8 +408,27 @@ export type MaintenanceExpenseWhereInput = {
   sourceKey?: Prisma.StringNullableFilter<"MaintenanceExpense"> | string | null
   createdAt?: Prisma.DateTimeFilter<"MaintenanceExpense"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"MaintenanceExpense"> | Date | string
+  title?: Prisma.StringNullableFilter<"MaintenanceExpense"> | string | null
+  expenseDate?: Prisma.DateTimeNullableFilter<"MaintenanceExpense"> | Date | string | null
+  invoiceNumber?: Prisma.StringNullableFilter<"MaintenanceExpense"> | string | null
+  invoiceDate?: Prisma.DateTimeNullableFilter<"MaintenanceExpense"> | Date | string | null
+  taxAmount?: Prisma.DecimalNullableFilter<"MaintenanceExpense"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  treatment?: Prisma.StringFilter<"MaintenanceExpense"> | string
+  dueDate?: Prisma.DateTimeNullableFilter<"MaintenanceExpense"> | Date | string | null
+  approvalStatus?: Prisma.StringFilter<"MaintenanceExpense"> | string
+  paymentStatus?: Prisma.StringFilter<"MaintenanceExpense"> | string
+  reconciliationStatus?: Prisma.StringFilter<"MaintenanceExpense"> | string
+  paidAmount?: Prisma.DecimalFilter<"MaintenanceExpense"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  submittedAt?: Prisma.DateTimeNullableFilter<"MaintenanceExpense"> | Date | string | null
+  approvedAt?: Prisma.DateTimeNullableFilter<"MaintenanceExpense"> | Date | string | null
+  approvedBy?: Prisma.StringNullableFilter<"MaintenanceExpense"> | string | null
+  rejectionReason?: Prisma.StringNullableFilter<"MaintenanceExpense"> | string | null
+  createdBy?: Prisma.StringNullableFilter<"MaintenanceExpense"> | string | null
   society?: Prisma.XOR<Prisma.SocietyScalarRelationFilter, Prisma.SocietyWhereInput>
   attachments?: Prisma.ExpenseAttachmentListRelationFilter
+  approvals?: Prisma.ExpenseApprovalListRelationFilter
+  payments?: Prisma.ExpensePaymentListRelationFilter
+  reconciliations?: Prisma.ReconciliationRecordListRelationFilter
 }
 
 export type MaintenanceExpenseOrderByWithRelationInput = {
@@ -307,8 +446,27 @@ export type MaintenanceExpenseOrderByWithRelationInput = {
   sourceKey?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  title?: Prisma.SortOrderInput | Prisma.SortOrder
+  expenseDate?: Prisma.SortOrderInput | Prisma.SortOrder
+  invoiceNumber?: Prisma.SortOrderInput | Prisma.SortOrder
+  invoiceDate?: Prisma.SortOrderInput | Prisma.SortOrder
+  taxAmount?: Prisma.SortOrderInput | Prisma.SortOrder
+  treatment?: Prisma.SortOrder
+  dueDate?: Prisma.SortOrderInput | Prisma.SortOrder
+  approvalStatus?: Prisma.SortOrder
+  paymentStatus?: Prisma.SortOrder
+  reconciliationStatus?: Prisma.SortOrder
+  paidAmount?: Prisma.SortOrder
+  submittedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  approvedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  approvedBy?: Prisma.SortOrderInput | Prisma.SortOrder
+  rejectionReason?: Prisma.SortOrderInput | Prisma.SortOrder
+  createdBy?: Prisma.SortOrderInput | Prisma.SortOrder
   society?: Prisma.SocietyOrderByWithRelationInput
   attachments?: Prisma.ExpenseAttachmentOrderByRelationAggregateInput
+  approvals?: Prisma.ExpenseApprovalOrderByRelationAggregateInput
+  payments?: Prisma.ExpensePaymentOrderByRelationAggregateInput
+  reconciliations?: Prisma.ReconciliationRecordOrderByRelationAggregateInput
   _relevance?: Prisma.MaintenanceExpenseOrderByRelevanceInput
 }
 
@@ -331,8 +489,27 @@ export type MaintenanceExpenseWhereUniqueInput = Prisma.AtLeast<{
   sourceKey?: Prisma.StringNullableFilter<"MaintenanceExpense"> | string | null
   createdAt?: Prisma.DateTimeFilter<"MaintenanceExpense"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"MaintenanceExpense"> | Date | string
+  title?: Prisma.StringNullableFilter<"MaintenanceExpense"> | string | null
+  expenseDate?: Prisma.DateTimeNullableFilter<"MaintenanceExpense"> | Date | string | null
+  invoiceNumber?: Prisma.StringNullableFilter<"MaintenanceExpense"> | string | null
+  invoiceDate?: Prisma.DateTimeNullableFilter<"MaintenanceExpense"> | Date | string | null
+  taxAmount?: Prisma.DecimalNullableFilter<"MaintenanceExpense"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  treatment?: Prisma.StringFilter<"MaintenanceExpense"> | string
+  dueDate?: Prisma.DateTimeNullableFilter<"MaintenanceExpense"> | Date | string | null
+  approvalStatus?: Prisma.StringFilter<"MaintenanceExpense"> | string
+  paymentStatus?: Prisma.StringFilter<"MaintenanceExpense"> | string
+  reconciliationStatus?: Prisma.StringFilter<"MaintenanceExpense"> | string
+  paidAmount?: Prisma.DecimalFilter<"MaintenanceExpense"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  submittedAt?: Prisma.DateTimeNullableFilter<"MaintenanceExpense"> | Date | string | null
+  approvedAt?: Prisma.DateTimeNullableFilter<"MaintenanceExpense"> | Date | string | null
+  approvedBy?: Prisma.StringNullableFilter<"MaintenanceExpense"> | string | null
+  rejectionReason?: Prisma.StringNullableFilter<"MaintenanceExpense"> | string | null
+  createdBy?: Prisma.StringNullableFilter<"MaintenanceExpense"> | string | null
   society?: Prisma.XOR<Prisma.SocietyScalarRelationFilter, Prisma.SocietyWhereInput>
   attachments?: Prisma.ExpenseAttachmentListRelationFilter
+  approvals?: Prisma.ExpenseApprovalListRelationFilter
+  payments?: Prisma.ExpensePaymentListRelationFilter
+  reconciliations?: Prisma.ReconciliationRecordListRelationFilter
 }, "id" | "companyId_societyId_sourceKey">
 
 export type MaintenanceExpenseOrderByWithAggregationInput = {
@@ -350,6 +527,22 @@ export type MaintenanceExpenseOrderByWithAggregationInput = {
   sourceKey?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  title?: Prisma.SortOrderInput | Prisma.SortOrder
+  expenseDate?: Prisma.SortOrderInput | Prisma.SortOrder
+  invoiceNumber?: Prisma.SortOrderInput | Prisma.SortOrder
+  invoiceDate?: Prisma.SortOrderInput | Prisma.SortOrder
+  taxAmount?: Prisma.SortOrderInput | Prisma.SortOrder
+  treatment?: Prisma.SortOrder
+  dueDate?: Prisma.SortOrderInput | Prisma.SortOrder
+  approvalStatus?: Prisma.SortOrder
+  paymentStatus?: Prisma.SortOrder
+  reconciliationStatus?: Prisma.SortOrder
+  paidAmount?: Prisma.SortOrder
+  submittedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  approvedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  approvedBy?: Prisma.SortOrderInput | Prisma.SortOrder
+  rejectionReason?: Prisma.SortOrderInput | Prisma.SortOrder
+  createdBy?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.MaintenanceExpenseCountOrderByAggregateInput
   _avg?: Prisma.MaintenanceExpenseAvgOrderByAggregateInput
   _max?: Prisma.MaintenanceExpenseMaxOrderByAggregateInput
@@ -375,6 +568,22 @@ export type MaintenanceExpenseScalarWhereWithAggregatesInput = {
   sourceKey?: Prisma.StringNullableWithAggregatesFilter<"MaintenanceExpense"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"MaintenanceExpense"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"MaintenanceExpense"> | Date | string
+  title?: Prisma.StringNullableWithAggregatesFilter<"MaintenanceExpense"> | string | null
+  expenseDate?: Prisma.DateTimeNullableWithAggregatesFilter<"MaintenanceExpense"> | Date | string | null
+  invoiceNumber?: Prisma.StringNullableWithAggregatesFilter<"MaintenanceExpense"> | string | null
+  invoiceDate?: Prisma.DateTimeNullableWithAggregatesFilter<"MaintenanceExpense"> | Date | string | null
+  taxAmount?: Prisma.DecimalNullableWithAggregatesFilter<"MaintenanceExpense"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  treatment?: Prisma.StringWithAggregatesFilter<"MaintenanceExpense"> | string
+  dueDate?: Prisma.DateTimeNullableWithAggregatesFilter<"MaintenanceExpense"> | Date | string | null
+  approvalStatus?: Prisma.StringWithAggregatesFilter<"MaintenanceExpense"> | string
+  paymentStatus?: Prisma.StringWithAggregatesFilter<"MaintenanceExpense"> | string
+  reconciliationStatus?: Prisma.StringWithAggregatesFilter<"MaintenanceExpense"> | string
+  paidAmount?: Prisma.DecimalWithAggregatesFilter<"MaintenanceExpense"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  submittedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"MaintenanceExpense"> | Date | string | null
+  approvedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"MaintenanceExpense"> | Date | string | null
+  approvedBy?: Prisma.StringNullableWithAggregatesFilter<"MaintenanceExpense"> | string | null
+  rejectionReason?: Prisma.StringNullableWithAggregatesFilter<"MaintenanceExpense"> | string | null
+  createdBy?: Prisma.StringNullableWithAggregatesFilter<"MaintenanceExpense"> | string | null
 }
 
 export type MaintenanceExpenseCreateInput = {
@@ -390,8 +599,27 @@ export type MaintenanceExpenseCreateInput = {
   sourceKey?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  title?: string | null
+  expenseDate?: Date | string | null
+  invoiceNumber?: string | null
+  invoiceDate?: Date | string | null
+  taxAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  treatment?: string
+  dueDate?: Date | string | null
+  approvalStatus?: string
+  paymentStatus?: string
+  reconciliationStatus?: string
+  paidAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  submittedAt?: Date | string | null
+  approvedAt?: Date | string | null
+  approvedBy?: string | null
+  rejectionReason?: string | null
+  createdBy?: string | null
   society: Prisma.SocietyCreateNestedOneWithoutExpensesInput
   attachments?: Prisma.ExpenseAttachmentCreateNestedManyWithoutExpenseInput
+  approvals?: Prisma.ExpenseApprovalCreateNestedManyWithoutExpenseInput
+  payments?: Prisma.ExpensePaymentCreateNestedManyWithoutExpenseInput
+  reconciliations?: Prisma.ReconciliationRecordCreateNestedManyWithoutExpenseInput
 }
 
 export type MaintenanceExpenseUncheckedCreateInput = {
@@ -409,7 +637,26 @@ export type MaintenanceExpenseUncheckedCreateInput = {
   sourceKey?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  title?: string | null
+  expenseDate?: Date | string | null
+  invoiceNumber?: string | null
+  invoiceDate?: Date | string | null
+  taxAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  treatment?: string
+  dueDate?: Date | string | null
+  approvalStatus?: string
+  paymentStatus?: string
+  reconciliationStatus?: string
+  paidAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  submittedAt?: Date | string | null
+  approvedAt?: Date | string | null
+  approvedBy?: string | null
+  rejectionReason?: string | null
+  createdBy?: string | null
   attachments?: Prisma.ExpenseAttachmentUncheckedCreateNestedManyWithoutExpenseInput
+  approvals?: Prisma.ExpenseApprovalUncheckedCreateNestedManyWithoutExpenseInput
+  payments?: Prisma.ExpensePaymentUncheckedCreateNestedManyWithoutExpenseInput
+  reconciliations?: Prisma.ReconciliationRecordUncheckedCreateNestedManyWithoutExpenseInput
 }
 
 export type MaintenanceExpenseUpdateInput = {
@@ -425,8 +672,27 @@ export type MaintenanceExpenseUpdateInput = {
   sourceKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expenseDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  invoiceNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  invoiceDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  taxAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  treatment?: Prisma.StringFieldUpdateOperationsInput | string
+  dueDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvalStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  paymentStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  reconciliationStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  paidAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   society?: Prisma.SocietyUpdateOneRequiredWithoutExpensesNestedInput
   attachments?: Prisma.ExpenseAttachmentUpdateManyWithoutExpenseNestedInput
+  approvals?: Prisma.ExpenseApprovalUpdateManyWithoutExpenseNestedInput
+  payments?: Prisma.ExpensePaymentUpdateManyWithoutExpenseNestedInput
+  reconciliations?: Prisma.ReconciliationRecordUpdateManyWithoutExpenseNestedInput
 }
 
 export type MaintenanceExpenseUncheckedUpdateInput = {
@@ -444,7 +710,26 @@ export type MaintenanceExpenseUncheckedUpdateInput = {
   sourceKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expenseDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  invoiceNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  invoiceDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  taxAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  treatment?: Prisma.StringFieldUpdateOperationsInput | string
+  dueDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvalStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  paymentStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  reconciliationStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  paidAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   attachments?: Prisma.ExpenseAttachmentUncheckedUpdateManyWithoutExpenseNestedInput
+  approvals?: Prisma.ExpenseApprovalUncheckedUpdateManyWithoutExpenseNestedInput
+  payments?: Prisma.ExpensePaymentUncheckedUpdateManyWithoutExpenseNestedInput
+  reconciliations?: Prisma.ReconciliationRecordUncheckedUpdateManyWithoutExpenseNestedInput
 }
 
 export type MaintenanceExpenseCreateManyInput = {
@@ -462,6 +747,22 @@ export type MaintenanceExpenseCreateManyInput = {
   sourceKey?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  title?: string | null
+  expenseDate?: Date | string | null
+  invoiceNumber?: string | null
+  invoiceDate?: Date | string | null
+  taxAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  treatment?: string
+  dueDate?: Date | string | null
+  approvalStatus?: string
+  paymentStatus?: string
+  reconciliationStatus?: string
+  paidAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  submittedAt?: Date | string | null
+  approvedAt?: Date | string | null
+  approvedBy?: string | null
+  rejectionReason?: string | null
+  createdBy?: string | null
 }
 
 export type MaintenanceExpenseUpdateManyMutationInput = {
@@ -477,6 +778,22 @@ export type MaintenanceExpenseUpdateManyMutationInput = {
   sourceKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expenseDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  invoiceNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  invoiceDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  taxAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  treatment?: Prisma.StringFieldUpdateOperationsInput | string
+  dueDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvalStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  paymentStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  reconciliationStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  paidAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type MaintenanceExpenseUncheckedUpdateManyInput = {
@@ -494,6 +811,22 @@ export type MaintenanceExpenseUncheckedUpdateManyInput = {
   sourceKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expenseDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  invoiceNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  invoiceDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  taxAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  treatment?: Prisma.StringFieldUpdateOperationsInput | string
+  dueDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvalStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  paymentStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  reconciliationStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  paidAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type MaintenanceExpenseListRelationFilter = {
@@ -533,10 +866,28 @@ export type MaintenanceExpenseCountOrderByAggregateInput = {
   sourceKey?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  title?: Prisma.SortOrder
+  expenseDate?: Prisma.SortOrder
+  invoiceNumber?: Prisma.SortOrder
+  invoiceDate?: Prisma.SortOrder
+  taxAmount?: Prisma.SortOrder
+  treatment?: Prisma.SortOrder
+  dueDate?: Prisma.SortOrder
+  approvalStatus?: Prisma.SortOrder
+  paymentStatus?: Prisma.SortOrder
+  reconciliationStatus?: Prisma.SortOrder
+  paidAmount?: Prisma.SortOrder
+  submittedAt?: Prisma.SortOrder
+  approvedAt?: Prisma.SortOrder
+  approvedBy?: Prisma.SortOrder
+  rejectionReason?: Prisma.SortOrder
+  createdBy?: Prisma.SortOrder
 }
 
 export type MaintenanceExpenseAvgOrderByAggregateInput = {
   amount?: Prisma.SortOrder
+  taxAmount?: Prisma.SortOrder
+  paidAmount?: Prisma.SortOrder
 }
 
 export type MaintenanceExpenseMaxOrderByAggregateInput = {
@@ -554,6 +905,22 @@ export type MaintenanceExpenseMaxOrderByAggregateInput = {
   sourceKey?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  title?: Prisma.SortOrder
+  expenseDate?: Prisma.SortOrder
+  invoiceNumber?: Prisma.SortOrder
+  invoiceDate?: Prisma.SortOrder
+  taxAmount?: Prisma.SortOrder
+  treatment?: Prisma.SortOrder
+  dueDate?: Prisma.SortOrder
+  approvalStatus?: Prisma.SortOrder
+  paymentStatus?: Prisma.SortOrder
+  reconciliationStatus?: Prisma.SortOrder
+  paidAmount?: Prisma.SortOrder
+  submittedAt?: Prisma.SortOrder
+  approvedAt?: Prisma.SortOrder
+  approvedBy?: Prisma.SortOrder
+  rejectionReason?: Prisma.SortOrder
+  createdBy?: Prisma.SortOrder
 }
 
 export type MaintenanceExpenseMinOrderByAggregateInput = {
@@ -571,10 +938,28 @@ export type MaintenanceExpenseMinOrderByAggregateInput = {
   sourceKey?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  title?: Prisma.SortOrder
+  expenseDate?: Prisma.SortOrder
+  invoiceNumber?: Prisma.SortOrder
+  invoiceDate?: Prisma.SortOrder
+  taxAmount?: Prisma.SortOrder
+  treatment?: Prisma.SortOrder
+  dueDate?: Prisma.SortOrder
+  approvalStatus?: Prisma.SortOrder
+  paymentStatus?: Prisma.SortOrder
+  reconciliationStatus?: Prisma.SortOrder
+  paidAmount?: Prisma.SortOrder
+  submittedAt?: Prisma.SortOrder
+  approvedAt?: Prisma.SortOrder
+  approvedBy?: Prisma.SortOrder
+  rejectionReason?: Prisma.SortOrder
+  createdBy?: Prisma.SortOrder
 }
 
 export type MaintenanceExpenseSumOrderByAggregateInput = {
   amount?: Prisma.SortOrder
+  taxAmount?: Prisma.SortOrder
+  paidAmount?: Prisma.SortOrder
 }
 
 export type MaintenanceExpenseScalarRelationFilter = {
@@ -632,6 +1017,48 @@ export type DecimalFieldUpdateOperationsInput = {
   divide?: runtime.Decimal | runtime.DecimalJsLike | number | string
 }
 
+export type MaintenanceExpenseCreateNestedOneWithoutApprovalsInput = {
+  create?: Prisma.XOR<Prisma.MaintenanceExpenseCreateWithoutApprovalsInput, Prisma.MaintenanceExpenseUncheckedCreateWithoutApprovalsInput>
+  connectOrCreate?: Prisma.MaintenanceExpenseCreateOrConnectWithoutApprovalsInput
+  connect?: Prisma.MaintenanceExpenseWhereUniqueInput
+}
+
+export type MaintenanceExpenseUpdateOneRequiredWithoutApprovalsNestedInput = {
+  create?: Prisma.XOR<Prisma.MaintenanceExpenseCreateWithoutApprovalsInput, Prisma.MaintenanceExpenseUncheckedCreateWithoutApprovalsInput>
+  connectOrCreate?: Prisma.MaintenanceExpenseCreateOrConnectWithoutApprovalsInput
+  upsert?: Prisma.MaintenanceExpenseUpsertWithoutApprovalsInput
+  connect?: Prisma.MaintenanceExpenseWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.MaintenanceExpenseUpdateToOneWithWhereWithoutApprovalsInput, Prisma.MaintenanceExpenseUpdateWithoutApprovalsInput>, Prisma.MaintenanceExpenseUncheckedUpdateWithoutApprovalsInput>
+}
+
+export type MaintenanceExpenseCreateNestedOneWithoutPaymentsInput = {
+  create?: Prisma.XOR<Prisma.MaintenanceExpenseCreateWithoutPaymentsInput, Prisma.MaintenanceExpenseUncheckedCreateWithoutPaymentsInput>
+  connectOrCreate?: Prisma.MaintenanceExpenseCreateOrConnectWithoutPaymentsInput
+  connect?: Prisma.MaintenanceExpenseWhereUniqueInput
+}
+
+export type MaintenanceExpenseUpdateOneRequiredWithoutPaymentsNestedInput = {
+  create?: Prisma.XOR<Prisma.MaintenanceExpenseCreateWithoutPaymentsInput, Prisma.MaintenanceExpenseUncheckedCreateWithoutPaymentsInput>
+  connectOrCreate?: Prisma.MaintenanceExpenseCreateOrConnectWithoutPaymentsInput
+  upsert?: Prisma.MaintenanceExpenseUpsertWithoutPaymentsInput
+  connect?: Prisma.MaintenanceExpenseWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.MaintenanceExpenseUpdateToOneWithWhereWithoutPaymentsInput, Prisma.MaintenanceExpenseUpdateWithoutPaymentsInput>, Prisma.MaintenanceExpenseUncheckedUpdateWithoutPaymentsInput>
+}
+
+export type MaintenanceExpenseCreateNestedOneWithoutReconciliationsInput = {
+  create?: Prisma.XOR<Prisma.MaintenanceExpenseCreateWithoutReconciliationsInput, Prisma.MaintenanceExpenseUncheckedCreateWithoutReconciliationsInput>
+  connectOrCreate?: Prisma.MaintenanceExpenseCreateOrConnectWithoutReconciliationsInput
+  connect?: Prisma.MaintenanceExpenseWhereUniqueInput
+}
+
+export type MaintenanceExpenseUpdateOneRequiredWithoutReconciliationsNestedInput = {
+  create?: Prisma.XOR<Prisma.MaintenanceExpenseCreateWithoutReconciliationsInput, Prisma.MaintenanceExpenseUncheckedCreateWithoutReconciliationsInput>
+  connectOrCreate?: Prisma.MaintenanceExpenseCreateOrConnectWithoutReconciliationsInput
+  upsert?: Prisma.MaintenanceExpenseUpsertWithoutReconciliationsInput
+  connect?: Prisma.MaintenanceExpenseWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.MaintenanceExpenseUpdateToOneWithWhereWithoutReconciliationsInput, Prisma.MaintenanceExpenseUpdateWithoutReconciliationsInput>, Prisma.MaintenanceExpenseUncheckedUpdateWithoutReconciliationsInput>
+}
+
 export type MaintenanceExpenseCreateNestedOneWithoutAttachmentsInput = {
   create?: Prisma.XOR<Prisma.MaintenanceExpenseCreateWithoutAttachmentsInput, Prisma.MaintenanceExpenseUncheckedCreateWithoutAttachmentsInput>
   connectOrCreate?: Prisma.MaintenanceExpenseCreateOrConnectWithoutAttachmentsInput
@@ -659,7 +1086,26 @@ export type MaintenanceExpenseCreateWithoutSocietyInput = {
   sourceKey?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  title?: string | null
+  expenseDate?: Date | string | null
+  invoiceNumber?: string | null
+  invoiceDate?: Date | string | null
+  taxAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  treatment?: string
+  dueDate?: Date | string | null
+  approvalStatus?: string
+  paymentStatus?: string
+  reconciliationStatus?: string
+  paidAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  submittedAt?: Date | string | null
+  approvedAt?: Date | string | null
+  approvedBy?: string | null
+  rejectionReason?: string | null
+  createdBy?: string | null
   attachments?: Prisma.ExpenseAttachmentCreateNestedManyWithoutExpenseInput
+  approvals?: Prisma.ExpenseApprovalCreateNestedManyWithoutExpenseInput
+  payments?: Prisma.ExpensePaymentCreateNestedManyWithoutExpenseInput
+  reconciliations?: Prisma.ReconciliationRecordCreateNestedManyWithoutExpenseInput
 }
 
 export type MaintenanceExpenseUncheckedCreateWithoutSocietyInput = {
@@ -675,7 +1121,26 @@ export type MaintenanceExpenseUncheckedCreateWithoutSocietyInput = {
   sourceKey?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  title?: string | null
+  expenseDate?: Date | string | null
+  invoiceNumber?: string | null
+  invoiceDate?: Date | string | null
+  taxAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  treatment?: string
+  dueDate?: Date | string | null
+  approvalStatus?: string
+  paymentStatus?: string
+  reconciliationStatus?: string
+  paidAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  submittedAt?: Date | string | null
+  approvedAt?: Date | string | null
+  approvedBy?: string | null
+  rejectionReason?: string | null
+  createdBy?: string | null
   attachments?: Prisma.ExpenseAttachmentUncheckedCreateNestedManyWithoutExpenseInput
+  approvals?: Prisma.ExpenseApprovalUncheckedCreateNestedManyWithoutExpenseInput
+  payments?: Prisma.ExpensePaymentUncheckedCreateNestedManyWithoutExpenseInput
+  reconciliations?: Prisma.ReconciliationRecordUncheckedCreateNestedManyWithoutExpenseInput
 }
 
 export type MaintenanceExpenseCreateOrConnectWithoutSocietyInput = {
@@ -722,6 +1187,496 @@ export type MaintenanceExpenseScalarWhereInput = {
   sourceKey?: Prisma.StringNullableFilter<"MaintenanceExpense"> | string | null
   createdAt?: Prisma.DateTimeFilter<"MaintenanceExpense"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"MaintenanceExpense"> | Date | string
+  title?: Prisma.StringNullableFilter<"MaintenanceExpense"> | string | null
+  expenseDate?: Prisma.DateTimeNullableFilter<"MaintenanceExpense"> | Date | string | null
+  invoiceNumber?: Prisma.StringNullableFilter<"MaintenanceExpense"> | string | null
+  invoiceDate?: Prisma.DateTimeNullableFilter<"MaintenanceExpense"> | Date | string | null
+  taxAmount?: Prisma.DecimalNullableFilter<"MaintenanceExpense"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  treatment?: Prisma.StringFilter<"MaintenanceExpense"> | string
+  dueDate?: Prisma.DateTimeNullableFilter<"MaintenanceExpense"> | Date | string | null
+  approvalStatus?: Prisma.StringFilter<"MaintenanceExpense"> | string
+  paymentStatus?: Prisma.StringFilter<"MaintenanceExpense"> | string
+  reconciliationStatus?: Prisma.StringFilter<"MaintenanceExpense"> | string
+  paidAmount?: Prisma.DecimalFilter<"MaintenanceExpense"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  submittedAt?: Prisma.DateTimeNullableFilter<"MaintenanceExpense"> | Date | string | null
+  approvedAt?: Prisma.DateTimeNullableFilter<"MaintenanceExpense"> | Date | string | null
+  approvedBy?: Prisma.StringNullableFilter<"MaintenanceExpense"> | string | null
+  rejectionReason?: Prisma.StringNullableFilter<"MaintenanceExpense"> | string | null
+  createdBy?: Prisma.StringNullableFilter<"MaintenanceExpense"> | string | null
+}
+
+export type MaintenanceExpenseCreateWithoutApprovalsInput = {
+  id?: string
+  month: Date | string
+  category: string
+  vendorPayee?: string | null
+  vendorRecordId?: string | null
+  voucherRef?: string | null
+  amount: runtime.Decimal | runtime.DecimalJsLike | number | string
+  remarks?: string | null
+  source?: string
+  sourceKey?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  title?: string | null
+  expenseDate?: Date | string | null
+  invoiceNumber?: string | null
+  invoiceDate?: Date | string | null
+  taxAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  treatment?: string
+  dueDate?: Date | string | null
+  approvalStatus?: string
+  paymentStatus?: string
+  reconciliationStatus?: string
+  paidAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  submittedAt?: Date | string | null
+  approvedAt?: Date | string | null
+  approvedBy?: string | null
+  rejectionReason?: string | null
+  createdBy?: string | null
+  society: Prisma.SocietyCreateNestedOneWithoutExpensesInput
+  attachments?: Prisma.ExpenseAttachmentCreateNestedManyWithoutExpenseInput
+  payments?: Prisma.ExpensePaymentCreateNestedManyWithoutExpenseInput
+  reconciliations?: Prisma.ReconciliationRecordCreateNestedManyWithoutExpenseInput
+}
+
+export type MaintenanceExpenseUncheckedCreateWithoutApprovalsInput = {
+  id?: string
+  companyId: string
+  societyId: string
+  month: Date | string
+  category: string
+  vendorPayee?: string | null
+  vendorRecordId?: string | null
+  voucherRef?: string | null
+  amount: runtime.Decimal | runtime.DecimalJsLike | number | string
+  remarks?: string | null
+  source?: string
+  sourceKey?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  title?: string | null
+  expenseDate?: Date | string | null
+  invoiceNumber?: string | null
+  invoiceDate?: Date | string | null
+  taxAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  treatment?: string
+  dueDate?: Date | string | null
+  approvalStatus?: string
+  paymentStatus?: string
+  reconciliationStatus?: string
+  paidAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  submittedAt?: Date | string | null
+  approvedAt?: Date | string | null
+  approvedBy?: string | null
+  rejectionReason?: string | null
+  createdBy?: string | null
+  attachments?: Prisma.ExpenseAttachmentUncheckedCreateNestedManyWithoutExpenseInput
+  payments?: Prisma.ExpensePaymentUncheckedCreateNestedManyWithoutExpenseInput
+  reconciliations?: Prisma.ReconciliationRecordUncheckedCreateNestedManyWithoutExpenseInput
+}
+
+export type MaintenanceExpenseCreateOrConnectWithoutApprovalsInput = {
+  where: Prisma.MaintenanceExpenseWhereUniqueInput
+  create: Prisma.XOR<Prisma.MaintenanceExpenseCreateWithoutApprovalsInput, Prisma.MaintenanceExpenseUncheckedCreateWithoutApprovalsInput>
+}
+
+export type MaintenanceExpenseUpsertWithoutApprovalsInput = {
+  update: Prisma.XOR<Prisma.MaintenanceExpenseUpdateWithoutApprovalsInput, Prisma.MaintenanceExpenseUncheckedUpdateWithoutApprovalsInput>
+  create: Prisma.XOR<Prisma.MaintenanceExpenseCreateWithoutApprovalsInput, Prisma.MaintenanceExpenseUncheckedCreateWithoutApprovalsInput>
+  where?: Prisma.MaintenanceExpenseWhereInput
+}
+
+export type MaintenanceExpenseUpdateToOneWithWhereWithoutApprovalsInput = {
+  where?: Prisma.MaintenanceExpenseWhereInput
+  data: Prisma.XOR<Prisma.MaintenanceExpenseUpdateWithoutApprovalsInput, Prisma.MaintenanceExpenseUncheckedUpdateWithoutApprovalsInput>
+}
+
+export type MaintenanceExpenseUpdateWithoutApprovalsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  month?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  category?: Prisma.StringFieldUpdateOperationsInput | string
+  vendorPayee?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  vendorRecordId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  voucherRef?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  remarks?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  source?: Prisma.StringFieldUpdateOperationsInput | string
+  sourceKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expenseDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  invoiceNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  invoiceDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  taxAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  treatment?: Prisma.StringFieldUpdateOperationsInput | string
+  dueDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvalStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  paymentStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  reconciliationStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  paidAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  society?: Prisma.SocietyUpdateOneRequiredWithoutExpensesNestedInput
+  attachments?: Prisma.ExpenseAttachmentUpdateManyWithoutExpenseNestedInput
+  payments?: Prisma.ExpensePaymentUpdateManyWithoutExpenseNestedInput
+  reconciliations?: Prisma.ReconciliationRecordUpdateManyWithoutExpenseNestedInput
+}
+
+export type MaintenanceExpenseUncheckedUpdateWithoutApprovalsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  companyId?: Prisma.StringFieldUpdateOperationsInput | string
+  societyId?: Prisma.StringFieldUpdateOperationsInput | string
+  month?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  category?: Prisma.StringFieldUpdateOperationsInput | string
+  vendorPayee?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  vendorRecordId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  voucherRef?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  remarks?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  source?: Prisma.StringFieldUpdateOperationsInput | string
+  sourceKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expenseDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  invoiceNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  invoiceDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  taxAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  treatment?: Prisma.StringFieldUpdateOperationsInput | string
+  dueDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvalStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  paymentStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  reconciliationStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  paidAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  attachments?: Prisma.ExpenseAttachmentUncheckedUpdateManyWithoutExpenseNestedInput
+  payments?: Prisma.ExpensePaymentUncheckedUpdateManyWithoutExpenseNestedInput
+  reconciliations?: Prisma.ReconciliationRecordUncheckedUpdateManyWithoutExpenseNestedInput
+}
+
+export type MaintenanceExpenseCreateWithoutPaymentsInput = {
+  id?: string
+  month: Date | string
+  category: string
+  vendorPayee?: string | null
+  vendorRecordId?: string | null
+  voucherRef?: string | null
+  amount: runtime.Decimal | runtime.DecimalJsLike | number | string
+  remarks?: string | null
+  source?: string
+  sourceKey?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  title?: string | null
+  expenseDate?: Date | string | null
+  invoiceNumber?: string | null
+  invoiceDate?: Date | string | null
+  taxAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  treatment?: string
+  dueDate?: Date | string | null
+  approvalStatus?: string
+  paymentStatus?: string
+  reconciliationStatus?: string
+  paidAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  submittedAt?: Date | string | null
+  approvedAt?: Date | string | null
+  approvedBy?: string | null
+  rejectionReason?: string | null
+  createdBy?: string | null
+  society: Prisma.SocietyCreateNestedOneWithoutExpensesInput
+  attachments?: Prisma.ExpenseAttachmentCreateNestedManyWithoutExpenseInput
+  approvals?: Prisma.ExpenseApprovalCreateNestedManyWithoutExpenseInput
+  reconciliations?: Prisma.ReconciliationRecordCreateNestedManyWithoutExpenseInput
+}
+
+export type MaintenanceExpenseUncheckedCreateWithoutPaymentsInput = {
+  id?: string
+  companyId: string
+  societyId: string
+  month: Date | string
+  category: string
+  vendorPayee?: string | null
+  vendorRecordId?: string | null
+  voucherRef?: string | null
+  amount: runtime.Decimal | runtime.DecimalJsLike | number | string
+  remarks?: string | null
+  source?: string
+  sourceKey?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  title?: string | null
+  expenseDate?: Date | string | null
+  invoiceNumber?: string | null
+  invoiceDate?: Date | string | null
+  taxAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  treatment?: string
+  dueDate?: Date | string | null
+  approvalStatus?: string
+  paymentStatus?: string
+  reconciliationStatus?: string
+  paidAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  submittedAt?: Date | string | null
+  approvedAt?: Date | string | null
+  approvedBy?: string | null
+  rejectionReason?: string | null
+  createdBy?: string | null
+  attachments?: Prisma.ExpenseAttachmentUncheckedCreateNestedManyWithoutExpenseInput
+  approvals?: Prisma.ExpenseApprovalUncheckedCreateNestedManyWithoutExpenseInput
+  reconciliations?: Prisma.ReconciliationRecordUncheckedCreateNestedManyWithoutExpenseInput
+}
+
+export type MaintenanceExpenseCreateOrConnectWithoutPaymentsInput = {
+  where: Prisma.MaintenanceExpenseWhereUniqueInput
+  create: Prisma.XOR<Prisma.MaintenanceExpenseCreateWithoutPaymentsInput, Prisma.MaintenanceExpenseUncheckedCreateWithoutPaymentsInput>
+}
+
+export type MaintenanceExpenseUpsertWithoutPaymentsInput = {
+  update: Prisma.XOR<Prisma.MaintenanceExpenseUpdateWithoutPaymentsInput, Prisma.MaintenanceExpenseUncheckedUpdateWithoutPaymentsInput>
+  create: Prisma.XOR<Prisma.MaintenanceExpenseCreateWithoutPaymentsInput, Prisma.MaintenanceExpenseUncheckedCreateWithoutPaymentsInput>
+  where?: Prisma.MaintenanceExpenseWhereInput
+}
+
+export type MaintenanceExpenseUpdateToOneWithWhereWithoutPaymentsInput = {
+  where?: Prisma.MaintenanceExpenseWhereInput
+  data: Prisma.XOR<Prisma.MaintenanceExpenseUpdateWithoutPaymentsInput, Prisma.MaintenanceExpenseUncheckedUpdateWithoutPaymentsInput>
+}
+
+export type MaintenanceExpenseUpdateWithoutPaymentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  month?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  category?: Prisma.StringFieldUpdateOperationsInput | string
+  vendorPayee?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  vendorRecordId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  voucherRef?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  remarks?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  source?: Prisma.StringFieldUpdateOperationsInput | string
+  sourceKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expenseDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  invoiceNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  invoiceDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  taxAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  treatment?: Prisma.StringFieldUpdateOperationsInput | string
+  dueDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvalStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  paymentStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  reconciliationStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  paidAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  society?: Prisma.SocietyUpdateOneRequiredWithoutExpensesNestedInput
+  attachments?: Prisma.ExpenseAttachmentUpdateManyWithoutExpenseNestedInput
+  approvals?: Prisma.ExpenseApprovalUpdateManyWithoutExpenseNestedInput
+  reconciliations?: Prisma.ReconciliationRecordUpdateManyWithoutExpenseNestedInput
+}
+
+export type MaintenanceExpenseUncheckedUpdateWithoutPaymentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  companyId?: Prisma.StringFieldUpdateOperationsInput | string
+  societyId?: Prisma.StringFieldUpdateOperationsInput | string
+  month?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  category?: Prisma.StringFieldUpdateOperationsInput | string
+  vendorPayee?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  vendorRecordId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  voucherRef?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  remarks?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  source?: Prisma.StringFieldUpdateOperationsInput | string
+  sourceKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expenseDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  invoiceNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  invoiceDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  taxAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  treatment?: Prisma.StringFieldUpdateOperationsInput | string
+  dueDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvalStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  paymentStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  reconciliationStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  paidAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  attachments?: Prisma.ExpenseAttachmentUncheckedUpdateManyWithoutExpenseNestedInput
+  approvals?: Prisma.ExpenseApprovalUncheckedUpdateManyWithoutExpenseNestedInput
+  reconciliations?: Prisma.ReconciliationRecordUncheckedUpdateManyWithoutExpenseNestedInput
+}
+
+export type MaintenanceExpenseCreateWithoutReconciliationsInput = {
+  id?: string
+  month: Date | string
+  category: string
+  vendorPayee?: string | null
+  vendorRecordId?: string | null
+  voucherRef?: string | null
+  amount: runtime.Decimal | runtime.DecimalJsLike | number | string
+  remarks?: string | null
+  source?: string
+  sourceKey?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  title?: string | null
+  expenseDate?: Date | string | null
+  invoiceNumber?: string | null
+  invoiceDate?: Date | string | null
+  taxAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  treatment?: string
+  dueDate?: Date | string | null
+  approvalStatus?: string
+  paymentStatus?: string
+  reconciliationStatus?: string
+  paidAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  submittedAt?: Date | string | null
+  approvedAt?: Date | string | null
+  approvedBy?: string | null
+  rejectionReason?: string | null
+  createdBy?: string | null
+  society: Prisma.SocietyCreateNestedOneWithoutExpensesInput
+  attachments?: Prisma.ExpenseAttachmentCreateNestedManyWithoutExpenseInput
+  approvals?: Prisma.ExpenseApprovalCreateNestedManyWithoutExpenseInput
+  payments?: Prisma.ExpensePaymentCreateNestedManyWithoutExpenseInput
+}
+
+export type MaintenanceExpenseUncheckedCreateWithoutReconciliationsInput = {
+  id?: string
+  companyId: string
+  societyId: string
+  month: Date | string
+  category: string
+  vendorPayee?: string | null
+  vendorRecordId?: string | null
+  voucherRef?: string | null
+  amount: runtime.Decimal | runtime.DecimalJsLike | number | string
+  remarks?: string | null
+  source?: string
+  sourceKey?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  title?: string | null
+  expenseDate?: Date | string | null
+  invoiceNumber?: string | null
+  invoiceDate?: Date | string | null
+  taxAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  treatment?: string
+  dueDate?: Date | string | null
+  approvalStatus?: string
+  paymentStatus?: string
+  reconciliationStatus?: string
+  paidAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  submittedAt?: Date | string | null
+  approvedAt?: Date | string | null
+  approvedBy?: string | null
+  rejectionReason?: string | null
+  createdBy?: string | null
+  attachments?: Prisma.ExpenseAttachmentUncheckedCreateNestedManyWithoutExpenseInput
+  approvals?: Prisma.ExpenseApprovalUncheckedCreateNestedManyWithoutExpenseInput
+  payments?: Prisma.ExpensePaymentUncheckedCreateNestedManyWithoutExpenseInput
+}
+
+export type MaintenanceExpenseCreateOrConnectWithoutReconciliationsInput = {
+  where: Prisma.MaintenanceExpenseWhereUniqueInput
+  create: Prisma.XOR<Prisma.MaintenanceExpenseCreateWithoutReconciliationsInput, Prisma.MaintenanceExpenseUncheckedCreateWithoutReconciliationsInput>
+}
+
+export type MaintenanceExpenseUpsertWithoutReconciliationsInput = {
+  update: Prisma.XOR<Prisma.MaintenanceExpenseUpdateWithoutReconciliationsInput, Prisma.MaintenanceExpenseUncheckedUpdateWithoutReconciliationsInput>
+  create: Prisma.XOR<Prisma.MaintenanceExpenseCreateWithoutReconciliationsInput, Prisma.MaintenanceExpenseUncheckedCreateWithoutReconciliationsInput>
+  where?: Prisma.MaintenanceExpenseWhereInput
+}
+
+export type MaintenanceExpenseUpdateToOneWithWhereWithoutReconciliationsInput = {
+  where?: Prisma.MaintenanceExpenseWhereInput
+  data: Prisma.XOR<Prisma.MaintenanceExpenseUpdateWithoutReconciliationsInput, Prisma.MaintenanceExpenseUncheckedUpdateWithoutReconciliationsInput>
+}
+
+export type MaintenanceExpenseUpdateWithoutReconciliationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  month?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  category?: Prisma.StringFieldUpdateOperationsInput | string
+  vendorPayee?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  vendorRecordId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  voucherRef?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  remarks?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  source?: Prisma.StringFieldUpdateOperationsInput | string
+  sourceKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expenseDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  invoiceNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  invoiceDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  taxAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  treatment?: Prisma.StringFieldUpdateOperationsInput | string
+  dueDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvalStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  paymentStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  reconciliationStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  paidAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  society?: Prisma.SocietyUpdateOneRequiredWithoutExpensesNestedInput
+  attachments?: Prisma.ExpenseAttachmentUpdateManyWithoutExpenseNestedInput
+  approvals?: Prisma.ExpenseApprovalUpdateManyWithoutExpenseNestedInput
+  payments?: Prisma.ExpensePaymentUpdateManyWithoutExpenseNestedInput
+}
+
+export type MaintenanceExpenseUncheckedUpdateWithoutReconciliationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  companyId?: Prisma.StringFieldUpdateOperationsInput | string
+  societyId?: Prisma.StringFieldUpdateOperationsInput | string
+  month?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  category?: Prisma.StringFieldUpdateOperationsInput | string
+  vendorPayee?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  vendorRecordId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  voucherRef?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  remarks?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  source?: Prisma.StringFieldUpdateOperationsInput | string
+  sourceKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expenseDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  invoiceNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  invoiceDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  taxAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  treatment?: Prisma.StringFieldUpdateOperationsInput | string
+  dueDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvalStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  paymentStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  reconciliationStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  paidAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  attachments?: Prisma.ExpenseAttachmentUncheckedUpdateManyWithoutExpenseNestedInput
+  approvals?: Prisma.ExpenseApprovalUncheckedUpdateManyWithoutExpenseNestedInput
+  payments?: Prisma.ExpensePaymentUncheckedUpdateManyWithoutExpenseNestedInput
 }
 
 export type MaintenanceExpenseCreateWithoutAttachmentsInput = {
@@ -737,7 +1692,26 @@ export type MaintenanceExpenseCreateWithoutAttachmentsInput = {
   sourceKey?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  title?: string | null
+  expenseDate?: Date | string | null
+  invoiceNumber?: string | null
+  invoiceDate?: Date | string | null
+  taxAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  treatment?: string
+  dueDate?: Date | string | null
+  approvalStatus?: string
+  paymentStatus?: string
+  reconciliationStatus?: string
+  paidAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  submittedAt?: Date | string | null
+  approvedAt?: Date | string | null
+  approvedBy?: string | null
+  rejectionReason?: string | null
+  createdBy?: string | null
   society: Prisma.SocietyCreateNestedOneWithoutExpensesInput
+  approvals?: Prisma.ExpenseApprovalCreateNestedManyWithoutExpenseInput
+  payments?: Prisma.ExpensePaymentCreateNestedManyWithoutExpenseInput
+  reconciliations?: Prisma.ReconciliationRecordCreateNestedManyWithoutExpenseInput
 }
 
 export type MaintenanceExpenseUncheckedCreateWithoutAttachmentsInput = {
@@ -755,6 +1729,25 @@ export type MaintenanceExpenseUncheckedCreateWithoutAttachmentsInput = {
   sourceKey?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  title?: string | null
+  expenseDate?: Date | string | null
+  invoiceNumber?: string | null
+  invoiceDate?: Date | string | null
+  taxAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  treatment?: string
+  dueDate?: Date | string | null
+  approvalStatus?: string
+  paymentStatus?: string
+  reconciliationStatus?: string
+  paidAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  submittedAt?: Date | string | null
+  approvedAt?: Date | string | null
+  approvedBy?: string | null
+  rejectionReason?: string | null
+  createdBy?: string | null
+  approvals?: Prisma.ExpenseApprovalUncheckedCreateNestedManyWithoutExpenseInput
+  payments?: Prisma.ExpensePaymentUncheckedCreateNestedManyWithoutExpenseInput
+  reconciliations?: Prisma.ReconciliationRecordUncheckedCreateNestedManyWithoutExpenseInput
 }
 
 export type MaintenanceExpenseCreateOrConnectWithoutAttachmentsInput = {
@@ -786,7 +1779,26 @@ export type MaintenanceExpenseUpdateWithoutAttachmentsInput = {
   sourceKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expenseDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  invoiceNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  invoiceDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  taxAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  treatment?: Prisma.StringFieldUpdateOperationsInput | string
+  dueDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvalStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  paymentStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  reconciliationStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  paidAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   society?: Prisma.SocietyUpdateOneRequiredWithoutExpensesNestedInput
+  approvals?: Prisma.ExpenseApprovalUpdateManyWithoutExpenseNestedInput
+  payments?: Prisma.ExpensePaymentUpdateManyWithoutExpenseNestedInput
+  reconciliations?: Prisma.ReconciliationRecordUpdateManyWithoutExpenseNestedInput
 }
 
 export type MaintenanceExpenseUncheckedUpdateWithoutAttachmentsInput = {
@@ -804,6 +1816,25 @@ export type MaintenanceExpenseUncheckedUpdateWithoutAttachmentsInput = {
   sourceKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expenseDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  invoiceNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  invoiceDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  taxAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  treatment?: Prisma.StringFieldUpdateOperationsInput | string
+  dueDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvalStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  paymentStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  reconciliationStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  paidAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approvals?: Prisma.ExpenseApprovalUncheckedUpdateManyWithoutExpenseNestedInput
+  payments?: Prisma.ExpensePaymentUncheckedUpdateManyWithoutExpenseNestedInput
+  reconciliations?: Prisma.ReconciliationRecordUncheckedUpdateManyWithoutExpenseNestedInput
 }
 
 export type MaintenanceExpenseCreateManySocietyInput = {
@@ -819,6 +1850,22 @@ export type MaintenanceExpenseCreateManySocietyInput = {
   sourceKey?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  title?: string | null
+  expenseDate?: Date | string | null
+  invoiceNumber?: string | null
+  invoiceDate?: Date | string | null
+  taxAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  treatment?: string
+  dueDate?: Date | string | null
+  approvalStatus?: string
+  paymentStatus?: string
+  reconciliationStatus?: string
+  paidAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  submittedAt?: Date | string | null
+  approvedAt?: Date | string | null
+  approvedBy?: string | null
+  rejectionReason?: string | null
+  createdBy?: string | null
 }
 
 export type MaintenanceExpenseUpdateWithoutSocietyInput = {
@@ -834,7 +1881,26 @@ export type MaintenanceExpenseUpdateWithoutSocietyInput = {
   sourceKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expenseDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  invoiceNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  invoiceDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  taxAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  treatment?: Prisma.StringFieldUpdateOperationsInput | string
+  dueDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvalStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  paymentStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  reconciliationStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  paidAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   attachments?: Prisma.ExpenseAttachmentUpdateManyWithoutExpenseNestedInput
+  approvals?: Prisma.ExpenseApprovalUpdateManyWithoutExpenseNestedInput
+  payments?: Prisma.ExpensePaymentUpdateManyWithoutExpenseNestedInput
+  reconciliations?: Prisma.ReconciliationRecordUpdateManyWithoutExpenseNestedInput
 }
 
 export type MaintenanceExpenseUncheckedUpdateWithoutSocietyInput = {
@@ -850,7 +1916,26 @@ export type MaintenanceExpenseUncheckedUpdateWithoutSocietyInput = {
   sourceKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expenseDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  invoiceNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  invoiceDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  taxAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  treatment?: Prisma.StringFieldUpdateOperationsInput | string
+  dueDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvalStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  paymentStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  reconciliationStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  paidAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   attachments?: Prisma.ExpenseAttachmentUncheckedUpdateManyWithoutExpenseNestedInput
+  approvals?: Prisma.ExpenseApprovalUncheckedUpdateManyWithoutExpenseNestedInput
+  payments?: Prisma.ExpensePaymentUncheckedUpdateManyWithoutExpenseNestedInput
+  reconciliations?: Prisma.ReconciliationRecordUncheckedUpdateManyWithoutExpenseNestedInput
 }
 
 export type MaintenanceExpenseUncheckedUpdateManyWithoutSocietyInput = {
@@ -866,6 +1951,22 @@ export type MaintenanceExpenseUncheckedUpdateManyWithoutSocietyInput = {
   sourceKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expenseDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  invoiceNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  invoiceDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  taxAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  treatment?: Prisma.StringFieldUpdateOperationsInput | string
+  dueDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvalStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  paymentStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  reconciliationStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  paidAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 
@@ -875,10 +1976,16 @@ export type MaintenanceExpenseUncheckedUpdateManyWithoutSocietyInput = {
 
 export type MaintenanceExpenseCountOutputType = {
   attachments: number
+  approvals: number
+  payments: number
+  reconciliations: number
 }
 
 export type MaintenanceExpenseCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   attachments?: boolean | MaintenanceExpenseCountOutputTypeCountAttachmentsArgs
+  approvals?: boolean | MaintenanceExpenseCountOutputTypeCountApprovalsArgs
+  payments?: boolean | MaintenanceExpenseCountOutputTypeCountPaymentsArgs
+  reconciliations?: boolean | MaintenanceExpenseCountOutputTypeCountReconciliationsArgs
 }
 
 /**
@@ -898,6 +2005,27 @@ export type MaintenanceExpenseCountOutputTypeCountAttachmentsArgs<ExtArgs extend
   where?: Prisma.ExpenseAttachmentWhereInput
 }
 
+/**
+ * MaintenanceExpenseCountOutputType without action
+ */
+export type MaintenanceExpenseCountOutputTypeCountApprovalsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ExpenseApprovalWhereInput
+}
+
+/**
+ * MaintenanceExpenseCountOutputType without action
+ */
+export type MaintenanceExpenseCountOutputTypeCountPaymentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ExpensePaymentWhereInput
+}
+
+/**
+ * MaintenanceExpenseCountOutputType without action
+ */
+export type MaintenanceExpenseCountOutputTypeCountReconciliationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ReconciliationRecordWhereInput
+}
+
 
 export type MaintenanceExpenseSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -914,8 +2042,27 @@ export type MaintenanceExpenseSelect<ExtArgs extends runtime.Types.Extensions.In
   sourceKey?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  title?: boolean
+  expenseDate?: boolean
+  invoiceNumber?: boolean
+  invoiceDate?: boolean
+  taxAmount?: boolean
+  treatment?: boolean
+  dueDate?: boolean
+  approvalStatus?: boolean
+  paymentStatus?: boolean
+  reconciliationStatus?: boolean
+  paidAmount?: boolean
+  submittedAt?: boolean
+  approvedAt?: boolean
+  approvedBy?: boolean
+  rejectionReason?: boolean
+  createdBy?: boolean
   society?: boolean | Prisma.SocietyDefaultArgs<ExtArgs>
   attachments?: boolean | Prisma.MaintenanceExpense$attachmentsArgs<ExtArgs>
+  approvals?: boolean | Prisma.MaintenanceExpense$approvalsArgs<ExtArgs>
+  payments?: boolean | Prisma.MaintenanceExpense$paymentsArgs<ExtArgs>
+  reconciliations?: boolean | Prisma.MaintenanceExpense$reconciliationsArgs<ExtArgs>
   _count?: boolean | Prisma.MaintenanceExpenseCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["maintenanceExpense"]>
 
@@ -936,12 +2083,31 @@ export type MaintenanceExpenseSelectScalar = {
   sourceKey?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  title?: boolean
+  expenseDate?: boolean
+  invoiceNumber?: boolean
+  invoiceDate?: boolean
+  taxAmount?: boolean
+  treatment?: boolean
+  dueDate?: boolean
+  approvalStatus?: boolean
+  paymentStatus?: boolean
+  reconciliationStatus?: boolean
+  paidAmount?: boolean
+  submittedAt?: boolean
+  approvedAt?: boolean
+  approvedBy?: boolean
+  rejectionReason?: boolean
+  createdBy?: boolean
 }
 
-export type MaintenanceExpenseOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "companyId" | "societyId" | "month" | "category" | "vendorPayee" | "vendorRecordId" | "voucherRef" | "amount" | "remarks" | "source" | "sourceKey" | "createdAt" | "updatedAt", ExtArgs["result"]["maintenanceExpense"]>
+export type MaintenanceExpenseOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "companyId" | "societyId" | "month" | "category" | "vendorPayee" | "vendorRecordId" | "voucherRef" | "amount" | "remarks" | "source" | "sourceKey" | "createdAt" | "updatedAt" | "title" | "expenseDate" | "invoiceNumber" | "invoiceDate" | "taxAmount" | "treatment" | "dueDate" | "approvalStatus" | "paymentStatus" | "reconciliationStatus" | "paidAmount" | "submittedAt" | "approvedAt" | "approvedBy" | "rejectionReason" | "createdBy", ExtArgs["result"]["maintenanceExpense"]>
 export type MaintenanceExpenseInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   society?: boolean | Prisma.SocietyDefaultArgs<ExtArgs>
   attachments?: boolean | Prisma.MaintenanceExpense$attachmentsArgs<ExtArgs>
+  approvals?: boolean | Prisma.MaintenanceExpense$approvalsArgs<ExtArgs>
+  payments?: boolean | Prisma.MaintenanceExpense$paymentsArgs<ExtArgs>
+  reconciliations?: boolean | Prisma.MaintenanceExpense$reconciliationsArgs<ExtArgs>
   _count?: boolean | Prisma.MaintenanceExpenseCountOutputTypeDefaultArgs<ExtArgs>
 }
 
@@ -950,6 +2116,9 @@ export type $MaintenanceExpensePayload<ExtArgs extends runtime.Types.Extensions.
   objects: {
     society: Prisma.$SocietyPayload<ExtArgs>
     attachments: Prisma.$ExpenseAttachmentPayload<ExtArgs>[]
+    approvals: Prisma.$ExpenseApprovalPayload<ExtArgs>[]
+    payments: Prisma.$ExpensePaymentPayload<ExtArgs>[]
+    reconciliations: Prisma.$ReconciliationRecordPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -966,6 +2135,22 @@ export type $MaintenanceExpensePayload<ExtArgs extends runtime.Types.Extensions.
     sourceKey: string | null
     createdAt: Date
     updatedAt: Date
+    title: string | null
+    expenseDate: Date | null
+    invoiceNumber: string | null
+    invoiceDate: Date | null
+    taxAmount: runtime.Decimal | null
+    treatment: string
+    dueDate: Date | null
+    approvalStatus: string
+    paymentStatus: string
+    reconciliationStatus: string
+    paidAmount: runtime.Decimal
+    submittedAt: Date | null
+    approvedAt: Date | null
+    approvedBy: string | null
+    rejectionReason: string | null
+    createdBy: string | null
   }, ExtArgs["result"]["maintenanceExpense"]>
   composites: {}
 }
@@ -1308,6 +2493,9 @@ export interface Prisma__MaintenanceExpenseClient<T, Null = never, ExtArgs exten
   readonly [Symbol.toStringTag]: "PrismaPromise"
   society<T extends Prisma.SocietyDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.SocietyDefaultArgs<ExtArgs>>): Prisma.Prisma__SocietyClient<runtime.Types.Result.GetResult<Prisma.$SocietyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   attachments<T extends Prisma.MaintenanceExpense$attachmentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.MaintenanceExpense$attachmentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ExpenseAttachmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  approvals<T extends Prisma.MaintenanceExpense$approvalsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.MaintenanceExpense$approvalsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ExpenseApprovalPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  payments<T extends Prisma.MaintenanceExpense$paymentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.MaintenanceExpense$paymentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ExpensePaymentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  reconciliations<T extends Prisma.MaintenanceExpense$reconciliationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.MaintenanceExpense$reconciliationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ReconciliationRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1351,6 +2539,22 @@ export interface MaintenanceExpenseFieldRefs {
   readonly sourceKey: Prisma.FieldRef<"MaintenanceExpense", 'String'>
   readonly createdAt: Prisma.FieldRef<"MaintenanceExpense", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"MaintenanceExpense", 'DateTime'>
+  readonly title: Prisma.FieldRef<"MaintenanceExpense", 'String'>
+  readonly expenseDate: Prisma.FieldRef<"MaintenanceExpense", 'DateTime'>
+  readonly invoiceNumber: Prisma.FieldRef<"MaintenanceExpense", 'String'>
+  readonly invoiceDate: Prisma.FieldRef<"MaintenanceExpense", 'DateTime'>
+  readonly taxAmount: Prisma.FieldRef<"MaintenanceExpense", 'Decimal'>
+  readonly treatment: Prisma.FieldRef<"MaintenanceExpense", 'String'>
+  readonly dueDate: Prisma.FieldRef<"MaintenanceExpense", 'DateTime'>
+  readonly approvalStatus: Prisma.FieldRef<"MaintenanceExpense", 'String'>
+  readonly paymentStatus: Prisma.FieldRef<"MaintenanceExpense", 'String'>
+  readonly reconciliationStatus: Prisma.FieldRef<"MaintenanceExpense", 'String'>
+  readonly paidAmount: Prisma.FieldRef<"MaintenanceExpense", 'Decimal'>
+  readonly submittedAt: Prisma.FieldRef<"MaintenanceExpense", 'DateTime'>
+  readonly approvedAt: Prisma.FieldRef<"MaintenanceExpense", 'DateTime'>
+  readonly approvedBy: Prisma.FieldRef<"MaintenanceExpense", 'String'>
+  readonly rejectionReason: Prisma.FieldRef<"MaintenanceExpense", 'String'>
+  readonly createdBy: Prisma.FieldRef<"MaintenanceExpense", 'String'>
 }
     
 
@@ -1720,6 +2924,78 @@ export type MaintenanceExpense$attachmentsArgs<ExtArgs extends runtime.Types.Ext
   take?: number
   skip?: number
   distinct?: Prisma.ExpenseAttachmentScalarFieldEnum | Prisma.ExpenseAttachmentScalarFieldEnum[]
+}
+
+/**
+ * MaintenanceExpense.approvals
+ */
+export type MaintenanceExpense$approvalsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ExpenseApproval
+   */
+  select?: Prisma.ExpenseApprovalSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ExpenseApproval
+   */
+  omit?: Prisma.ExpenseApprovalOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ExpenseApprovalInclude<ExtArgs> | null
+  where?: Prisma.ExpenseApprovalWhereInput
+  orderBy?: Prisma.ExpenseApprovalOrderByWithRelationInput | Prisma.ExpenseApprovalOrderByWithRelationInput[]
+  cursor?: Prisma.ExpenseApprovalWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ExpenseApprovalScalarFieldEnum | Prisma.ExpenseApprovalScalarFieldEnum[]
+}
+
+/**
+ * MaintenanceExpense.payments
+ */
+export type MaintenanceExpense$paymentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ExpensePayment
+   */
+  select?: Prisma.ExpensePaymentSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ExpensePayment
+   */
+  omit?: Prisma.ExpensePaymentOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ExpensePaymentInclude<ExtArgs> | null
+  where?: Prisma.ExpensePaymentWhereInput
+  orderBy?: Prisma.ExpensePaymentOrderByWithRelationInput | Prisma.ExpensePaymentOrderByWithRelationInput[]
+  cursor?: Prisma.ExpensePaymentWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ExpensePaymentScalarFieldEnum | Prisma.ExpensePaymentScalarFieldEnum[]
+}
+
+/**
+ * MaintenanceExpense.reconciliations
+ */
+export type MaintenanceExpense$reconciliationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ReconciliationRecord
+   */
+  select?: Prisma.ReconciliationRecordSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ReconciliationRecord
+   */
+  omit?: Prisma.ReconciliationRecordOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ReconciliationRecordInclude<ExtArgs> | null
+  where?: Prisma.ReconciliationRecordWhereInput
+  orderBy?: Prisma.ReconciliationRecordOrderByWithRelationInput | Prisma.ReconciliationRecordOrderByWithRelationInput[]
+  cursor?: Prisma.ReconciliationRecordWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ReconciliationRecordScalarFieldEnum | Prisma.ReconciliationRecordScalarFieldEnum[]
 }
 
 /**

@@ -421,6 +421,12 @@ export const ModelName = {
   FamilyMember: 'FamilyMember',
   Vehicle: 'Vehicle',
   MaintenanceExpense: 'MaintenanceExpense',
+  ExpenseApproval: 'ExpenseApproval',
+  ExpensePayment: 'ExpensePayment',
+  ExpenseCategory: 'ExpenseCategory',
+  ExpenseImportBatch: 'ExpenseImportBatch',
+  BankTransaction: 'BankTransaction',
+  ReconciliationRecord: 'ReconciliationRecord',
   ExpenseAttachment: 'ExpenseAttachment',
   OperationalRecord: 'OperationalRecord',
   Account: 'Account',
@@ -453,7 +459,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "company" | "companySetting" | "module" | "moduleDependency" | "companyModule" | "moduleFeatureLimit" | "user" | "session" | "userMembership" | "role" | "permission" | "rolePermission" | "userRole" | "invitationToken" | "society" | "building" | "floor" | "flat" | "resident" | "ownership" | "tenancy" | "familyMember" | "vehicle" | "maintenanceExpense" | "expenseAttachment" | "operationalRecord" | "account" | "billingCharge" | "financialPeriod" | "invoice" | "invoiceItem" | "payment" | "refund" | "journalEntry" | "journalLine" | "auditLog" | "loginHistory" | "securityEvent" | "idempotencyRecord" | "outboxEvent" | "systemSetting"
+    modelProps: "company" | "companySetting" | "module" | "moduleDependency" | "companyModule" | "moduleFeatureLimit" | "user" | "session" | "userMembership" | "role" | "permission" | "rolePermission" | "userRole" | "invitationToken" | "society" | "building" | "floor" | "flat" | "resident" | "ownership" | "tenancy" | "familyMember" | "vehicle" | "maintenanceExpense" | "expenseApproval" | "expensePayment" | "expenseCategory" | "expenseImportBatch" | "bankTransaction" | "reconciliationRecord" | "expenseAttachment" | "operationalRecord" | "account" | "billingCharge" | "financialPeriod" | "invoice" | "invoiceItem" | "payment" | "refund" | "journalEntry" | "journalLine" | "auditLog" | "loginHistory" | "securityEvent" | "idempotencyRecord" | "outboxEvent" | "systemSetting"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -2041,6 +2047,402 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    ExpenseApproval: {
+      payload: Prisma.$ExpenseApprovalPayload<ExtArgs>
+      fields: Prisma.ExpenseApprovalFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ExpenseApprovalFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExpenseApprovalPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ExpenseApprovalFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExpenseApprovalPayload>
+        }
+        findFirst: {
+          args: Prisma.ExpenseApprovalFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExpenseApprovalPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ExpenseApprovalFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExpenseApprovalPayload>
+        }
+        findMany: {
+          args: Prisma.ExpenseApprovalFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExpenseApprovalPayload>[]
+        }
+        create: {
+          args: Prisma.ExpenseApprovalCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExpenseApprovalPayload>
+        }
+        createMany: {
+          args: Prisma.ExpenseApprovalCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        delete: {
+          args: Prisma.ExpenseApprovalDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExpenseApprovalPayload>
+        }
+        update: {
+          args: Prisma.ExpenseApprovalUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExpenseApprovalPayload>
+        }
+        deleteMany: {
+          args: Prisma.ExpenseApprovalDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ExpenseApprovalUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        upsert: {
+          args: Prisma.ExpenseApprovalUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExpenseApprovalPayload>
+        }
+        aggregate: {
+          args: Prisma.ExpenseApprovalAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateExpenseApproval>
+        }
+        groupBy: {
+          args: Prisma.ExpenseApprovalGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ExpenseApprovalGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ExpenseApprovalCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ExpenseApprovalCountAggregateOutputType> | number
+        }
+      }
+    }
+    ExpensePayment: {
+      payload: Prisma.$ExpensePaymentPayload<ExtArgs>
+      fields: Prisma.ExpensePaymentFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ExpensePaymentFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExpensePaymentPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ExpensePaymentFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExpensePaymentPayload>
+        }
+        findFirst: {
+          args: Prisma.ExpensePaymentFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExpensePaymentPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ExpensePaymentFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExpensePaymentPayload>
+        }
+        findMany: {
+          args: Prisma.ExpensePaymentFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExpensePaymentPayload>[]
+        }
+        create: {
+          args: Prisma.ExpensePaymentCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExpensePaymentPayload>
+        }
+        createMany: {
+          args: Prisma.ExpensePaymentCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        delete: {
+          args: Prisma.ExpensePaymentDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExpensePaymentPayload>
+        }
+        update: {
+          args: Prisma.ExpensePaymentUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExpensePaymentPayload>
+        }
+        deleteMany: {
+          args: Prisma.ExpensePaymentDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ExpensePaymentUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        upsert: {
+          args: Prisma.ExpensePaymentUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExpensePaymentPayload>
+        }
+        aggregate: {
+          args: Prisma.ExpensePaymentAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateExpensePayment>
+        }
+        groupBy: {
+          args: Prisma.ExpensePaymentGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ExpensePaymentGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ExpensePaymentCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ExpensePaymentCountAggregateOutputType> | number
+        }
+      }
+    }
+    ExpenseCategory: {
+      payload: Prisma.$ExpenseCategoryPayload<ExtArgs>
+      fields: Prisma.ExpenseCategoryFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ExpenseCategoryFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExpenseCategoryPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ExpenseCategoryFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExpenseCategoryPayload>
+        }
+        findFirst: {
+          args: Prisma.ExpenseCategoryFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExpenseCategoryPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ExpenseCategoryFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExpenseCategoryPayload>
+        }
+        findMany: {
+          args: Prisma.ExpenseCategoryFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExpenseCategoryPayload>[]
+        }
+        create: {
+          args: Prisma.ExpenseCategoryCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExpenseCategoryPayload>
+        }
+        createMany: {
+          args: Prisma.ExpenseCategoryCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        delete: {
+          args: Prisma.ExpenseCategoryDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExpenseCategoryPayload>
+        }
+        update: {
+          args: Prisma.ExpenseCategoryUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExpenseCategoryPayload>
+        }
+        deleteMany: {
+          args: Prisma.ExpenseCategoryDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ExpenseCategoryUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        upsert: {
+          args: Prisma.ExpenseCategoryUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExpenseCategoryPayload>
+        }
+        aggregate: {
+          args: Prisma.ExpenseCategoryAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateExpenseCategory>
+        }
+        groupBy: {
+          args: Prisma.ExpenseCategoryGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ExpenseCategoryGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ExpenseCategoryCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ExpenseCategoryCountAggregateOutputType> | number
+        }
+      }
+    }
+    ExpenseImportBatch: {
+      payload: Prisma.$ExpenseImportBatchPayload<ExtArgs>
+      fields: Prisma.ExpenseImportBatchFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ExpenseImportBatchFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExpenseImportBatchPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ExpenseImportBatchFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExpenseImportBatchPayload>
+        }
+        findFirst: {
+          args: Prisma.ExpenseImportBatchFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExpenseImportBatchPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ExpenseImportBatchFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExpenseImportBatchPayload>
+        }
+        findMany: {
+          args: Prisma.ExpenseImportBatchFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExpenseImportBatchPayload>[]
+        }
+        create: {
+          args: Prisma.ExpenseImportBatchCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExpenseImportBatchPayload>
+        }
+        createMany: {
+          args: Prisma.ExpenseImportBatchCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        delete: {
+          args: Prisma.ExpenseImportBatchDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExpenseImportBatchPayload>
+        }
+        update: {
+          args: Prisma.ExpenseImportBatchUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExpenseImportBatchPayload>
+        }
+        deleteMany: {
+          args: Prisma.ExpenseImportBatchDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ExpenseImportBatchUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        upsert: {
+          args: Prisma.ExpenseImportBatchUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExpenseImportBatchPayload>
+        }
+        aggregate: {
+          args: Prisma.ExpenseImportBatchAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateExpenseImportBatch>
+        }
+        groupBy: {
+          args: Prisma.ExpenseImportBatchGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ExpenseImportBatchGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ExpenseImportBatchCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ExpenseImportBatchCountAggregateOutputType> | number
+        }
+      }
+    }
+    BankTransaction: {
+      payload: Prisma.$BankTransactionPayload<ExtArgs>
+      fields: Prisma.BankTransactionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.BankTransactionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BankTransactionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.BankTransactionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BankTransactionPayload>
+        }
+        findFirst: {
+          args: Prisma.BankTransactionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BankTransactionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.BankTransactionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BankTransactionPayload>
+        }
+        findMany: {
+          args: Prisma.BankTransactionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BankTransactionPayload>[]
+        }
+        create: {
+          args: Prisma.BankTransactionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BankTransactionPayload>
+        }
+        createMany: {
+          args: Prisma.BankTransactionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        delete: {
+          args: Prisma.BankTransactionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BankTransactionPayload>
+        }
+        update: {
+          args: Prisma.BankTransactionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BankTransactionPayload>
+        }
+        deleteMany: {
+          args: Prisma.BankTransactionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.BankTransactionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        upsert: {
+          args: Prisma.BankTransactionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BankTransactionPayload>
+        }
+        aggregate: {
+          args: Prisma.BankTransactionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateBankTransaction>
+        }
+        groupBy: {
+          args: Prisma.BankTransactionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BankTransactionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.BankTransactionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BankTransactionCountAggregateOutputType> | number
+        }
+      }
+    }
+    ReconciliationRecord: {
+      payload: Prisma.$ReconciliationRecordPayload<ExtArgs>
+      fields: Prisma.ReconciliationRecordFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ReconciliationRecordFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReconciliationRecordPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ReconciliationRecordFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReconciliationRecordPayload>
+        }
+        findFirst: {
+          args: Prisma.ReconciliationRecordFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReconciliationRecordPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ReconciliationRecordFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReconciliationRecordPayload>
+        }
+        findMany: {
+          args: Prisma.ReconciliationRecordFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReconciliationRecordPayload>[]
+        }
+        create: {
+          args: Prisma.ReconciliationRecordCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReconciliationRecordPayload>
+        }
+        createMany: {
+          args: Prisma.ReconciliationRecordCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        delete: {
+          args: Prisma.ReconciliationRecordDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReconciliationRecordPayload>
+        }
+        update: {
+          args: Prisma.ReconciliationRecordUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReconciliationRecordPayload>
+        }
+        deleteMany: {
+          args: Prisma.ReconciliationRecordDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ReconciliationRecordUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        upsert: {
+          args: Prisma.ReconciliationRecordUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReconciliationRecordPayload>
+        }
+        aggregate: {
+          args: Prisma.ReconciliationRecordAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateReconciliationRecord>
+        }
+        groupBy: {
+          args: Prisma.ReconciliationRecordGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ReconciliationRecordGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ReconciliationRecordCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ReconciliationRecordCountAggregateOutputType> | number
+        }
+      }
+    }
     ExpenseAttachment: {
       payload: Prisma.$ExpenseAttachmentPayload<ExtArgs>
       fields: Prisma.ExpenseAttachmentFieldRefs
@@ -3571,10 +3973,123 @@ export const MaintenanceExpenseScalarFieldEnum = {
   source: 'source',
   sourceKey: 'sourceKey',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  title: 'title',
+  expenseDate: 'expenseDate',
+  invoiceNumber: 'invoiceNumber',
+  invoiceDate: 'invoiceDate',
+  taxAmount: 'taxAmount',
+  treatment: 'treatment',
+  dueDate: 'dueDate',
+  approvalStatus: 'approvalStatus',
+  paymentStatus: 'paymentStatus',
+  reconciliationStatus: 'reconciliationStatus',
+  paidAmount: 'paidAmount',
+  submittedAt: 'submittedAt',
+  approvedAt: 'approvedAt',
+  approvedBy: 'approvedBy',
+  rejectionReason: 'rejectionReason',
+  createdBy: 'createdBy'
 } as const
 
 export type MaintenanceExpenseScalarFieldEnum = (typeof MaintenanceExpenseScalarFieldEnum)[keyof typeof MaintenanceExpenseScalarFieldEnum]
+
+
+export const ExpenseApprovalScalarFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  societyId: 'societyId',
+  expenseId: 'expenseId',
+  action: 'action',
+  actorUserId: 'actorUserId',
+  comments: 'comments',
+  reason: 'reason',
+  createdAt: 'createdAt'
+} as const
+
+export type ExpenseApprovalScalarFieldEnum = (typeof ExpenseApprovalScalarFieldEnum)[keyof typeof ExpenseApprovalScalarFieldEnum]
+
+
+export const ExpensePaymentScalarFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  societyId: 'societyId',
+  expenseId: 'expenseId',
+  amount: 'amount',
+  paidAt: 'paidAt',
+  method: 'method',
+  accountRef: 'accountRef',
+  transactionReference: 'transactionReference',
+  recordedBy: 'recordedBy',
+  status: 'status',
+  reversalReason: 'reversalReason',
+  createdAt: 'createdAt'
+} as const
+
+export type ExpensePaymentScalarFieldEnum = (typeof ExpensePaymentScalarFieldEnum)[keyof typeof ExpensePaymentScalarFieldEnum]
+
+
+export const ExpenseCategoryScalarFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  societyId: 'societyId',
+  name: 'name',
+  monthlyBase: 'monthlyBase',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ExpenseCategoryScalarFieldEnum = (typeof ExpenseCategoryScalarFieldEnum)[keyof typeof ExpenseCategoryScalarFieldEnum]
+
+
+export const ExpenseImportBatchScalarFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  societyId: 'societyId',
+  fileName: 'fileName',
+  rowCount: 'rowCount',
+  errorCount: 'errorCount',
+  importedBy: 'importedBy',
+  summary: 'summary',
+  createdAt: 'createdAt'
+} as const
+
+export type ExpenseImportBatchScalarFieldEnum = (typeof ExpenseImportBatchScalarFieldEnum)[keyof typeof ExpenseImportBatchScalarFieldEnum]
+
+
+export const BankTransactionScalarFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  societyId: 'societyId',
+  transactionDate: 'transactionDate',
+  description: 'description',
+  reference: 'reference',
+  amount: 'amount',
+  accountRef: 'accountRef',
+  source: 'source',
+  importedBy: 'importedBy',
+  createdAt: 'createdAt'
+} as const
+
+export type BankTransactionScalarFieldEnum = (typeof BankTransactionScalarFieldEnum)[keyof typeof BankTransactionScalarFieldEnum]
+
+
+export const ReconciliationRecordScalarFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  societyId: 'societyId',
+  expenseId: 'expenseId',
+  paymentId: 'paymentId',
+  bankTransactionId: 'bankTransactionId',
+  amount: 'amount',
+  status: 'status',
+  matchedBy: 'matchedBy',
+  reason: 'reason',
+  createdAt: 'createdAt'
+} as const
+
+export type ReconciliationRecordScalarFieldEnum = (typeof ReconciliationRecordScalarFieldEnum)[keyof typeof ReconciliationRecordScalarFieldEnum]
 
 
 export const ExpenseAttachmentScalarFieldEnum = {
@@ -4195,10 +4710,99 @@ export const MaintenanceExpenseOrderByRelevanceFieldEnum = {
   voucherRef: 'voucherRef',
   remarks: 'remarks',
   source: 'source',
-  sourceKey: 'sourceKey'
+  sourceKey: 'sourceKey',
+  title: 'title',
+  invoiceNumber: 'invoiceNumber',
+  treatment: 'treatment',
+  approvalStatus: 'approvalStatus',
+  paymentStatus: 'paymentStatus',
+  reconciliationStatus: 'reconciliationStatus',
+  approvedBy: 'approvedBy',
+  rejectionReason: 'rejectionReason',
+  createdBy: 'createdBy'
 } as const
 
 export type MaintenanceExpenseOrderByRelevanceFieldEnum = (typeof MaintenanceExpenseOrderByRelevanceFieldEnum)[keyof typeof MaintenanceExpenseOrderByRelevanceFieldEnum]
+
+
+export const ExpenseApprovalOrderByRelevanceFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  societyId: 'societyId',
+  expenseId: 'expenseId',
+  action: 'action',
+  actorUserId: 'actorUserId',
+  comments: 'comments',
+  reason: 'reason'
+} as const
+
+export type ExpenseApprovalOrderByRelevanceFieldEnum = (typeof ExpenseApprovalOrderByRelevanceFieldEnum)[keyof typeof ExpenseApprovalOrderByRelevanceFieldEnum]
+
+
+export const ExpensePaymentOrderByRelevanceFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  societyId: 'societyId',
+  expenseId: 'expenseId',
+  method: 'method',
+  accountRef: 'accountRef',
+  transactionReference: 'transactionReference',
+  recordedBy: 'recordedBy',
+  status: 'status',
+  reversalReason: 'reversalReason'
+} as const
+
+export type ExpensePaymentOrderByRelevanceFieldEnum = (typeof ExpensePaymentOrderByRelevanceFieldEnum)[keyof typeof ExpensePaymentOrderByRelevanceFieldEnum]
+
+
+export const ExpenseCategoryOrderByRelevanceFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  societyId: 'societyId',
+  name: 'name'
+} as const
+
+export type ExpenseCategoryOrderByRelevanceFieldEnum = (typeof ExpenseCategoryOrderByRelevanceFieldEnum)[keyof typeof ExpenseCategoryOrderByRelevanceFieldEnum]
+
+
+export const ExpenseImportBatchOrderByRelevanceFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  societyId: 'societyId',
+  fileName: 'fileName',
+  importedBy: 'importedBy'
+} as const
+
+export type ExpenseImportBatchOrderByRelevanceFieldEnum = (typeof ExpenseImportBatchOrderByRelevanceFieldEnum)[keyof typeof ExpenseImportBatchOrderByRelevanceFieldEnum]
+
+
+export const BankTransactionOrderByRelevanceFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  societyId: 'societyId',
+  description: 'description',
+  reference: 'reference',
+  accountRef: 'accountRef',
+  source: 'source',
+  importedBy: 'importedBy'
+} as const
+
+export type BankTransactionOrderByRelevanceFieldEnum = (typeof BankTransactionOrderByRelevanceFieldEnum)[keyof typeof BankTransactionOrderByRelevanceFieldEnum]
+
+
+export const ReconciliationRecordOrderByRelevanceFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  societyId: 'societyId',
+  expenseId: 'expenseId',
+  paymentId: 'paymentId',
+  bankTransactionId: 'bankTransactionId',
+  status: 'status',
+  matchedBy: 'matchedBy',
+  reason: 'reason'
+} as const
+
+export type ReconciliationRecordOrderByRelevanceFieldEnum = (typeof ReconciliationRecordOrderByRelevanceFieldEnum)[keyof typeof ReconciliationRecordOrderByRelevanceFieldEnum]
 
 
 export const ExpenseAttachmentOrderByRelevanceFieldEnum = {
@@ -4795,6 +5399,12 @@ export type GlobalOmitConfig = {
   familyMember?: Prisma.FamilyMemberOmit
   vehicle?: Prisma.VehicleOmit
   maintenanceExpense?: Prisma.MaintenanceExpenseOmit
+  expenseApproval?: Prisma.ExpenseApprovalOmit
+  expensePayment?: Prisma.ExpensePaymentOmit
+  expenseCategory?: Prisma.ExpenseCategoryOmit
+  expenseImportBatch?: Prisma.ExpenseImportBatchOmit
+  bankTransaction?: Prisma.BankTransactionOmit
+  reconciliationRecord?: Prisma.ReconciliationRecordOmit
   expenseAttachment?: Prisma.ExpenseAttachmentOmit
   operationalRecord?: Prisma.OperationalRecordOmit
   account?: Prisma.AccountOmit

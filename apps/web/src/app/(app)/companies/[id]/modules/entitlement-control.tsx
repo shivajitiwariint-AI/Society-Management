@@ -37,7 +37,7 @@ export function ModuleManager({ companyId, modules }: { companyId: string; modul
     const reason =
       (reasons[module.moduleKey] ?? '').trim() ||
       `${mode === 'DISABLED' ? 'Disabled' : mode === 'READ_ONLY' ? 'Set to read only' : 'Enabled'} by platform administrator`;
-    if (mode === 'DISABLED' && !window.confirm(`Disable ${module.name} for this company? Modules that depend on it may stop working.`)) {
+    if (mode === 'DISABLED' && !window.confirm(`Disable ${module.name} for this company? If other enabled modules depend on it, you will be shown the exact steps to disable them first (or you can override as platform administrator).`)) {
       return;
     }
 
@@ -52,14 +52,14 @@ export function ModuleManager({ companyId, modules }: { companyId: string; modul
         headers: { 'content-type': 'application/json', 'x-csrf-token': csrfToken },
         body: JSON.stringify({ moduleKey: module.moduleKey, accessMode: mode, reason }),
       });
-      const body = (await response.json()) as { error?: { message?: string } };
+      const body = (await response.json()) as { error?: { message?: string }; warning?: string };
       if (!response.ok) {
         setMessage({ tone: 'error', text: body.error?.message ?? `Unable to update ${module.name}.` });
         return;
       }
       setMessage({
         tone: 'success',
-        text: `${module.name} is now ${mode === 'DISABLED' ? 'disabled' : mode === 'READ_ONLY' ? 'read only' : 'enabled'}.`,
+        text: `${module.name} is now ${mode === 'DISABLED' ? 'disabled' : mode === 'READ_ONLY' ? 'read only' : 'enabled'}.${body.warning ? ` ${body.warning}` : ''}`,
       });
       setReasons((current) => ({ ...current, [module.moduleKey]: '' }));
       router.refresh();

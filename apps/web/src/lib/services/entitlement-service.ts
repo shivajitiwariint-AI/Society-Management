@@ -1,5 +1,5 @@
 import { authorize } from '@society/authorization';
-import { ALL_MODULE_KEYS, MODULES, MODULE_DEPENDENCIES, isCoreModule, missingDependencies, type ModuleKey } from '@society/shared';
+import { ALL_MODULE_KEYS, MODULES, MODULE_DEPENDENCIES, getDependencies, isCoreModule, missingDependencies, type ModuleKey } from '@society/shared';
 import { prisma, recordAudit } from '@society/database';
 import type { ServiceResult, ServiceContext } from './company-service';
 
@@ -10,6 +10,40 @@ function isModuleKey(value: string): value is ModuleKey {
 function displayNames(keys: readonly string[]): string {
   const names = new Map<string, string>(MODULES.map((module) => [module.key, module.name]));
   return keys.map((key) => names.get(key) ?? key).join(', ');
+}
+
+/** Deepest-enabled dependents first, so following the order never breaks another module. */
+function disableOrder(key: ModuleKey, enabledKeys: ReadonlySet<ModuleKey>): ModuleKey[] {
+  const ordered: ModuleKey[] = [];
+  const visit = (current: ModuleKey) => {
+    for (const [module, dependsOn] of MODULE_DEPENDENCIES) {
+      if (dependsOn === current && enabledKeys.has(module) && !ordered.includes(module)) {
+        visit(module);
+        ordered.push(module);
+      }
+    }
+  };
+  visit(key);
+  return ordered;
+}
+
+/** Dependencies first, deepest first, so enabling in order always succeeds. */
+function enableOrder(key: ModuleKey, enabledKeys: ReadonlySet<ModuleKey>): ModuleKey[] {
+  const ordered: ModuleKey[] = [];
+  const visit = (current: ModuleKey) => {
+    for (const dependency of getDependencies(current)) {
+      if (!enabledKeys.has(dependency) && !ordered.includes(dependency)) {
+        visit(dependency);
+        ordered.push(dependency);
+      }
+    }
+  };
+  visit(key);
+  return ordered;
+}
+
+function stepsMessage(verb: 'Disable' | 'Enable', steps: readonly ModuleKey[]): string {
+  return `Steps: ${steps.map((key, index) => `${index + 1}. ${verb} ${displayNames([key])}`).join(' → ')}.`;
 }
 
 export async function listCompanyModules(companyId: string): Promise<Array<{ moduleKey: string; isEnabled: boolean; accessMode: string; isCore: boolean; name: string }>> {
@@ -41,7 +75,7 @@ export async function changeEntitlement(
   moduleKeyInput: string,
   accessMode: 'FULL' | 'READ_ONLY' | 'DISABLED',
   reason: string,
-): Promise<ServiceResult<{ moduleKey: string; accessMode: string }>> {
+): Promise<ServiceResult<{ moduleKey: string; accessMode: string; warning?: string }>> {
   const decision = authorize(service.context, {
     moduleKey: 'company',
     resourceKey: 'settings',
@@ -57,6 +91,11 @@ export async function changeEntitlement(
     return { ok: false, code: 'INVALID', message: 'Core modules cannot be disabled or restricted' };
   }
 
+  // Platform super admins may intentionally override dependency rules
+  // (for example to disable a module with dependents). The override is
+  // recorded in the audit entry below.
+  const isPlatformAdmin = service.context.roles.some((role) => role.scopeType === 'PLATFORM');
+
   const rows = await prisma.companyModule.findMany({
     where: { companyId },
     select: { module: { select: { key: true } }, isEnabled: true },
@@ -64,26 +103,27 @@ export async function changeEntitlement(
   const enabledKeys = new Set<ModuleKey>(
     rows.filter((row) => row.isEnabled).map((row) => row.module.key as ModuleKey),
   );
+  let dependencyOverride = false;
+  let overrideSteps: string | null = null;
   if (accessMode === 'DISABLED') {
-    const dependents = MODULE_DEPENDENCIES
-      .filter(([, dependsOn]) => dependsOn === moduleKeyInput)
-      .map(([module]) => module)
-      .filter((module) => enabledKeys.has(module));
+    const dependents = disableOrder(moduleKeyInput, enabledKeys);
     if (dependents.length > 0) {
-      return {
-        ok: false,
-        code: 'INVALID',
-        message: `Disable dependent modules first: ${displayNames(dependents)}`,
-      };
+      const steps = stepsMessage('Disable', [...dependents, moduleKeyInput]);
+      if (!isPlatformAdmin) {
+        return { ok: false, code: 'INVALID', message: `Dependent modules are enabled. ${steps}` };
+      }
+      dependencyOverride = true;
+      overrideSteps = steps;
     }
   } else {
-    const missing = missingDependencies(moduleKeyInput, enabledKeys);
+    const missing = enableOrder(moduleKeyInput, enabledKeys);
     if (missing.length > 0) {
-      return {
-        ok: false,
-        code: 'INVALID',
-        message: `Enable required modules first: ${displayNames(missing)}`,
-      };
+      const steps = stepsMessage('Enable', [...missing, moduleKeyInput]);
+      if (!isPlatformAdmin) {
+        return { ok: false, code: 'INVALID', message: `Required modules are disabled. ${steps}` };
+      }
+      dependencyOverride = true;
+      overrideSteps = steps;
     }
   }
 
@@ -120,12 +160,21 @@ export async function changeEntitlement(
     resourceType: 'company_module',
     resourceId: moduleRow.id,
     result: 'SUCCESS',
-    reason,
+    reason: dependencyOverride
+      ? `${reason} (platform dependency override${overrideSteps ? `: ${overrideSteps}` : ''})`
+      : reason,
     requestId: service.requestId,
     ipAddress: service.ipAddress,
     userAgent: service.userAgent,
-    metadata: { moduleKey: moduleKeyInput, accessMode, isEnabled },
+    metadata: { moduleKey: moduleKeyInput, accessMode, isEnabled, dependencyOverride, overrideSteps },
   });
 
-  return { ok: true, value: { moduleKey: moduleKeyInput, accessMode } };
+  return {
+    ok: true,
+    value: {
+      moduleKey: moduleKeyInput,
+      accessMode,
+      ...(overrideSteps ? { warning: `Platform override applied. To do this manually: ${overrideSteps}` } : {}),
+    },
+  };
 }

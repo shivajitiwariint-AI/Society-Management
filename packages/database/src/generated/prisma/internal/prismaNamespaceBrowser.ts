@@ -75,6 +75,12 @@ export const ModelName = {
   FamilyMember: 'FamilyMember',
   Vehicle: 'Vehicle',
   MaintenanceExpense: 'MaintenanceExpense',
+  ExpenseApproval: 'ExpenseApproval',
+  ExpensePayment: 'ExpensePayment',
+  ExpenseCategory: 'ExpenseCategory',
+  ExpenseImportBatch: 'ExpenseImportBatch',
+  BankTransaction: 'BankTransaction',
+  ReconciliationRecord: 'ReconciliationRecord',
   ExpenseAttachment: 'ExpenseAttachment',
   OperationalRecord: 'OperationalRecord',
   Account: 'Account',
@@ -479,10 +485,123 @@ export const MaintenanceExpenseScalarFieldEnum = {
   source: 'source',
   sourceKey: 'sourceKey',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  title: 'title',
+  expenseDate: 'expenseDate',
+  invoiceNumber: 'invoiceNumber',
+  invoiceDate: 'invoiceDate',
+  taxAmount: 'taxAmount',
+  treatment: 'treatment',
+  dueDate: 'dueDate',
+  approvalStatus: 'approvalStatus',
+  paymentStatus: 'paymentStatus',
+  reconciliationStatus: 'reconciliationStatus',
+  paidAmount: 'paidAmount',
+  submittedAt: 'submittedAt',
+  approvedAt: 'approvedAt',
+  approvedBy: 'approvedBy',
+  rejectionReason: 'rejectionReason',
+  createdBy: 'createdBy'
 } as const
 
 export type MaintenanceExpenseScalarFieldEnum = (typeof MaintenanceExpenseScalarFieldEnum)[keyof typeof MaintenanceExpenseScalarFieldEnum]
+
+
+export const ExpenseApprovalScalarFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  societyId: 'societyId',
+  expenseId: 'expenseId',
+  action: 'action',
+  actorUserId: 'actorUserId',
+  comments: 'comments',
+  reason: 'reason',
+  createdAt: 'createdAt'
+} as const
+
+export type ExpenseApprovalScalarFieldEnum = (typeof ExpenseApprovalScalarFieldEnum)[keyof typeof ExpenseApprovalScalarFieldEnum]
+
+
+export const ExpensePaymentScalarFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  societyId: 'societyId',
+  expenseId: 'expenseId',
+  amount: 'amount',
+  paidAt: 'paidAt',
+  method: 'method',
+  accountRef: 'accountRef',
+  transactionReference: 'transactionReference',
+  recordedBy: 'recordedBy',
+  status: 'status',
+  reversalReason: 'reversalReason',
+  createdAt: 'createdAt'
+} as const
+
+export type ExpensePaymentScalarFieldEnum = (typeof ExpensePaymentScalarFieldEnum)[keyof typeof ExpensePaymentScalarFieldEnum]
+
+
+export const ExpenseCategoryScalarFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  societyId: 'societyId',
+  name: 'name',
+  monthlyBase: 'monthlyBase',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ExpenseCategoryScalarFieldEnum = (typeof ExpenseCategoryScalarFieldEnum)[keyof typeof ExpenseCategoryScalarFieldEnum]
+
+
+export const ExpenseImportBatchScalarFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  societyId: 'societyId',
+  fileName: 'fileName',
+  rowCount: 'rowCount',
+  errorCount: 'errorCount',
+  importedBy: 'importedBy',
+  summary: 'summary',
+  createdAt: 'createdAt'
+} as const
+
+export type ExpenseImportBatchScalarFieldEnum = (typeof ExpenseImportBatchScalarFieldEnum)[keyof typeof ExpenseImportBatchScalarFieldEnum]
+
+
+export const BankTransactionScalarFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  societyId: 'societyId',
+  transactionDate: 'transactionDate',
+  description: 'description',
+  reference: 'reference',
+  amount: 'amount',
+  accountRef: 'accountRef',
+  source: 'source',
+  importedBy: 'importedBy',
+  createdAt: 'createdAt'
+} as const
+
+export type BankTransactionScalarFieldEnum = (typeof BankTransactionScalarFieldEnum)[keyof typeof BankTransactionScalarFieldEnum]
+
+
+export const ReconciliationRecordScalarFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  societyId: 'societyId',
+  expenseId: 'expenseId',
+  paymentId: 'paymentId',
+  bankTransactionId: 'bankTransactionId',
+  amount: 'amount',
+  status: 'status',
+  matchedBy: 'matchedBy',
+  reason: 'reason',
+  createdAt: 'createdAt'
+} as const
+
+export type ReconciliationRecordScalarFieldEnum = (typeof ReconciliationRecordScalarFieldEnum)[keyof typeof ReconciliationRecordScalarFieldEnum]
 
 
 export const ExpenseAttachmentScalarFieldEnum = {
@@ -1103,10 +1222,99 @@ export const MaintenanceExpenseOrderByRelevanceFieldEnum = {
   voucherRef: 'voucherRef',
   remarks: 'remarks',
   source: 'source',
-  sourceKey: 'sourceKey'
+  sourceKey: 'sourceKey',
+  title: 'title',
+  invoiceNumber: 'invoiceNumber',
+  treatment: 'treatment',
+  approvalStatus: 'approvalStatus',
+  paymentStatus: 'paymentStatus',
+  reconciliationStatus: 'reconciliationStatus',
+  approvedBy: 'approvedBy',
+  rejectionReason: 'rejectionReason',
+  createdBy: 'createdBy'
 } as const
 
 export type MaintenanceExpenseOrderByRelevanceFieldEnum = (typeof MaintenanceExpenseOrderByRelevanceFieldEnum)[keyof typeof MaintenanceExpenseOrderByRelevanceFieldEnum]
+
+
+export const ExpenseApprovalOrderByRelevanceFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  societyId: 'societyId',
+  expenseId: 'expenseId',
+  action: 'action',
+  actorUserId: 'actorUserId',
+  comments: 'comments',
+  reason: 'reason'
+} as const
+
+export type ExpenseApprovalOrderByRelevanceFieldEnum = (typeof ExpenseApprovalOrderByRelevanceFieldEnum)[keyof typeof ExpenseApprovalOrderByRelevanceFieldEnum]
+
+
+export const ExpensePaymentOrderByRelevanceFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  societyId: 'societyId',
+  expenseId: 'expenseId',
+  method: 'method',
+  accountRef: 'accountRef',
+  transactionReference: 'transactionReference',
+  recordedBy: 'recordedBy',
+  status: 'status',
+  reversalReason: 'reversalReason'
+} as const
+
+export type ExpensePaymentOrderByRelevanceFieldEnum = (typeof ExpensePaymentOrderByRelevanceFieldEnum)[keyof typeof ExpensePaymentOrderByRelevanceFieldEnum]
+
+
+export const ExpenseCategoryOrderByRelevanceFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  societyId: 'societyId',
+  name: 'name'
+} as const
+
+export type ExpenseCategoryOrderByRelevanceFieldEnum = (typeof ExpenseCategoryOrderByRelevanceFieldEnum)[keyof typeof ExpenseCategoryOrderByRelevanceFieldEnum]
+
+
+export const ExpenseImportBatchOrderByRelevanceFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  societyId: 'societyId',
+  fileName: 'fileName',
+  importedBy: 'importedBy'
+} as const
+
+export type ExpenseImportBatchOrderByRelevanceFieldEnum = (typeof ExpenseImportBatchOrderByRelevanceFieldEnum)[keyof typeof ExpenseImportBatchOrderByRelevanceFieldEnum]
+
+
+export const BankTransactionOrderByRelevanceFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  societyId: 'societyId',
+  description: 'description',
+  reference: 'reference',
+  accountRef: 'accountRef',
+  source: 'source',
+  importedBy: 'importedBy'
+} as const
+
+export type BankTransactionOrderByRelevanceFieldEnum = (typeof BankTransactionOrderByRelevanceFieldEnum)[keyof typeof BankTransactionOrderByRelevanceFieldEnum]
+
+
+export const ReconciliationRecordOrderByRelevanceFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  societyId: 'societyId',
+  expenseId: 'expenseId',
+  paymentId: 'paymentId',
+  bankTransactionId: 'bankTransactionId',
+  status: 'status',
+  matchedBy: 'matchedBy',
+  reason: 'reason'
+} as const
+
+export type ReconciliationRecordOrderByRelevanceFieldEnum = (typeof ReconciliationRecordOrderByRelevanceFieldEnum)[keyof typeof ReconciliationRecordOrderByRelevanceFieldEnum]
 
 
 export const ExpenseAttachmentOrderByRelevanceFieldEnum = {

@@ -595,13 +595,145 @@ model MaintenanceExpense {
   createdAt   DateTime @default(now()) @db.DateTime(3)
   updatedAt   DateTime @updatedAt @db.DateTime(3)
 
+  // Maintenance Expense Management module (Maker–Checker + payments)
+  title                String?   @db.VarChar(200)
+  expenseDate          DateTime? @db.Date
+  invoiceNumber        String?   @db.VarChar(100)
+  invoiceDate          DateTime? @db.Date
+  taxAmount            Decimal?  @db.Decimal(14, 2)
+  treatment            String    @default("ACCRUED") @db.VarChar(20)
+  dueDate              DateTime? @db.Date
+  approvalStatus       String    @default("DRAFT") @db.VarChar(20)
+  paymentStatus        String    @default("UNPAID") @db.VarChar(20)
+  reconciliationStatus String    @default("NOT_RECONCILED") @db.VarChar(30)
+  paidAmount           Decimal   @default(0) @db.Decimal(14, 2)
+  submittedAt          DateTime? @db.DateTime(3)
+  approvedAt           DateTime? @db.DateTime(3)
+  approvedBy           String?   @db.Char(36)
+  rejectionReason      String?   @db.VarChar(500)
+  createdBy            String?   @db.Char(36)
+
   society     Society             @relation(fields: [societyId, companyId], references: [id, companyId], onDelete: Cascade)
   attachments ExpenseAttachment[]
+  approvals   ExpenseApproval[]
+  payments    ExpensePayment[]
+  reconciliations ReconciliationRecord[]
 
   @@unique([companyId, societyId, sourceKey])
   @@index([companyId, societyId, month])
   @@index([companyId, category, month])
   @@index([companyId, source, month])
+  @@index([companyId, societyId, approvalStatus])
+  @@index([companyId, societyId, paymentStatus])
+  @@index([companyId, societyId, reconciliationStatus])
+}
+
+/// Maker–Checker decision history for a maintenance expense.
+model ExpenseApproval {
+  id         String   @id @default(uuid()) @db.Char(36)
+  companyId  String   @db.Char(36)
+  societyId  String   @db.Char(36)
+  expenseId  String   @db.Char(36)
+  action     String   @db.VarChar(30)
+  actorUserId String  @db.Char(36)
+  comments   String?  @db.VarChar(500)
+  reason     String?  @db.VarChar(500)
+  createdAt  DateTime @default(now()) @db.DateTime(3)
+
+  expense MaintenanceExpense @relation(fields: [expenseId], references: [id], onDelete: Cascade)
+
+  @@index([companyId, societyId, expenseId])
+  @@index([expenseId, createdAt])
+}
+
+/// Full or partial payment linked to a single expense. Never creates a new expense.
+model ExpensePayment {
+  id                 String   @id @default(uuid()) @db.Char(36)
+  companyId          String   @db.Char(36)
+  societyId          String   @db.Char(36)
+  expenseId          String   @db.Char(36)
+  amount             Decimal  @db.Decimal(14, 2)
+  paidAt             DateTime @db.DateTime(3)
+  method             String   @default("OFFLINE") @db.VarChar(30)
+  accountRef         String?  @db.VarChar(120)
+  transactionReference String? @db.VarChar(160)
+  recordedBy         String?  @db.Char(36)
+  status             String   @default("ACTIVE") @db.VarChar(20)
+  reversalReason     String?  @db.VarChar(500)
+  createdAt          DateTime @default(now()) @db.DateTime(3)
+
+  expense MaintenanceExpense @relation(fields: [expenseId], references: [id], onDelete: Cascade)
+
+  @@index([companyId, societyId, expenseId])
+  @@index([expenseId, status])
+}
+
+/// Society expense category master; historical records keep their original text.
+model ExpenseCategory {
+  id          String   @id @default(uuid()) @db.Char(36)
+  companyId   String   @db.Char(36)
+  societyId   String   @db.Char(36)
+  name        String   @db.VarChar(120)
+  monthlyBase Decimal? @db.Decimal(14, 2)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now()) @db.DateTime(3)
+  updatedAt   DateTime @updatedAt @db.DateTime(3)
+
+  @@unique([companyId, societyId, name])
+  @@index([companyId, societyId, isActive])
+}
+
+/// Historical import tracking with validation summary.
+model ExpenseImportBatch {
+  id         String   @id @default(uuid()) @db.Char(36)
+  companyId  String   @db.Char(36)
+  societyId  String   @db.Char(36)
+  fileName   String   @db.VarChar(255)
+  rowCount   Int
+  errorCount Int      @default(0)
+  importedBy String?  @db.Char(36)
+  summary    Json?
+  createdAt  DateTime @default(now()) @db.DateTime(3)
+
+  @@index([companyId, societyId, createdAt])
+}
+
+/// Imported bank statement transaction used for reconciliation.
+model BankTransaction {
+  id            String   @id @default(uuid()) @db.Char(36)
+  companyId     String   @db.Char(36)
+  societyId     String   @db.Char(36)
+  transactionDate DateTime @db.Date
+  description   String?  @db.VarChar(300)
+  reference     String?  @db.VarChar(160)
+  amount        Decimal  @db.Decimal(14, 2)
+  accountRef    String?  @db.VarChar(120)
+  source        String   @default("MANUAL") @db.VarChar(20)
+  importedBy    String?  @db.Char(36)
+  createdAt     DateTime @default(now()) @db.DateTime(3)
+
+  @@index([companyId, societyId, transactionDate])
+  @@index([companyId, societyId, reference])
+}
+
+/// Match decision between an expense payment and a bank transaction.
+model ReconciliationRecord {
+  id               String   @id @default(uuid()) @db.Char(36)
+  companyId        String   @db.Char(36)
+  societyId        String   @db.Char(36)
+  expenseId        String   @db.Char(36)
+  paymentId        String   @db.Char(36)
+  bankTransactionId String? @db.Char(36)
+  amount           Decimal  @db.Decimal(14, 2)
+  status           String   @default("MATCHED") @db.VarChar(30)
+  matchedBy        String?  @db.Char(36)
+  reason           String?  @db.VarChar(500)
+  createdAt        DateTime @default(now()) @db.DateTime(3)
+
+  expense MaintenanceExpense @relation(fields: [expenseId], references: [id], onDelete: Cascade)
+
+  @@index([companyId, societyId, expenseId])
+  @@index([paymentId])
 }
 
 /// Supporting evidence for a maintenance expense (bills, invoices, AMC,

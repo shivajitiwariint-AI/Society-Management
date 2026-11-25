@@ -17,6 +17,7 @@ export type ErrorCode =
   | 'RATE_LIMITED'
   | 'NOT_FOUND'
   | 'CONFLICT'
+  | 'SELF_APPROVAL'
   | 'INTERNAL_ERROR';
 
 export interface ApiErrorBody {

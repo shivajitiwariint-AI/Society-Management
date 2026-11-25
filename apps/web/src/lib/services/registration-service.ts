@@ -16,8 +16,9 @@ export interface RegistrationMeta {
 
 /**
  * Public self-service tenant onboarding. One transaction creates the company,
- * a ready-to-use starter module bundle, and the first company administrator
- * with an active membership and the system company-admin role.
+ * the default entitlement matrix (Finance & Accounts only), and the first
+ * company administrator with an active membership and the system
+ * company-admin role.
  */
 export async function registerCompany(
   input: CompanyRegistrationInput,
@@ -46,7 +47,7 @@ export async function registerCompany(
           status: 'ACTIVE',
         },
       });
-      await seedCompanyModules(tx, companyId, userId, { enableStarterModules: true });
+      await seedCompanyModules(tx, companyId, userId);
       await tx.user.create({
         data: { id: userId, email: input.adminEmail, name: input.adminName, passwordHash, status: 'ACTIVE' },
       });

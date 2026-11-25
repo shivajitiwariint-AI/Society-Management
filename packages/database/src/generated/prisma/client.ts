@@ -162,6 +162,36 @@ export type Vehicle = Prisma.VehicleModel
  */
 export type MaintenanceExpense = Prisma.MaintenanceExpenseModel
 /**
+ * Model ExpenseApproval
+ * Maker–Checker decision history for a maintenance expense.
+ */
+export type ExpenseApproval = Prisma.ExpenseApprovalModel
+/**
+ * Model ExpensePayment
+ * Full or partial payment linked to a single expense. Never creates a new expense.
+ */
+export type ExpensePayment = Prisma.ExpensePaymentModel
+/**
+ * Model ExpenseCategory
+ * Society expense category master; historical records keep their original text.
+ */
+export type ExpenseCategory = Prisma.ExpenseCategoryModel
+/**
+ * Model ExpenseImportBatch
+ * Historical import tracking with validation summary.
+ */
+export type ExpenseImportBatch = Prisma.ExpenseImportBatchModel
+/**
+ * Model BankTransaction
+ * Imported bank statement transaction used for reconciliation.
+ */
+export type BankTransaction = Prisma.BankTransactionModel
+/**
+ * Model ReconciliationRecord
+ * Match decision between an expense payment and a bank transaction.
+ */
+export type ReconciliationRecord = Prisma.ReconciliationRecordModel
+/**
  * Model ExpenseAttachment
  * Supporting evidence for a maintenance expense (bills, invoices, AMC,
  * work orders, approvals, bank statements, receipts). Bytes are stored in DB
