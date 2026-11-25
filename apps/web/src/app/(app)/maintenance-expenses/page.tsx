@@ -4,6 +4,7 @@ import { MAINTENANCE_EXPENSE_CATEGORIES } from '@society/shared';
 import { prisma } from '@society/database';
 import { ClipboardList } from 'lucide-react';
 import { Alert } from '@/components/ui/alert';
+import { RegisterSocietyAlert } from '@/components/register-society-alert';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { PageHeader } from '@/components/page-header';
 import { getRequestContext } from '@/lib/auth/session';
@@ -47,18 +48,7 @@ export default async function MaintenanceExpensesPage({ searchParams }: PageProp
       ? requested
       : societyResult.value[0]?.id;
 
-  if (!societyId) {
-    return (
-      <Card>
-        <CardHeader><CardTitle>No society found</CardTitle></CardHeader>
-        <CardContent>
-          <p className="text-sm text-ink-500">
-            Register a society in Society Setup before recording maintenance expenses.
-          </p>
-        </CardContent>
-      </Card>
-    );
-  }
+  if (!societyId) return <RegisterSocietyAlert action="recording maintenance expenses" />;
 
   const [initial, vendors] = await Promise.all([
     listExpenses(service, companyId, societyId, { page: 1, pageSize: 20 }),

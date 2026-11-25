@@ -2,6 +2,7 @@ import { redirect } from 'next/navigation';
 import { Receipt } from 'lucide-react';
 import { authorize } from '@society/authorization';
 import { Alert } from '@/components/ui/alert';
+import { RegisterSocietyAlert } from '@/components/register-society-alert';
 import { PageHeader } from '@/components/page-header';
 import { getRequestContext } from '@/lib/auth/session';
 import { listSocieties } from '@/lib/services/society-service';
@@ -25,7 +26,7 @@ export default async function PaymentsPage({ searchParams }: { searchParams: Pro
   const societyId = requested && societiesResult.value.some((item) => item.id === requested)
     ? requested
     : societiesResult.value[0]?.id;
-  if (!societyId) return <Alert tone="info">Register a society before recording payments.</Alert>;
+  if (!societyId) return <RegisterSocietyAlert action="recording payments" />;
 
   const initialData = await loadFinanceSection(service, context.activeCompanyId, societyId, 'payments');
 

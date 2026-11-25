@@ -9,6 +9,7 @@ import {
 } from '@society/shared';
 import { Users } from 'lucide-react';
 import { Alert } from '@/components/ui/alert';
+import { RegisterSocietyAlert } from '@/components/register-society-alert';
 import { PageHeader } from '@/components/page-header';
 import { getRequestContext } from '@/lib/auth/session';
 import { listSocieties } from '@/lib/services/society-service';
@@ -47,13 +48,7 @@ export default async function ResidentsPage({ searchParams }: PageProps) {
       ? requested
       : societyResult.value[0]?.id;
 
-  if (!societyId) {
-    return (
-      <Alert tone="info">
-        Register a society and at least one flat in Society Setup before adding residents.
-      </Alert>
-    );
-  }
+  if (!societyId) return <RegisterSocietyAlert action="adding residents" />;
 
   const initial = await listResidents(service, context.activeCompanyId, societyId, { page: 1, pageSize: 20 });
   if (!initial.ok) return <Alert>{initial.message}</Alert>;
