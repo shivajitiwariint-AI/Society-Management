@@ -1,0 +1,17 @@
+import { chromium } from 'playwright';
+import { readFile } from 'node:fs/promises';
+const envRaw = await readFile('.env', 'utf8');
+const envVal = (k) => envRaw.match(new RegExp(`^${k}\\s*=\\s*(.+)$`, 'm'))?.[1].trim().replace(/^["']|["']$/g, '');
+const email = envVal('SEED_SUPERADMIN_EMAIL');
+const password = envVal('SEED_SUPERADMIN_PASSWORD');
+console.log('email:', email, 'password length:', password?.length);
+const browser = await chromium.launch();
+const page = await browser.newPage();
+await page.goto('http://localhost:3000/admin/login');
+await page.getByLabel('Email address').fill(email);
+await page.getByLabel('Password').fill(password);
+await page.getByRole('button', { name: /sign in/i }).click();
+await page.waitForTimeout(2000);
+console.log('url:', page.url());
+console.log('body:', (await page.locator('body').innerText()).slice(0, 300));
+await browser.close();
