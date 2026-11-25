@@ -27,20 +27,30 @@ export async function seedCompanyModules(
   tx: Prisma.TransactionClient,
   companyId: string,
   actorUserId: string,
+  options: { enableStarterModules?: boolean } = {},
 ): Promise<void> {
   const moduleRows = await tx.module.findMany({ select: { id: true, key: true } });
   const moduleIdByKey = new Map(moduleRows.map((row) => [row.key, row.id]));
+  // Self-registered companies get a ready-to-use starter bundle; tenants
+  // created by platform admins stay deny-by-default (SRS 7.2).
   await tx.companyModule.createMany({
-    data: MODULES.map((module) => ({
-      id: newId(),
-      companyId,
-      moduleId: moduleIdByKey.get(module.key) ?? throwMissingModule(module.key),
-      isEnabled: module.isCore,
-      accessMode: module.isCore ? 'FULL' : 'DISABLED',
-      enabledAt: module.isCore ? new Date() : null,
-      changedBy: actorUserId,
-      reason: module.isCore ? 'Core module' : 'Deny by default for new company',
-    })),
+    data: MODULES.map((module) => {
+      const enabled = module.isCore || options.enableStarterModules === true;
+      return {
+        id: newId(),
+        companyId,
+        moduleId: moduleIdByKey.get(module.key) ?? throwMissingModule(module.key),
+        isEnabled: enabled,
+        accessMode: enabled ? 'FULL' : 'DISABLED',
+        enabledAt: enabled ? new Date() : null,
+        changedBy: actorUserId,
+        reason: module.isCore
+          ? 'Core module'
+          : options.enableStarterModules
+            ? 'Starter bundle for self-registered company'
+            : 'Deny by default for new company',
+      };
+    }),
   });
 }
 
