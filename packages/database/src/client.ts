@@ -52,7 +52,19 @@ function databaseConfig(): {
 
 /** Server-only. Never import this module into a Client Component. */
 export function createPrismaClient(): PrismaClient {
-  const adapter = new PrismaMariaDb({ ...databaseConfig(), connectionLimit: 10 });
+  const config = databaseConfig();
+  // Serverless functions are short-lived; a large pool exhausts TiDB Cloud's
+  // per-client connection quota on cold start. Keep it small and let it grow
+  // only if explicitly configured.
+  const connectionLimit = Number(
+    process.env.DB_POOL_LIMIT ?? (config.host.endsWith('.tidbcloud.com') ? 2 : 10),
+  );
+  const adapter = new PrismaMariaDb({
+    ...config,
+    connectionLimit: Math.max(1, Math.min(connectionLimit, 20)),
+    acquireTimeout: 30_000,
+    connectTimeout: 30_000,
+  });
   return new PrismaClient({ adapter });
 }
 
