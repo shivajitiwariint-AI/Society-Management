@@ -20,7 +20,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
   const navItems = NAV_ITEMS.filter((item) =>
     isPlatformUser
       ? PLATFORM_NAV_HREFS.has(item.href)
-      : !PLATFORM_NAV_HREFS.has(item.href) && canAccessModule(context, item.moduleKey).ok,
+      : item.href !== '/companies' && canAccessModule(context, item.moduleKey).ok,
   );
 
   const companies = isPlatformUser
