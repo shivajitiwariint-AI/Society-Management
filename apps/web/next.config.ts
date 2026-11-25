@@ -11,7 +11,7 @@ const nextConfig: NextConfig = {
     '@society/authorization',
     '@society/database',
   ],
-  serverExternalPackages: ['@node-rs/argon2', '@prisma/adapter-mariadb', 'mariadb', 'pino'],
+  serverExternalPackages: ['@node-rs/argon2', '@prisma/adapter-mariadb', 'mariadb', 'pino', 'exceljs'],
   async headers() {
     return [
       {
