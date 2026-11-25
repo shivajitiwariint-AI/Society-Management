@@ -93,30 +93,46 @@ export default async function SocietiesPage() {
             ) : null}
           </div>
         ) : (
-          <div className="society-grid">
-            {societies.map((society) => (
-              <div key={society.id} className="society-card">
-                <Link href={`/societies/${society.id}`} className="flex flex-1 items-center gap-3">
-                  <span className="society-card-icon"><Building2 className="h-5 w-5" /></span>
-                  <span className="society-card-copy">
-                    <span className="society-card-name">{society.name}</span>
-                    <span className="society-card-meta">
-                      {society.registrationNumber ?? 'No registration number'}
-                    </span>
-                    <span className="society-card-location">
-                      <MapPin className="h-3.5 w-3.5" />
-                      {society.city ?? 'Location not set'}
-                    </span>
-                  </span>
-                </Link>
-                <div className="flex items-center gap-2">
-                  <Link href={`/societies/${society.id}`} className="society-card-action">
-                    Manage property <ArrowRight className="h-4 w-4" />
-                  </Link>
-                  {canEdit ? <DeleteSocietyButton societyId={society.id} name={society.name} /> : null}
-                </div>
-              </div>
-            ))}
+          <div className="overflow-x-auto rounded-xl border border-ink-100">
+            <table className="w-full min-w-[640px] text-left text-sm" data-table-no-tools="true">
+              <thead className="text-xs uppercase tracking-wide text-ink-500">
+                <tr className="border-b border-ink-200 bg-ink-50/70">
+                  <th className="py-3 pl-4 pr-3">Society</th>
+                  <th className="py-3 pr-3">Registration no.</th>
+                  <th className="py-3 pr-3">Location</th>
+                  <th className="py-3 pr-3 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-ink-100">
+                {societies.map((society) => (
+                  <tr key={society.id} className="transition-colors hover:bg-ink-50/60">
+                    <td className="py-3 pl-4 pr-3">
+                      <div className="flex items-center gap-3">
+                        <span className="society-card-icon"><Building2 className="h-5 w-5" /></span>
+                        <span className="font-semibold text-ink-900">{society.name}</span>
+                      </div>
+                    </td>
+                    <td className="py-3 pr-3 font-mono text-xs text-ink-600">
+                      {society.registrationNumber ?? '—'}
+                    </td>
+                    <td className="py-3 pr-3 text-xs text-ink-600">
+                      <span className="inline-flex items-center gap-1.5">
+                        <MapPin className="h-3.5 w-3.5 text-brand-600" />
+                        {society.city ?? 'Location not set'}
+                      </span>
+                    </td>
+                    <td className="py-3 pr-4 text-right">
+                      <div className="flex items-center justify-end gap-2">
+                        <Link href={`/societies/${society.id}`} className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700 hover:text-brand-800">
+                          Manage property <ArrowRight className="h-4 w-4" />
+                        </Link>
+                        {canEdit ? <DeleteSocietyButton societyId={society.id} name={society.name} /> : null}
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         )}
       </ModuleRecordsPanel>

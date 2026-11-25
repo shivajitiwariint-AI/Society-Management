@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { z } from 'zod';
 import { authorize } from '@society/authorization';
-import { ArrowLeft, Building2, Check, Home, Layers3, MapPin, Plus } from 'lucide-react';
+import { ArrowLeft, Building2, Check, Home, Layers3, MapPin } from 'lucide-react';
 import { Alert } from '@/components/ui/alert';
 import { PageHeader } from '@/components/page-header';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -10,6 +10,7 @@ import { getRequestContext } from '@/lib/auth/session';
 import { getProperty } from '@/lib/services/society-service';
 import { BuildingForm, FlatForm, FloorForm } from './property-forms';
 import { DeletePropertyButton } from './delete-property-button';
+import { FormDialog } from './form-dialog';
 
 type PageProps = { params: Promise<{ id: string }> };
 
@@ -93,14 +94,14 @@ export default async function SocietyPropertyPage({ params }: PageProps) {
             <span className="rounded-full bg-ink-100 px-2 py-0.5 text-xs text-ink-600">{buildings.length}</span>
           </CardTitle>
           {can('building', 'CREATE') ? (
-            <details className="w-full sm:w-auto">
-              <summary className="btn-modern btn-primary inline-flex cursor-pointer list-none items-center gap-2">
-                <Plus className="h-4 w-4" /> Add building
-              </summary>
-              <div className="mt-3 rounded-xl border border-ink-200 p-4 sm:absolute sm:right-8 sm:z-20 sm:w-96 sm:bg-white sm:shadow-lg">
-                <BuildingForm societyId={societyId} />
-              </div>
-            </details>
+            <FormDialog
+              label="Add building"
+              title="Add a building"
+              description="Define a building in this society to start adding floors and flats."
+              icon={Building2}
+            >
+              <BuildingForm societyId={societyId} />
+            </FormDialog>
           ) : null}
         </CardHeader>
         <CardContent className="space-y-5">
@@ -123,14 +124,15 @@ export default async function SocietyPropertyPage({ params }: PageProps) {
                 </div>
                 <div className="flex items-center gap-2">
                   {can('floor', 'CREATE') ? (
-                    <details>
-                      <summary className="inline-flex cursor-pointer list-none items-center gap-1.5 rounded-lg border border-brand-200 px-2.5 py-1.5 text-xs font-semibold text-brand-700 hover:bg-brand-50">
-                        <Plus className="h-3.5 w-3.5" /> Add floor
-                      </summary>
-                      <div className="mt-3 rounded-xl border border-ink-200 p-4 shadow-lg">
-                        <FloorForm societyId={societyId} buildingId={building.id} />
-                      </div>
-                    </details>
+                    <FormDialog
+                      label="Add floor"
+                      title="Add a floor"
+                      description={`Add a floor to ${building.name}. You can then add flats to it.`}
+                      icon={Layers3}
+                      compact
+                    >
+                      <FloorForm societyId={societyId} buildingId={building.id} />
+                    </FormDialog>
                   ) : null}
                   {can('building', 'UPDATE') ? (
                     <DeletePropertyButton
@@ -155,14 +157,15 @@ export default async function SocietyPropertyPage({ params }: PageProps) {
                       </p>
                       <div className="flex items-center gap-2">
                         {can('flat', 'CREATE') ? (
-                          <details>
-                            <summary className="inline-flex cursor-pointer list-none items-center gap-1.5 rounded-lg border border-brand-200 px-2.5 py-1.5 text-xs font-semibold text-brand-700 hover:bg-brand-50">
-                              <Plus className="h-3.5 w-3.5" /> Add flat
-                            </summary>
-                            <div className="mt-3 rounded-xl border border-ink-200 p-4 shadow-lg">
-                              <FlatForm societyId={societyId} buildingId={building.id} floorId={floor.id} />
-                            </div>
-                          </details>
+                          <FormDialog
+                            label="Add flat"
+                            title="Add a flat / unit"
+                            description={`Add a unit to ${floor.name}.`}
+                            icon={Home}
+                            compact
+                          >
+                            <FlatForm societyId={societyId} buildingId={building.id} floorId={floor.id} />
+                          </FormDialog>
                         ) : null}
                         {can('floor', 'UPDATE') ? (
                           <DeletePropertyButton
